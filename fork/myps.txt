@@ -1,0 +1,37 @@
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+ljf        947  0.0  0.0 212124  5980 tty1     Ssl+ 09:24   0:00 /usr/lib/gdm3/gdm-x-session --run-script env GNOME_SHELL_SESSION_MODE=ubuntu gnome-session --session=ubuntu
+ljf        949  1.3  0.7 421704 59012 tty1     Sl+  09:24   0:46 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
+ljf        984  0.0  0.1 569516 15704 tty1     Sl+  09:24   0:00 /usr/lib/gnome-session/gnome-session-binary --session=ubuntu
+ljf       1100  3.1  2.1 4111032 170172 tty1   Sl+  09:24   1:51 /usr/bin/gnome-shell
+ljf       1147  0.1  0.1 377684  9864 tty1     Sl   09:24   0:04 ibus-daemon --xim --panel disable
+ljf       1151  0.0  0.1 296668  8672 tty1     Sl   09:24   0:00 /usr/lib/ibus/ibus-dconf
+ljf       1153  0.0  0.2 356316 22208 tty1     Sl   09:24   0:00 /usr/lib/ibus/ibus-x11 --kill-daemon
+ljf       1245  0.0  0.2 527420 23608 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-power
+ljf       1247  0.0  0.1 349312 10196 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-print-notifications
+ljf       1248  0.0  0.0 423340  5928 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-rfkill
+ljf       1249  0.0  0.0 275728  4940 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-screensaver-proxy
+ljf       1251  0.0  0.1 471332 11944 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-sharing
+ljf       1257  0.0  0.1 392728  9796 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-smartcard
+ljf       1262  0.0  0.1 343104  9668 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-sound
+ljf       1266  0.0  0.2 504892 23404 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-xsettings
+ljf       1273  0.0  0.2 440764 22748 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-wacom
+ljf       1279  0.0  0.1 296652  8232 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-a11y-settings
+ljf       1280  0.0  0.3 530864 24440 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-color
+ljf       1286  0.0  0.2 355920 21572 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-clipboard
+ljf       1287  0.0  0.1 476592 15256 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-datetime
+ljf       1288  0.0  0.1 374744  8680 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-housekeeping
+ljf       1291  0.0  0.2 508252 22252 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-keyboard
+ljf       1295  0.0  0.3 950584 24348 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-media-keys
+ljf       1300  0.0  0.1 296660  8216 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-mouse
+ljf       1316  0.0  0.1 508756 12424 tty1     Sl+  09:24   0:00 /usr/lib/gnome-settings-daemon/gsd-printer
+ljf       1364  0.0  0.0 220944  7788 tty1     Sl   09:24   0:01 /usr/lib/ibus/ibus-engine-simple
+ljf       1415  0.0  1.9 1266160 156504 tty1   SLl+ 09:24   0:01 /usr/bin/gnome-software --gapplication-service
+ljf       1417  0.0  0.0 271928  6044 tty1     Sl+  09:24   0:00 /usr/lib/gnome-disk-utility/gsd-disk-utility-notify
+ljf       1423  0.0  0.5 760880 46848 tty1     Sl+  09:24   0:00 nautilus-desktop
+ljf       1690  0.0  0.1 229248  9232 tty1     Sl   09:24   0:00 /usr/lib/ibus/ibus-engine-libpinyin --ibus
+ljf       1742  0.0  0.0  29556  4872 pts/0    Ss   09:24   0:00 bash
+ljf       1759  0.0  0.0  29556  4800 pts/1    Ss   09:24   0:00 bash
+ljf       1770  0.0  0.2 600820 23488 tty1     Sl+  09:25   0:00 update-notifier
+ljf       1787  0.0  0.3 118225464 32324 tty1  Sl+  09:26   0:00 /usr/lib/deja-dup/deja-dup-monitor
+ljf       1870  0.0  0.1  62748  9268 pts/1    S+   10:05   0:00 vim execlp_ls.c
+ljf       1995  0.0  0.0  46772  3552 pts/0    R+   10:22   0:00 ps u
