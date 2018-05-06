@@ -1,10 +1,10 @@
 #ifndef _MY_SERVER_H
 #define _MY_SERVER_H
 
-void CreatorFifo();
+int Init(char *name);
 
-char* ReadFifo();
+c_msg *ReadFifo();
 
-
+void *json_to_struct(cJSON* json_obj);
 
 #endif

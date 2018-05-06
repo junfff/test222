@@ -6,26 +6,27 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#define SERVER_FIFO "server_fifo"
 
-struct usr
+typedef struct
 {
    int num;
    char name[10];
-   pid_t pid;
-};
+   int pid;
+}my_usr;
 
-struct c_msg
+typedef struct
 {
    int num;
-   struct usr src;
-   struct usr dest;
+   my_usr src;
+   my_usr dest;
    char msg[256];
-};
+}c_msg;
 
-struct s_msg
+typedef struct
 {
    int num;
-   struct usr info;
-};
+   my_usr info;
+}s_msg;
 
 #endif

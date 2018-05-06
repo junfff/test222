@@ -1,20 +1,40 @@
-#include <stdio.h>
-#include <unistd.h>
 #include <sys/stat.h>
-#include <fcntl.h>
-#include "mychat.h"
-#include "chat_my_server.h"
 
+  #include <sys/types.h>
+         #include <unistd.h>
+     #include <string.h>
+       #include <stdio.h>
+         #include <math.h>
+           #include <stdlib.h>
+             #include <float.h>
+               #include <limits.h>
+                 #include <ctype.h>
+                  #include "cJSON.h"
+                   #include <fcntl.h>
+                    #include "mychat.h"
+                    #include "chat_my_server.h"
 
 int main()
 {
-	 printf("start myserver !!!\n");
+    printf("start myserver !!!\n");
    //1 打开公共FIFO 阻塞等待读取
-   CreatorFifo();
-   char *context = ReadFifo();
-
-
+   Init(SERVER_FIFO);
    //2 读到内容字符串解析
+   c_msg *cmsg = ReadFifo();
+    
+      printf("num = %d  >>>>>> \n",cmsg->num);
+   if(cmsg->num == 1)
+   {
+   }
+   else if(cmsg->num == 2)
+   {
+
+   }
+   else if(cmsg->num == 3)
+   {
+
+
+   }
    //3 判断协议号num
    //  1 用户注册
    //    非阻塞写打开新用户创建的私有FIFO
