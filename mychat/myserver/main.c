@@ -8,6 +8,7 @@
 
 int main()
 {
+	 printf("start myserver !!!\n");
    //1 打开公共FIFO 阻塞等待读取
    CreatorFifo();
    char *context = ReadFifo();
@@ -24,6 +25,7 @@ int main()
    //  3 用户退出 
    //    将用户从在线列表中移除
    //返回第一步1，继续阻塞在公共FIFO读等待
-
+    
+   printf("finish myserver !!!\n");
    return 0;
 }

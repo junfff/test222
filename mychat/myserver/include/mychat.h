@@ -3,6 +3,9 @@
 //0 新用户注册
 //1 聊天信息
 //2 服务器更新列表信息
+#include <sys/types.h>
+#include <unistd.h>
+
 
 struct usr
 {
