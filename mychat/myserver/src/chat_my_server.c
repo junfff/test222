@@ -30,7 +30,6 @@ int Init(char *name)
      }
    }
 
-   
    fd = open(name,O_RDONLY);
    if(fd == -1)
    {
@@ -39,6 +38,7 @@ int Init(char *name)
    }
 
    printf("open fifo succeed !\n");
+   //unlink(name);  
 
    return ret;
 }

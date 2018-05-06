@@ -7,7 +7,7 @@ CC = gcc
 CPPFLAGS = -I
 
 $(target):$(obj)
-	$(CC) $(obj) -o $(target) -Iinclude -Wall
+	$(CC) $(obj) -o $(target) -Iinclude -Wall -g
 
 %.o:%.c
 	$(CC) -c $< -o $@ -Iinclude
