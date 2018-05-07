@@ -14,8 +14,6 @@
 #include "chat_my_server.h"
 #include "s2j.h"
 
-int fd;
-
 int Init(char *name)
 {
    int ret;
@@ -30,7 +28,13 @@ int Init(char *name)
      }
    }
 
-   fd = open(name,O_RDONLY);
+   //unlink(name);  
+
+   return ret;
+}
+c_msg *ReadFifo()
+{
+   int fd = open(SERVER_FIFO,O_RDONLY);
    if(fd == -1)
    {
       perror("open fifo error !");
@@ -38,12 +42,6 @@ int Init(char *name)
    }
 
    printf("open fifo succeed !\n");
-   //unlink(name);  
-
-   return ret;
-}
-c_msg *ReadFifo()
-{
    int len = sizeof(c_msg);
    char buf[len];
    memset(buf,0,len);
