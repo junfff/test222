@@ -6,7 +6,10 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#define SERVER_FIFO "server_fifo"
+#define SERVER_FIFO "../server_fifo"
+#define MSG_REGISTER 1
+#define MSG_CHAT 2
+#define MSG_EXIT 3
 
 typedef struct
 {

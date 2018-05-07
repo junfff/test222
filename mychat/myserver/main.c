@@ -13,22 +13,23 @@
                    #include <fcntl.h>
                     #include "mychat.h"
                     #include "chat_my_server.h"
+#include "info_list.h"
 
 void show(char *str)
 {
-	 pid_t pid = fork();
-	 if(pid == -1)
-	 {
-	 	 perror("fork error !!");
-	 }
-	 else if(pid == 0)
-	 {
+	// pid_t pid = fork();
+	// if(pid == -1)
+	// {
+	 	// perror("fork error !!");
+	// }
+	 //else if(pid == 0)
+	// {
      printf("info:%s\n",str);
-	 }
-	 else
-	 {
-      wait(NULL);
-	 }
+//	 }
+	// else
+	// {
+   //   wait(NULL);
+	// }
 }
 
 int main()
@@ -36,6 +37,7 @@ int main()
     printf("start myserver !!!\n");
    //1 打开公共FIFO 阻塞等待读取
    Init(SERVER_FIFO);
+   Init_List();
 
    //2 读到内容字符串解析
 
@@ -44,10 +46,25 @@ int main()
    	 show("waitint client msg...\n");
      c_msg *cmsg = ReadFifo();
     
+     if(NULL == cmsg)
+     {
+     	  sleep(1);
+        continue;
+     }
+
     printf("num = %d  >>>>>>",cmsg->num);
     if(cmsg->num == 1)
     {
-    	 printf("用户注册:%s",cmsg->src.name);
+    	 printf("用户注册:%s\n",cmsg->src.name);
+    	 int ret = Add_List(&cmsg->src);
+    	 if(ret == -1)
+    	 {
+    	 	 printf("添加List 失败 ！！\n");
+    	 }
+    	 else
+    	 {
+    	 	 printf("成功添加 用户:%s\n",cmsg->src.name);
+    	 }
     }
    else if(cmsg->num == 2)
    {
@@ -70,7 +87,11 @@ int main()
 
    sleep(1);
  	 }   
-   unlink(SERVER_FIFO);
+
+
+   Deinit_List();
+   remove(SERVER_FIFO);
+   //unlink(SERVER_FIFO);
    printf("finish myserver !!!\n");
    return 0;
 }

@@ -50,7 +50,7 @@ void OnRegister(my_usr info)
    int fd = open(SERVER_FIFO,O_WRONLY);
    if(fd == -1)
    {
-      printf("服务器 未开启 ！ 连接失败 ！！");
+      printf("服务器 未开启 ！ 连接失败 ！！\n");
       exit(1);
    }   
    c_msg to_server;
@@ -62,13 +62,15 @@ void OnRegister(my_usr info)
    cJSON *json_info = struct_to_json(&to_server);
    
    char *msg = cJSON_Print(json_info);
-   int ret = write(fd,msg,sizeof(msg));
+   int len = strlen(msg);
+   int ret = write(fd,msg,len);
    if(ret == -1)
    {
       perror("client write error !!");
       exit(1);
    }
-   printf("注册消息 发送成功！\n");
+   printf("注册消息 发送成功！ret = %d len = %d\n",ret,len);
+   close(fd);
 
 }
 
@@ -86,11 +88,14 @@ int main(int argc,char *argv[])
    printf("Hello! %s \n",myinfo.info.name);
 
    //2非阻塞属性创建私有FIFO
-   char fifo_path[128];
+   char *fifo_path[128];
    strcpy(fifo_path,"../");
    strcat(fifo_path,myinfo.info.name);
    strcat(fifo_path,"_");
-   strcat(fifo_path,myinfo.info.pid);
+   
+   char *num[32];
+   sprintf(num, "%d", myinfo.info.pid); 
+   strcat(fifo_path,num);
    
    CreatorClientFifo(fifo_path);
 
@@ -109,9 +114,9 @@ int main(int argc,char *argv[])
    //向服务器公共FIFO 写msg
    //6 轮询
 
-
-
-
-   unlink(fifo_path);
+   //OnExit(myinfo.info);
+   sleep(5);
+   remove(fifo_path);
+   //unlink(fifo_path);
    return 0;
 }
