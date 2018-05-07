@@ -36,6 +36,7 @@ int main()
     printf("start myserver !!!\n");
    //1 打开公共FIFO 阻塞等待读取
    Init(SERVER_FIFO);
+
    //2 读到内容字符串解析
 
    while(1)
