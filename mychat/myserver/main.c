@@ -70,6 +70,7 @@ int main()
 
    sleep(1);
  	 }   
+   unlink(SERVER_FIFO);
    printf("finish myserver !!!\n");
    return 0;
 }
