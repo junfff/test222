@@ -32,24 +32,25 @@ int Init(char *name)
 
    return ret;
 }
-c_msg *ReadFifo()
+c_msg *ReadFifo(char *fifo_name)
 {
-   int fd = open(SERVER_FIFO,O_RDONLY | O_NONBLOCK);
+   int fd = open(fifo_name,O_RDONLY | O_NONBLOCK);
    if(fd == -1)
    {
       perror("open fifo error !");
       exit(1);
    }
 
-   printf("open fifo succeed !fd=%d\n",fd);
+   //printf("open fifo succeed !fd=%d\n",fd);
    int len = sizeof(c_msg);
    char buf[len];
    memset(buf,0,len);
    int ret = read(fd,buf,sizeof(buf));
    if(ret == -1)
    {
-   	 perror("read error !!");
-   	 exit(1);
+   	 //perror("read error !!");
+   	 //exit(1);
+   	 return NULL;
    }
    else if(ret == 0)
    {
