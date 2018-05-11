@@ -48,7 +48,7 @@ void OnMsg(SMP *server_mmap)
    	    show("waitint client msg...\n");
         showHint = 0;
      }
-     c_msg *cmsg = ReadFifo(SERVER_FIFO);
+     c_msg *cmsg = ReadFifo();
     
      if(NULL == cmsg)
      {
