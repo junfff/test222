@@ -6,7 +6,12 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#define SERVER_FIFO "server_fifo"
+#define SERVER_FIFO "../server_fifo"
+#define MSG_REGISTER 1
+#define MSG_CHAT 2
+#define MSG_EXIT 3
+#define SMP_START 1
+#define SMP_STOP 0
 
 typedef struct
 {
@@ -29,4 +34,9 @@ typedef struct
    my_usr info;
 }s_msg;
 
+typedef struct
+{
+  int status;
+  char cmd[32];
+}SMP;
 #endif
