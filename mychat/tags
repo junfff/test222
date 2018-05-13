@@ -1,0 +1,403 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Add_List	myserver/src/info_list.c	/^int Add_List(my_usr *info)$/;"	f
+CC	myclient/makefile	/^CC = gcc$/;"	m
+CC	myserver/makefile	/^CC = gcc$/;"	m
+CPPFLAGS	myclient/makefile	/^CPPFLAGS = -I$/;"	m
+CPPFLAGS	myserver/makefile	/^CPPFLAGS = -I$/;"	m
+CreatorClientFifo	myclient/main.c	/^void CreatorClientFifo(char *path)$/;"	f
+Deinit_List	myserver/src/info_list.c	/^int Deinit_List()$/;"	f
+DirectoryOfThisScript	myserver/.ycm_extra_conf.py	/^def DirectoryOfThisScript():$/;"	f
+DirectoryOfThisScript	myserver/123.ycm_extra_conf (copy).py	/^def DirectoryOfThisScript():$/;"	f
+DirectoryOfThisScript	myserver/222.ycm_extra_conf (copy).py	/^def DirectoryOfThisScript():$/;"	f
+DirectoryOfThisScript	myserver/ccc.ycm_extra_conf (copy).py	/^def DirectoryOfThisScript():$/;"	f
+FindCorrespondingSourceFile	myserver/123.ycm_extra_conf (copy).py	/^def FindCorrespondingSourceFile( filename ):$/;"	f
+FlagsForFile	myserver/.ycm_extra_conf.py	/^def FlagsForFile( filename, **kwargs ):$/;"	f
+FlagsForFile	myserver/123.ycm_extra_conf (copy).py	/^def FlagsForFile( filename, **kwargs ):$/;"	f
+FlagsForFile	myserver/222.ycm_extra_conf (copy).py	/^def FlagsForFile( filename, **kwargs ):$/;"	f
+FlagsForFile	myserver/ccc.ycm_extra_conf (copy).py	/^def FlagsForFile( filename ):$/;"	f
+GetCompilationInfoForFile	myserver/.ycm_extra_conf.py	/^def GetCompilationInfoForFile( filename ):$/;"	f
+GetCompilationInfoForFile	myserver/222.ycm_extra_conf (copy).py	/^def GetCompilationInfoForFile( filename ):$/;"	f
+GetHead_List	myserver/src/info_list.c	/^Info_Node *GetHead_List()$/;"	f
+INFO_LIST_H	myserver/include/info_list.h	2;"	d
+Info_Node	myserver/include/info_list.h	/^typedef struct Info_Node $/;"	s
+Info_Node	myserver/include/info_list.h	/^}Info_Node;$/;"	t	typeref:struct:Info_Node
+Init	myserver/src/chat_fifo.c	/^int Init(char *name)$/;"	f
+Init_List	myserver/src/info_list.c	/^int Init_List()$/;"	f
+IsHeaderFile	myserver/.ycm_extra_conf.py	/^def IsHeaderFile( filename ):$/;"	f
+IsHeaderFile	myserver/123.ycm_extra_conf (copy).py	/^def IsHeaderFile( filename ):$/;"	f
+IsHeaderFile	myserver/222.ycm_extra_conf (copy).py	/^def IsHeaderFile( filename ):$/;"	f
+MSG_CHAT	myclient/include/mychat.h	11;"	d
+MSG_CHAT	myserver/include/mychat.h	11;"	d
+MSG_EXIT	myclient/include/mychat.h	12;"	d
+MSG_EXIT	myserver/include/mychat.h	12;"	d
+MSG_REGISTER	myclient/include/mychat.h	10;"	d
+MSG_REGISTER	myserver/include/mychat.h	10;"	d
+MakeRelativePathsInFlagsAbsolute	myserver/.ycm_extra_conf.py	/^def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):$/;"	f
+MakeRelativePathsInFlagsAbsolute	myserver/222.ycm_extra_conf (copy).py	/^def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):$/;"	f
+MakeRelativePathsInFlagsAbsolute	myserver/ccc.ycm_extra_conf (copy).py	/^def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):$/;"	f
+OnInput	myclient/main.c	/^void OnInput(SMP *server_mmap)$/;"	f
+OnInput	myserver/main.c	/^void OnInput(SMP *server_mmap)$/;"	f
+OnMsg	myclient/main.c	/^void OnMsg(SMP *server_mmap)$/;"	f
+OnMsg	myserver/main.c	/^void OnMsg(SMP *server_mmap)$/;"	f
+OnRegister	myclient/main.c	/^void OnRegister(my_usr info)$/;"	f
+ReadFifo	myserver/src/chat_fifo.c	/^c_msg *ReadFifo(char *fifo_name)$/;"	f
+Remove_List	myserver/src/info_list.c	/^int Remove_List(my_usr *info)$/;"	f
+S2J_CREATE_JSON_OBJECT	myclient/include/s2jdef.h	90;"	d
+S2J_CREATE_JSON_OBJECT	myserver/include/s2jdef.h	90;"	d
+S2J_CREATE_STRUCT_OBJECT	myclient/include/s2jdef.h	117;"	d
+S2J_CREATE_STRUCT_OBJECT	myserver/include/s2jdef.h	117;"	d
+S2J_DELETE_JSON_OBJECT	myclient/include/s2jdef.h	93;"	d
+S2J_DELETE_JSON_OBJECT	myserver/include/s2jdef.h	93;"	d
+S2J_DELETE_STRUCT_OBJECT	myclient/include/s2jdef.h	122;"	d
+S2J_DELETE_STRUCT_OBJECT	myserver/include/s2jdef.h	122;"	d
+S2J_JSON_ARRAY_SET_ELEMENT	myclient/include/s2jdef.h	86;"	d
+S2J_JSON_ARRAY_SET_ELEMENT	myserver/include/s2jdef.h	86;"	d
+S2J_JSON_ARRAY_SET_double_ELEMENT	myclient/include/s2jdef.h	80;"	d
+S2J_JSON_ARRAY_SET_double_ELEMENT	myserver/include/s2jdef.h	80;"	d
+S2J_JSON_ARRAY_SET_int_ELEMENT	myclient/include/s2jdef.h	77;"	d
+S2J_JSON_ARRAY_SET_int_ELEMENT	myserver/include/s2jdef.h	77;"	d
+S2J_JSON_ARRAY_SET_string_ELEMENT	myclient/include/s2jdef.h	83;"	d
+S2J_JSON_ARRAY_SET_string_ELEMENT	myserver/include/s2jdef.h	83;"	d
+S2J_JSON_SET_ARRAY_ELEMENT	myclient/include/s2jdef.h	99;"	d
+S2J_JSON_SET_ARRAY_ELEMENT	myserver/include/s2jdef.h	99;"	d
+S2J_JSON_SET_BASIC_ELEMENT	myclient/include/s2jdef.h	96;"	d
+S2J_JSON_SET_BASIC_ELEMENT	myserver/include/s2jdef.h	96;"	d
+S2J_JSON_SET_STRUCT_ELEMENT	myclient/include/s2jdef.h	112;"	d
+S2J_JSON_SET_STRUCT_ELEMENT	myserver/include/s2jdef.h	112;"	d
+S2J_JSON_SET_double_ELEMENT	myclient/include/s2jdef.h	71;"	d
+S2J_JSON_SET_double_ELEMENT	myserver/include/s2jdef.h	71;"	d
+S2J_JSON_SET_int_ELEMENT	myclient/include/s2jdef.h	68;"	d
+S2J_JSON_SET_int_ELEMENT	myserver/include/s2jdef.h	68;"	d
+S2J_JSON_SET_string_ELEMENT	myclient/include/s2jdef.h	74;"	d
+S2J_JSON_SET_string_ELEMENT	myserver/include/s2jdef.h	74;"	d
+S2J_STRUCT_ARRAY_GET_ELEMENT	myclient/include/s2jdef.h	65;"	d
+S2J_STRUCT_ARRAY_GET_ELEMENT	myserver/include/s2jdef.h	65;"	d
+S2J_STRUCT_ARRAY_GET_double_ELEMENT	myclient/include/s2jdef.h	62;"	d
+S2J_STRUCT_ARRAY_GET_double_ELEMENT	myserver/include/s2jdef.h	62;"	d
+S2J_STRUCT_ARRAY_GET_int_ELEMENT	myclient/include/s2jdef.h	56;"	d
+S2J_STRUCT_ARRAY_GET_int_ELEMENT	myserver/include/s2jdef.h	56;"	d
+S2J_STRUCT_ARRAY_GET_string_ELEMENT	myclient/include/s2jdef.h	59;"	d
+S2J_STRUCT_ARRAY_GET_string_ELEMENT	myserver/include/s2jdef.h	59;"	d
+S2J_STRUCT_GET_ARRAY_ELEMENT	myclient/include/s2jdef.h	128;"	d
+S2J_STRUCT_GET_ARRAY_ELEMENT	myserver/include/s2jdef.h	128;"	d
+S2J_STRUCT_GET_BASIC_ELEMENT	myclient/include/s2jdef.h	125;"	d
+S2J_STRUCT_GET_BASIC_ELEMENT	myserver/include/s2jdef.h	125;"	d
+S2J_STRUCT_GET_STRUCT_ELEMENT	myclient/include/s2jdef.h	142;"	d
+S2J_STRUCT_GET_STRUCT_ELEMENT	myserver/include/s2jdef.h	142;"	d
+S2J_STRUCT_GET_double_ELEMENT	myclient/include/s2jdef.h	52;"	d
+S2J_STRUCT_GET_double_ELEMENT	myserver/include/s2jdef.h	52;"	d
+S2J_STRUCT_GET_int_ELEMENT	myclient/include/s2jdef.h	44;"	d
+S2J_STRUCT_GET_int_ELEMENT	myserver/include/s2jdef.h	44;"	d
+S2J_STRUCT_GET_string_ELEMENT	myclient/include/s2jdef.h	48;"	d
+S2J_STRUCT_GET_string_ELEMENT	myserver/include/s2jdef.h	48;"	d
+S2J_SW_VERSION	myclient/include/s2j.h	41;"	d
+S2J_SW_VERSION	myserver/include/s2j.h	41;"	d
+S2jHook	myclient/include/s2jdef.h	/^} S2jHook, *S2jHook_t;$/;"	t	typeref:struct:__anon5
+S2jHook	myserver/include/s2jdef.h	/^} S2jHook, *S2jHook_t;$/;"	t	typeref:struct:__anon11
+S2jHook_t	myclient/include/s2jdef.h	/^} S2jHook, *S2jHook_t;$/;"	t	typeref:struct:__anon5
+S2jHook_t	myserver/include/s2jdef.h	/^} S2jHook, *S2jHook_t;$/;"	t	typeref:struct:__anon11
+SERVER_FIFO	myclient/include/mychat.h	9;"	d
+SERVER_FIFO	myserver/include/mychat.h	9;"	d
+SMP	myserver/include/mychat.h	/^}SMP;$/;"	t	typeref:struct:__anon10
+SMP_START	myserver/include/mychat.h	13;"	d
+SMP_STOP	myserver/include/mychat.h	14;"	d
+SOURCE_EXTENSIONS	myserver/.ycm_extra_conf.py	/^SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]$/;"	v
+SOURCE_EXTENSIONS	myserver/123.ycm_extra_conf (copy).py	/^SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]$/;"	v
+SOURCE_EXTENSIONS	myserver/222.ycm_extra_conf (copy).py	/^SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]$/;"	v
+_CHAT_MSG_H_	myserver/include/chat_msg.h	2;"	d
+_MY_CHAT_H_	myclient/include/mychat.h	2;"	d
+_MY_CHAT_H_	myserver/include/mychat.h	2;"	d
+_MY_SERVER_H	myserver/include/chat_fifo.h	2;"	d
+__S2JDEF_H__	myclient/include/s2jdef.h	30;"	d
+__S2JDEF_H__	myserver/include/s2jdef.h	30;"	d
+__S2J_H__	myclient/include/s2j.h	30;"	d
+__S2J_H__	myserver/include/s2j.h	30;"	d
+buffer	myclient/src/cJSON.c	/^typedef struct {char *buffer; int length; int offset; } printbuffer;$/;"	m	struct:__anon1	file:
+buffer	myserver/src/cJSON.c	/^typedef struct {char *buffer; int length; int offset; } printbuffer;$/;"	m	struct:__anon6	file:
+cJSON	myclient/include/cJSON.h	/^typedef struct cJSON {$/;"	s
+cJSON	myclient/include/cJSON.h	/^} cJSON;$/;"	t	typeref:struct:cJSON
+cJSON	myserver/include/cJSON.h	/^typedef struct cJSON {$/;"	s
+cJSON	myserver/include/cJSON.h	/^} cJSON;$/;"	t	typeref:struct:cJSON
+cJSON_AddBoolToObject	myclient/include/cJSON.h	139;"	d
+cJSON_AddBoolToObject	myserver/include/cJSON.h	139;"	d
+cJSON_AddFalseToObject	myclient/include/cJSON.h	138;"	d
+cJSON_AddFalseToObject	myserver/include/cJSON.h	138;"	d
+cJSON_AddItemReferenceToArray	myclient/src/cJSON.c	/^void	cJSON_AddItemReferenceToArray(cJSON *array, cJSON *item)						{cJSON_AddItemToArray(array,create_reference(item));}$/;"	f
+cJSON_AddItemReferenceToArray	myserver/src/cJSON.c	/^void	cJSON_AddItemReferenceToArray(cJSON *array, cJSON *item)						{cJSON_AddItemToArray(array,create_reference(item));}$/;"	f
+cJSON_AddItemReferenceToObject	myclient/src/cJSON.c	/^void	cJSON_AddItemReferenceToObject(cJSON *object,const char *string,cJSON *item)	{cJSON_AddItemToObject(object,string,create_reference(item));}$/;"	f
+cJSON_AddItemReferenceToObject	myserver/src/cJSON.c	/^void	cJSON_AddItemReferenceToObject(cJSON *object,const char *string,cJSON *item)	{cJSON_AddItemToObject(object,string,create_reference(item));}$/;"	f
+cJSON_AddItemToArray	myclient/src/cJSON.c	/^void   cJSON_AddItemToArray(cJSON *array, cJSON *item)						{cJSON *c=array->child;if (!item) return; if (!c) {array->child=item;} else {while (c && c->next) c=c->next; suffix_object(c,item);}}$/;"	f
+cJSON_AddItemToArray	myserver/src/cJSON.c	/^void   cJSON_AddItemToArray(cJSON *array, cJSON *item)						{cJSON *c=array->child;if (!item) return; if (!c) {array->child=item;} else {while (c && c->next) c=c->next; suffix_object(c,item);}}$/;"	f
+cJSON_AddItemToObject	myclient/src/cJSON.c	/^void   cJSON_AddItemToObject(cJSON *object,const char *string,cJSON *item)	{if (!item) return; if (item->string) cJSON_free(item->string);item->string=cJSON_strdup(string);cJSON_AddItemToArray(object,item);}$/;"	f
+cJSON_AddItemToObject	myserver/src/cJSON.c	/^void   cJSON_AddItemToObject(cJSON *object,const char *string,cJSON *item)	{if (!item) return; if (item->string) cJSON_free(item->string);item->string=cJSON_strdup(string);cJSON_AddItemToArray(object,item);}$/;"	f
+cJSON_AddItemToObjectCS	myclient/src/cJSON.c	/^void   cJSON_AddItemToObjectCS(cJSON *object,const char *string,cJSON *item)	{if (!item) return; if (!(item->type&cJSON_StringIsConst) && item->string) cJSON_free(item->string);item->string=(char*)string;item->type|=cJSON_StringIsConst;cJSON_AddItemToArray(object,item);}$/;"	f
+cJSON_AddItemToObjectCS	myserver/src/cJSON.c	/^void   cJSON_AddItemToObjectCS(cJSON *object,const char *string,cJSON *item)	{if (!item) return; if (!(item->type&cJSON_StringIsConst) && item->string) cJSON_free(item->string);item->string=(char*)string;item->type|=cJSON_StringIsConst;cJSON_AddItemToArray(object,item);}$/;"	f
+cJSON_AddNullToObject	myclient/include/cJSON.h	136;"	d
+cJSON_AddNullToObject	myserver/include/cJSON.h	136;"	d
+cJSON_AddNumberToObject	myclient/include/cJSON.h	140;"	d
+cJSON_AddNumberToObject	myserver/include/cJSON.h	140;"	d
+cJSON_AddStringToObject	myclient/include/cJSON.h	141;"	d
+cJSON_AddStringToObject	myserver/include/cJSON.h	141;"	d
+cJSON_AddTrueToObject	myclient/include/cJSON.h	137;"	d
+cJSON_AddTrueToObject	myserver/include/cJSON.h	137;"	d
+cJSON_Array	myclient/include/cJSON.h	39;"	d
+cJSON_Array	myserver/include/cJSON.h	39;"	d
+cJSON_ArrayForEach	myclient/include/cJSON.h	148;"	d
+cJSON_ArrayForEach	myserver/include/cJSON.h	148;"	d
+cJSON_CreateArray	myclient/src/cJSON.c	/^cJSON *cJSON_CreateArray(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_Array;return item;}$/;"	f
+cJSON_CreateArray	myserver/src/cJSON.c	/^cJSON *cJSON_CreateArray(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_Array;return item;}$/;"	f
+cJSON_CreateBool	myclient/src/cJSON.c	/^cJSON *cJSON_CreateBool(int b)					{cJSON *item=cJSON_New_Item();if(item)item->type=b?cJSON_True:cJSON_False;return item;}$/;"	f
+cJSON_CreateBool	myserver/src/cJSON.c	/^cJSON *cJSON_CreateBool(int b)					{cJSON *item=cJSON_New_Item();if(item)item->type=b?cJSON_True:cJSON_False;return item;}$/;"	f
+cJSON_CreateDoubleArray	myclient/src/cJSON.c	/^cJSON *cJSON_CreateDoubleArray(const double *numbers,int count)	{int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateNumber(numbers[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}$/;"	f
+cJSON_CreateDoubleArray	myserver/src/cJSON.c	/^cJSON *cJSON_CreateDoubleArray(const double *numbers,int count)	{int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateNumber(numbers[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}$/;"	f
+cJSON_CreateFalse	myclient/src/cJSON.c	/^cJSON *cJSON_CreateFalse(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_False;return item;}$/;"	f
+cJSON_CreateFalse	myserver/src/cJSON.c	/^cJSON *cJSON_CreateFalse(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_False;return item;}$/;"	f
+cJSON_CreateFloatArray	myclient/src/cJSON.c	/^cJSON *cJSON_CreateFloatArray(const float *numbers,int count)	{int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateNumber(numbers[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}$/;"	f
+cJSON_CreateFloatArray	myserver/src/cJSON.c	/^cJSON *cJSON_CreateFloatArray(const float *numbers,int count)	{int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateNumber(numbers[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}$/;"	f
+cJSON_CreateIntArray	myclient/src/cJSON.c	/^cJSON *cJSON_CreateIntArray(const int *numbers,int count)		{int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateNumber(numbers[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}$/;"	f
+cJSON_CreateIntArray	myserver/src/cJSON.c	/^cJSON *cJSON_CreateIntArray(const int *numbers,int count)		{int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateNumber(numbers[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}$/;"	f
+cJSON_CreateNull	myclient/src/cJSON.c	/^cJSON *cJSON_CreateNull(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_NULL;return item;}$/;"	f
+cJSON_CreateNull	myserver/src/cJSON.c	/^cJSON *cJSON_CreateNull(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_NULL;return item;}$/;"	f
+cJSON_CreateNumber	myclient/src/cJSON.c	/^cJSON *cJSON_CreateNumber(double num)			{cJSON *item=cJSON_New_Item();if(item){item->type=cJSON_Number;item->valuedouble=num;item->valueint=(int)num;}return item;}$/;"	f
+cJSON_CreateNumber	myserver/src/cJSON.c	/^cJSON *cJSON_CreateNumber(double num)			{cJSON *item=cJSON_New_Item();if(item){item->type=cJSON_Number;item->valuedouble=num;item->valueint=(int)num;}return item;}$/;"	f
+cJSON_CreateObject	myclient/src/cJSON.c	/^cJSON *cJSON_CreateObject(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_Object;return item;}$/;"	f
+cJSON_CreateObject	myserver/src/cJSON.c	/^cJSON *cJSON_CreateObject(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_Object;return item;}$/;"	f
+cJSON_CreateString	myclient/src/cJSON.c	/^cJSON *cJSON_CreateString(const char *string)	{cJSON *item=cJSON_New_Item();if(item){item->type=cJSON_String;item->valuestring=cJSON_strdup(string);}return item;}$/;"	f
+cJSON_CreateString	myserver/src/cJSON.c	/^cJSON *cJSON_CreateString(const char *string)	{cJSON *item=cJSON_New_Item();if(item){item->type=cJSON_String;item->valuestring=cJSON_strdup(string);}return item;}$/;"	f
+cJSON_CreateStringArray	myclient/src/cJSON.c	/^cJSON *cJSON_CreateStringArray(const char **strings,int count)	{int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateString(strings[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}$/;"	f
+cJSON_CreateStringArray	myserver/src/cJSON.c	/^cJSON *cJSON_CreateStringArray(const char **strings,int count)	{int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateString(strings[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}$/;"	f
+cJSON_CreateTrue	myclient/src/cJSON.c	/^cJSON *cJSON_CreateTrue(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_True;return item;}$/;"	f
+cJSON_CreateTrue	myserver/src/cJSON.c	/^cJSON *cJSON_CreateTrue(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_True;return item;}$/;"	f
+cJSON_Delete	myclient/src/cJSON.c	/^void cJSON_Delete(cJSON *c)$/;"	f
+cJSON_Delete	myserver/src/cJSON.c	/^void cJSON_Delete(cJSON *c)$/;"	f
+cJSON_DeleteItemFromArray	myclient/src/cJSON.c	/^void   cJSON_DeleteItemFromArray(cJSON *array,int which)			{cJSON_Delete(cJSON_DetachItemFromArray(array,which));}$/;"	f
+cJSON_DeleteItemFromArray	myserver/src/cJSON.c	/^void   cJSON_DeleteItemFromArray(cJSON *array,int which)			{cJSON_Delete(cJSON_DetachItemFromArray(array,which));}$/;"	f
+cJSON_DeleteItemFromObject	myclient/src/cJSON.c	/^void   cJSON_DeleteItemFromObject(cJSON *object,const char *string) {cJSON_Delete(cJSON_DetachItemFromObject(object,string));}$/;"	f
+cJSON_DeleteItemFromObject	myserver/src/cJSON.c	/^void   cJSON_DeleteItemFromObject(cJSON *object,const char *string) {cJSON_Delete(cJSON_DetachItemFromObject(object,string));}$/;"	f
+cJSON_DetachItemFromArray	myclient/src/cJSON.c	/^cJSON *cJSON_DetachItemFromArray(cJSON *array,int which)			{cJSON *c=array->child;while (c && which>0) c=c->next,which--;if (!c) return 0;$/;"	f
+cJSON_DetachItemFromArray	myserver/src/cJSON.c	/^cJSON *cJSON_DetachItemFromArray(cJSON *array,int which)			{cJSON *c=array->child;while (c && which>0) c=c->next,which--;if (!c) return 0;$/;"	f
+cJSON_DetachItemFromObject	myclient/src/cJSON.c	/^cJSON *cJSON_DetachItemFromObject(cJSON *object,const char *string) {int i=0;cJSON *c=object->child;while (c && cJSON_strcasecmp(c->string,string)) i++,c=c->next;if (c) return cJSON_DetachItemFromArray(object,i);return 0;}$/;"	f
+cJSON_DetachItemFromObject	myserver/src/cJSON.c	/^cJSON *cJSON_DetachItemFromObject(cJSON *object,const char *string) {int i=0;cJSON *c=object->child;while (c && cJSON_strcasecmp(c->string,string)) i++,c=c->next;if (c) return cJSON_DetachItemFromArray(object,i);return 0;}$/;"	f
+cJSON_Duplicate	myclient/src/cJSON.c	/^cJSON *cJSON_Duplicate(cJSON *item,int recurse)$/;"	f
+cJSON_Duplicate	myserver/src/cJSON.c	/^cJSON *cJSON_Duplicate(cJSON *item,int recurse)$/;"	f
+cJSON_False	myclient/include/cJSON.h	34;"	d
+cJSON_False	myserver/include/cJSON.h	34;"	d
+cJSON_GetArrayItem	myclient/src/cJSON.c	/^cJSON *cJSON_GetArrayItem(cJSON *array,int item)				{cJSON *c=array->child;  while (c && item>0) item--,c=c->next; return c;}$/;"	f
+cJSON_GetArrayItem	myserver/src/cJSON.c	/^cJSON *cJSON_GetArrayItem(cJSON *array,int item)				{cJSON *c=array->child;  while (c && item>0) item--,c=c->next; return c;}$/;"	f
+cJSON_GetArraySize	myclient/src/cJSON.c	/^int    cJSON_GetArraySize(cJSON *array)							{cJSON *c=array->child;int i=0;while(c)i++,c=c->next;return i;}$/;"	f
+cJSON_GetArraySize	myserver/src/cJSON.c	/^int    cJSON_GetArraySize(cJSON *array)							{cJSON *c=array->child;int i=0;while(c)i++,c=c->next;return i;}$/;"	f
+cJSON_GetErrorPtr	myclient/src/cJSON.c	/^const char *cJSON_GetErrorPtr(void) {return ep;}$/;"	f
+cJSON_GetErrorPtr	myserver/src/cJSON.c	/^const char *cJSON_GetErrorPtr(void) {return ep;}$/;"	f
+cJSON_GetObjectItem	myclient/src/cJSON.c	/^cJSON *cJSON_GetObjectItem(cJSON *object,const char *string)	{cJSON *c=object->child; while (c && cJSON_strcasecmp(c->string,string)) c=c->next; return c;}$/;"	f
+cJSON_GetObjectItem	myserver/src/cJSON.c	/^cJSON *cJSON_GetObjectItem(cJSON *object,const char *string)	{cJSON *c=object->child; while (c && cJSON_strcasecmp(c->string,string)) c=c->next; return c;}$/;"	f
+cJSON_HasObjectItem	myclient/src/cJSON.c	/^int cJSON_HasObjectItem(cJSON *object,const char *string)	{$/;"	f
+cJSON_HasObjectItem	myserver/src/cJSON.c	/^int cJSON_HasObjectItem(cJSON *object,const char *string)	{$/;"	f
+cJSON_Hooks	myclient/include/cJSON.h	/^typedef struct cJSON_Hooks {$/;"	s
+cJSON_Hooks	myclient/include/cJSON.h	/^} cJSON_Hooks;$/;"	t	typeref:struct:cJSON_Hooks
+cJSON_Hooks	myserver/include/cJSON.h	/^typedef struct cJSON_Hooks {$/;"	s
+cJSON_Hooks	myserver/include/cJSON.h	/^} cJSON_Hooks;$/;"	t	typeref:struct:cJSON_Hooks
+cJSON_InitHooks	myclient/src/cJSON.c	/^void cJSON_InitHooks(cJSON_Hooks* hooks)$/;"	f
+cJSON_InitHooks	myserver/src/cJSON.c	/^void cJSON_InitHooks(cJSON_Hooks* hooks)$/;"	f
+cJSON_InsertItemInArray	myclient/src/cJSON.c	/^void   cJSON_InsertItemInArray(cJSON *array,int which,cJSON *newitem)		{cJSON *c=array->child;while (c && which>0) c=c->next,which--;if (!c) {cJSON_AddItemToArray(array,newitem);return;}$/;"	f
+cJSON_InsertItemInArray	myserver/src/cJSON.c	/^void   cJSON_InsertItemInArray(cJSON *array,int which,cJSON *newitem)		{cJSON *c=array->child;while (c && which>0) c=c->next,which--;if (!c) {cJSON_AddItemToArray(array,newitem);return;}$/;"	f
+cJSON_IsReference	myclient/include/cJSON.h	42;"	d
+cJSON_IsReference	myserver/include/cJSON.h	42;"	d
+cJSON_Minify	myclient/src/cJSON.c	/^void cJSON_Minify(char *json)$/;"	f
+cJSON_Minify	myserver/src/cJSON.c	/^void cJSON_Minify(char *json)$/;"	f
+cJSON_NULL	myclient/include/cJSON.h	36;"	d
+cJSON_NULL	myserver/include/cJSON.h	36;"	d
+cJSON_New_Item	myclient/src/cJSON.c	/^static cJSON *cJSON_New_Item(void)$/;"	f	file:
+cJSON_New_Item	myserver/src/cJSON.c	/^static cJSON *cJSON_New_Item(void)$/;"	f	file:
+cJSON_Number	myclient/include/cJSON.h	37;"	d
+cJSON_Number	myserver/include/cJSON.h	37;"	d
+cJSON_Object	myclient/include/cJSON.h	40;"	d
+cJSON_Object	myserver/include/cJSON.h	40;"	d
+cJSON_Parse	myclient/src/cJSON.c	/^cJSON *cJSON_Parse(const char *value) {return cJSON_ParseWithOpts(value,0,0);}$/;"	f
+cJSON_Parse	myserver/src/cJSON.c	/^cJSON *cJSON_Parse(const char *value) {return cJSON_ParseWithOpts(value,0,0);}$/;"	f
+cJSON_ParseWithOpts	myclient/src/cJSON.c	/^cJSON *cJSON_ParseWithOpts(const char *value,const char **return_parse_end,int require_null_terminated)$/;"	f
+cJSON_ParseWithOpts	myserver/src/cJSON.c	/^cJSON *cJSON_ParseWithOpts(const char *value,const char **return_parse_end,int require_null_terminated)$/;"	f
+cJSON_Print	myclient/src/cJSON.c	/^char *cJSON_Print(cJSON *item)				{return print_value(item,0,1,0);}$/;"	f
+cJSON_Print	myserver/src/cJSON.c	/^char *cJSON_Print(cJSON *item)				{return print_value(item,0,1,0);}$/;"	f
+cJSON_PrintBuffered	myclient/src/cJSON.c	/^char *cJSON_PrintBuffered(cJSON *item,int prebuffer,int fmt)$/;"	f
+cJSON_PrintBuffered	myserver/src/cJSON.c	/^char *cJSON_PrintBuffered(cJSON *item,int prebuffer,int fmt)$/;"	f
+cJSON_PrintUnformatted	myclient/src/cJSON.c	/^char *cJSON_PrintUnformatted(cJSON *item)	{return print_value(item,0,0,0);}$/;"	f
+cJSON_PrintUnformatted	myserver/src/cJSON.c	/^char *cJSON_PrintUnformatted(cJSON *item)	{return print_value(item,0,0,0);}$/;"	f
+cJSON_ReplaceItemInArray	myclient/src/cJSON.c	/^void   cJSON_ReplaceItemInArray(cJSON *array,int which,cJSON *newitem)		{cJSON *c=array->child;while (c && which>0) c=c->next,which--;if (!c) return;$/;"	f
+cJSON_ReplaceItemInArray	myserver/src/cJSON.c	/^void   cJSON_ReplaceItemInArray(cJSON *array,int which,cJSON *newitem)		{cJSON *c=array->child;while (c && which>0) c=c->next,which--;if (!c) return;$/;"	f
+cJSON_ReplaceItemInObject	myclient/src/cJSON.c	/^void   cJSON_ReplaceItemInObject(cJSON *object,const char *string,cJSON *newitem){int i=0;cJSON *c=object->child;while(c && cJSON_strcasecmp(c->string,string))i++,c=c->next;if(c){newitem->string=cJSON_strdup(string);cJSON_ReplaceItemInArray(object,i,newitem);}}$/;"	f
+cJSON_ReplaceItemInObject	myserver/src/cJSON.c	/^void   cJSON_ReplaceItemInObject(cJSON *object,const char *string,cJSON *newitem){int i=0;cJSON *c=object->child;while(c && cJSON_strcasecmp(c->string,string))i++,c=c->next;if(c){newitem->string=cJSON_strdup(string);cJSON_ReplaceItemInArray(object,i,newitem);}}$/;"	f
+cJSON_SetIntValue	myclient/include/cJSON.h	144;"	d
+cJSON_SetIntValue	myserver/include/cJSON.h	144;"	d
+cJSON_SetNumberValue	myclient/include/cJSON.h	145;"	d
+cJSON_SetNumberValue	myserver/include/cJSON.h	145;"	d
+cJSON_String	myclient/include/cJSON.h	38;"	d
+cJSON_String	myserver/include/cJSON.h	38;"	d
+cJSON_StringIsConst	myclient/include/cJSON.h	43;"	d
+cJSON_StringIsConst	myserver/include/cJSON.h	43;"	d
+cJSON_True	myclient/include/cJSON.h	35;"	d
+cJSON_True	myserver/include/cJSON.h	35;"	d
+cJSON__h	myclient/include/cJSON.h	24;"	d
+cJSON__h	myserver/include/cJSON.h	24;"	d
+cJSON_free	myclient/src/cJSON.c	/^static void (*cJSON_free)(void *ptr) = free;$/;"	v	file:
+cJSON_free	myserver/src/cJSON.c	/^static void (*cJSON_free)(void *ptr) = free;$/;"	v	file:
+cJSON_malloc	myclient/src/cJSON.c	/^static void *(*cJSON_malloc)(size_t sz) = malloc;$/;"	v	file:
+cJSON_malloc	myserver/src/cJSON.c	/^static void *(*cJSON_malloc)(size_t sz) = malloc;$/;"	v	file:
+cJSON_strcasecmp	myclient/src/cJSON.c	/^static int cJSON_strcasecmp(const char *s1,const char *s2)$/;"	f	file:
+cJSON_strcasecmp	myserver/src/cJSON.c	/^static int cJSON_strcasecmp(const char *s1,const char *s2)$/;"	f	file:
+cJSON_strdup	myclient/src/cJSON.c	/^static char* cJSON_strdup(const char* str)$/;"	f	file:
+cJSON_strdup	myserver/src/cJSON.c	/^static char* cJSON_strdup(const char* str)$/;"	f	file:
+c_msg	myclient/include/mychat.h	/^}c_msg;$/;"	t	typeref:struct:__anon3
+c_msg	myserver/include/mychat.h	/^}c_msg;$/;"	t	typeref:struct:__anon8
+child	myclient/include/cJSON.h	/^	struct cJSON *child;		\/* An array or object item will have a child pointer pointing to a chain of the items in the array\/object. *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::cJSON
+child	myserver/include/cJSON.h	/^	struct cJSON *child;		\/* An array or object item will have a child pointer pointing to a chain of the items in the array\/object. *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::cJSON
+cmd	myserver/include/mychat.h	/^  char cmd[32];$/;"	m	struct:__anon10
+compilation_database_folder	myserver/.ycm_extra_conf.py	/^compilation_database_folder = ''$/;"	v
+compilation_database_folder	myserver/123.ycm_extra_conf (copy).py	/^compilation_database_folder = ''$/;"	v
+compilation_database_folder	myserver/222.ycm_extra_conf (copy).py	/^compilation_database_folder = ''$/;"	v
+compilation_database_folder	myserver/ccc.ycm_extra_conf (copy).py	/^compilation_database_folder = ''$/;"	v
+create_reference	myclient/src/cJSON.c	/^static cJSON *create_reference(cJSON *item) {cJSON *ref=cJSON_New_Item();if (!ref) return 0;memcpy(ref,item,sizeof(cJSON));ref->string=0;ref->type|=cJSON_IsReference;ref->next=ref->prev=0;return ref;}$/;"	f	file:
+create_reference	myserver/src/cJSON.c	/^static cJSON *create_reference(cJSON *item) {cJSON *ref=cJSON_New_Item();if (!ref) return 0;memcpy(ref,item,sizeof(cJSON));ref->string=0;ref->type|=cJSON_IsReference;ref->next=ref->prev=0;return ref;}$/;"	f	file:
+database	myserver/.ycm_extra_conf.py	/^  database = None$/;"	v
+database	myserver/.ycm_extra_conf.py	/^  database = ycm_core.CompilationDatabase( compilation_database_folder )$/;"	v
+database	myserver/123.ycm_extra_conf (copy).py	/^  database = None$/;"	v
+database	myserver/123.ycm_extra_conf (copy).py	/^  database = ycm_core.CompilationDatabase( compilation_database_folder )$/;"	v
+database	myserver/222.ycm_extra_conf (copy).py	/^  database = None$/;"	v
+database	myserver/222.ycm_extra_conf (copy).py	/^  database = ycm_core.CompilationDatabase( compilation_database_folder )$/;"	v
+database	myserver/ccc.ycm_extra_conf (copy).py	/^  database = None$/;"	v
+database	myserver/ccc.ycm_extra_conf (copy).py	/^  database = ycm_core.CompilationDatabase( compilation_database_folder )$/;"	v
+dest	myclient/include/mychat.h	/^   my_usr dest;$/;"	m	struct:__anon3
+dest	myserver/include/mychat.h	/^   my_usr dest;$/;"	m	struct:__anon8
+ensure	myclient/src/cJSON.c	/^static char* ensure(printbuffer *p,int needed)$/;"	f	file:
+ensure	myserver/src/cJSON.c	/^static char* ensure(printbuffer *p,int needed)$/;"	f	file:
+ep	myclient/src/cJSON.c	/^static const char *ep;$/;"	v	file:
+ep	myserver/src/cJSON.c	/^static const char *ep;$/;"	v	file:
+firstByteMark	myclient/src/cJSON.c	/^static const unsigned char firstByteMark[7] = { 0x00, 0x00, 0xC0, 0xE0, 0xF0, 0xF8, 0xFC };$/;"	v	file:
+firstByteMark	myserver/src/cJSON.c	/^static const unsigned char firstByteMark[7] = { 0x00, 0x00, 0xC0, 0xE0, 0xF0, 0xF8, 0xFC };$/;"	v	file:
+flags	myserver/.ycm_extra_conf.py	/^flags = [$/;"	v
+flags	myserver/123.ycm_extra_conf (copy).py	/^flags = [$/;"	v
+flags	myserver/222.ycm_extra_conf (copy).py	/^flags = [$/;"	v
+flags	myserver/ccc.ycm_extra_conf (copy).py	/^flags = [$/;"	v
+free_fn	myclient/include/cJSON.h	/^      void (*free_fn)(void *ptr);$/;"	m	struct:cJSON_Hooks
+free_fn	myclient/include/s2jdef.h	/^    void (*free_fn)(void *ptr);$/;"	m	struct:__anon5
+free_fn	myserver/include/cJSON.h	/^      void (*free_fn)(void *ptr);$/;"	m	struct:cJSON_Hooks
+free_fn	myserver/include/s2jdef.h	/^    void (*free_fn)(void *ptr);$/;"	m	struct:__anon11
+head	myserver/src/info_list.c	/^Info_Node *head;$/;"	v
+info	myclient/include/mychat.h	/^   my_usr info;$/;"	m	struct:__anon4
+info	myserver/include/info_list.h	/^   my_usr info;$/;"	m	struct:Info_Node
+info	myserver/include/mychat.h	/^   my_usr info;$/;"	m	struct:__anon9
+json_to_struct	myserver/src/chat_fifo.c	/^void *json_to_struct(cJSON* json_obj) {$/;"	f
+length	myclient/src/cJSON.c	/^typedef struct {char *buffer; int length; int offset; } printbuffer;$/;"	m	struct:__anon1	file:
+length	myserver/src/cJSON.c	/^typedef struct {char *buffer; int length; int offset; } printbuffer;$/;"	m	struct:__anon6	file:
+main	myclient/main.c	/^int main(int argc,char *argv[])$/;"	f
+main	myserver/main.c	/^int main()$/;"	f
+malloc_fn	myclient/include/cJSON.h	/^      void *(*malloc_fn)(size_t sz);$/;"	m	struct:cJSON_Hooks
+malloc_fn	myclient/include/s2jdef.h	/^    void *(*malloc_fn)(size_t sz);$/;"	m	struct:__anon5
+malloc_fn	myserver/include/cJSON.h	/^      void *(*malloc_fn)(size_t sz);$/;"	m	struct:cJSON_Hooks
+malloc_fn	myserver/include/s2jdef.h	/^    void *(*malloc_fn)(size_t sz);$/;"	m	struct:__anon11
+msg	myclient/include/mychat.h	/^   char msg[256];$/;"	m	struct:__anon3
+msg	myserver/include/mychat.h	/^   char msg[256];$/;"	m	struct:__anon8
+my_usr	myclient/include/mychat.h	/^}my_usr;$/;"	t	typeref:struct:__anon2
+my_usr	myserver/include/mychat.h	/^}my_usr;$/;"	t	typeref:struct:__anon7
+name	myclient/include/mychat.h	/^   char name[10];$/;"	m	struct:__anon2
+name	myserver/include/mychat.h	/^   char name[10];$/;"	m	struct:__anon7
+next	myclient/include/cJSON.h	/^	struct cJSON *next,*prev;	\/* next\/prev allow you to walk array\/object chains. Alternatively, use GetArraySize\/GetArrayItem\/GetObjectItem *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::cJSON
+next	myserver/include/cJSON.h	/^	struct cJSON *next,*prev;	\/* next\/prev allow you to walk array\/object chains. Alternatively, use GetArraySize\/GetArrayItem\/GetObjectItem *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::cJSON
+next	myserver/include/info_list.h	/^   struct Info_Node *next;$/;"	m	struct:Info_Node	typeref:struct:Info_Node::Info_Node
+num	myclient/include/mychat.h	/^   int num;$/;"	m	struct:__anon2
+num	myclient/include/mychat.h	/^   int num;$/;"	m	struct:__anon3
+num	myclient/include/mychat.h	/^   int num;$/;"	m	struct:__anon4
+num	myserver/include/mychat.h	/^   int num;$/;"	m	struct:__anon7
+num	myserver/include/mychat.h	/^   int num;$/;"	m	struct:__anon8
+num	myserver/include/mychat.h	/^   int num;$/;"	m	struct:__anon9
+obj	myclient/makefile	/^obj=$(patsubst .\/lib\/%.o, .\/src\/%.c, $(src))$/;"	m
+obj	myserver/makefile	/^obj=$(patsubst .\/lib\/%.o, .\/src\/%.c, $(src))$/;"	m
+offset	myclient/src/cJSON.c	/^typedef struct {char *buffer; int length; int offset; } printbuffer;$/;"	m	struct:__anon1	file:
+offset	myserver/src/cJSON.c	/^typedef struct {char *buffer; int length; int offset; } printbuffer;$/;"	m	struct:__anon6	file:
+parse_array	myclient/src/cJSON.c	/^static const char *parse_array(cJSON *item,const char *value)$/;"	f	file:
+parse_array	myserver/src/cJSON.c	/^static const char *parse_array(cJSON *item,const char *value)$/;"	f	file:
+parse_hex4	myclient/src/cJSON.c	/^static unsigned parse_hex4(const char *str)$/;"	f	file:
+parse_hex4	myserver/src/cJSON.c	/^static unsigned parse_hex4(const char *str)$/;"	f	file:
+parse_number	myclient/src/cJSON.c	/^static const char *parse_number(cJSON *item,const char *num)$/;"	f	file:
+parse_number	myserver/src/cJSON.c	/^static const char *parse_number(cJSON *item,const char *num)$/;"	f	file:
+parse_object	myclient/src/cJSON.c	/^static const char *parse_object(cJSON *item,const char *value)$/;"	f	file:
+parse_object	myserver/src/cJSON.c	/^static const char *parse_object(cJSON *item,const char *value)$/;"	f	file:
+parse_string	myclient/src/cJSON.c	/^static const char *parse_string(cJSON *item,const char *str)$/;"	f	file:
+parse_string	myserver/src/cJSON.c	/^static const char *parse_string(cJSON *item,const char *str)$/;"	f	file:
+parse_value	myclient/src/cJSON.c	/^static const char *parse_value(cJSON *item,const char *value)$/;"	f	file:
+parse_value	myserver/src/cJSON.c	/^static const char *parse_value(cJSON *item,const char *value)$/;"	f	file:
+pid	myclient/include/mychat.h	/^   int pid;$/;"	m	struct:__anon2
+pid	myserver/include/mychat.h	/^   int pid;$/;"	m	struct:__anon7
+pow2gt	myclient/src/cJSON.c	/^static int pow2gt (int x)	{	--x;	x|=x>>1;	x|=x>>2;	x|=x>>4;	x|=x>>8;	x|=x>>16;	return x+1;	}$/;"	f	file:
+pow2gt	myserver/src/cJSON.c	/^static int pow2gt (int x)	{	--x;	x|=x>>1;	x|=x>>2;	x|=x>>4;	x|=x>>8;	x|=x>>16;	return x+1;	}$/;"	f	file:
+prev	myclient/include/cJSON.h	/^	struct cJSON *next,*prev;	\/* next\/prev allow you to walk array\/object chains. Alternatively, use GetArraySize\/GetArrayItem\/GetObjectItem *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::
+prev	myserver/include/cJSON.h	/^	struct cJSON *next,*prev;	\/* next\/prev allow you to walk array\/object chains. Alternatively, use GetArraySize\/GetArrayItem\/GetObjectItem *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::
+print_array	myclient/src/cJSON.c	/^static char *print_array(cJSON *item,int depth,int fmt,printbuffer *p)$/;"	f	file:
+print_array	myserver/src/cJSON.c	/^static char *print_array(cJSON *item,int depth,int fmt,printbuffer *p)$/;"	f	file:
+print_number	myclient/src/cJSON.c	/^static char *print_number(cJSON *item,printbuffer *p)$/;"	f	file:
+print_number	myserver/src/cJSON.c	/^static char *print_number(cJSON *item,printbuffer *p)$/;"	f	file:
+print_object	myclient/src/cJSON.c	/^static char *print_object(cJSON *item,int depth,int fmt,printbuffer *p)$/;"	f	file:
+print_object	myserver/src/cJSON.c	/^static char *print_object(cJSON *item,int depth,int fmt,printbuffer *p)$/;"	f	file:
+print_string	myclient/src/cJSON.c	/^static char *print_string(cJSON *item,printbuffer *p)	{return print_string_ptr(item->valuestring,p);}$/;"	f	file:
+print_string	myserver/src/cJSON.c	/^static char *print_string(cJSON *item,printbuffer *p)	{return print_string_ptr(item->valuestring,p);}$/;"	f	file:
+print_string_ptr	myclient/src/cJSON.c	/^static char *print_string_ptr(const char *str,printbuffer *p)$/;"	f	file:
+print_string_ptr	myserver/src/cJSON.c	/^static char *print_string_ptr(const char *str,printbuffer *p)$/;"	f	file:
+print_value	myclient/src/cJSON.c	/^static char *print_value(cJSON *item,int depth,int fmt,printbuffer *p)$/;"	f	file:
+print_value	myserver/src/cJSON.c	/^static char *print_value(cJSON *item,int depth,int fmt,printbuffer *p)$/;"	f	file:
+printbuffer	myclient/src/cJSON.c	/^typedef struct {char *buffer; int length; int offset; } printbuffer;$/;"	t	typeref:struct:__anon1	file:
+printbuffer	myserver/src/cJSON.c	/^typedef struct {char *buffer; int length; int offset; } printbuffer;$/;"	t	typeref:struct:__anon6	file:
+s2jHook	myclient/src/s2j.c	/^S2jHook s2jHook = {$/;"	v
+s2jHook	myserver/src/s2j.c	/^S2jHook s2jHook = {$/;"	v
+s2j_create_json_obj	myclient/include/s2j.h	44;"	d
+s2j_create_json_obj	myserver/include/s2j.h	44;"	d
+s2j_create_struct_obj	myclient/include/s2j.h	64;"	d
+s2j_create_struct_obj	myserver/include/s2j.h	64;"	d
+s2j_delete_json_obj	myclient/include/s2j.h	48;"	d
+s2j_delete_json_obj	myserver/include/s2j.h	48;"	d
+s2j_delete_struct_obj	myclient/include/s2j.h	68;"	d
+s2j_delete_struct_obj	myserver/include/s2j.h	68;"	d
+s2j_init	myclient/src/s2j.c	/^void s2j_init(S2jHook *hook) {$/;"	f
+s2j_init	myserver/src/s2j.c	/^void s2j_init(S2jHook *hook) {$/;"	f
+s2j_json_set_array_element	myclient/include/s2j.h	56;"	d
+s2j_json_set_array_element	myserver/include/s2j.h	56;"	d
+s2j_json_set_basic_element	myclient/include/s2j.h	52;"	d
+s2j_json_set_basic_element	myserver/include/s2j.h	52;"	d
+s2j_json_set_struct_element	myclient/include/s2j.h	60;"	d
+s2j_json_set_struct_element	myserver/include/s2j.h	60;"	d
+s2j_struct_get_array_element	myclient/include/s2j.h	76;"	d
+s2j_struct_get_array_element	myserver/include/s2j.h	76;"	d
+s2j_struct_get_basic_element	myclient/include/s2j.h	72;"	d
+s2j_struct_get_basic_element	myserver/include/s2j.h	72;"	d
+s2j_struct_get_struct_element	myclient/include/s2j.h	80;"	d
+s2j_struct_get_struct_element	myserver/include/s2j.h	80;"	d
+s_msg	myclient/include/mychat.h	/^}s_msg;$/;"	t	typeref:struct:__anon4
+s_msg	myserver/include/mychat.h	/^}s_msg;$/;"	t	typeref:struct:__anon9
+show	myserver/main.c	/^void show(char *str)$/;"	f
+skip	myclient/src/cJSON.c	/^static const char *skip(const char *in) {while (in && *in && (unsigned char)*in<=32) in++; return in;}$/;"	f	file:
+skip	myserver/src/cJSON.c	/^static const char *skip(const char *in) {while (in && *in && (unsigned char)*in<=32) in++; return in;}$/;"	f	file:
+src	myclient/include/mychat.h	/^   my_usr src;$/;"	m	struct:__anon3
+src	myclient/makefile	/^src=$(wildcard .\/src\/*.c) main.c$/;"	m
+src	myserver/include/mychat.h	/^   my_usr src;$/;"	m	struct:__anon8
+src	myserver/makefile	/^src=$(wildcard .\/src\/*.c) main.c$/;"	m
+status	myserver/include/mychat.h	/^  int status;$/;"	m	struct:__anon10
+string	myclient/include/cJSON.h	/^	char *string;				\/* The item's name string, if this item is the child of, or is in the list of subitems of an object. *\/$/;"	m	struct:cJSON
+string	myserver/include/cJSON.h	/^	char *string;				\/* The item's name string, if this item is the child of, or is in the list of subitems of an object. *\/$/;"	m	struct:cJSON
+struct_to_json	myclient/main.c	/^cJSON *struct_to_json(void* struct_obj) {$/;"	f
+suffix_object	myclient/src/cJSON.c	/^static void suffix_object(cJSON *prev,cJSON *item) {prev->next=item;item->prev=prev;}$/;"	f	file:
+suffix_object	myserver/src/cJSON.c	/^static void suffix_object(cJSON *prev,cJSON *item) {prev->next=item;item->prev=prev;}$/;"	f	file:
+target	myclient/makefile	/^target=myclient$/;"	m
+target	myserver/makefile	/^target=myserver$/;"	m
+type	myclient/include/cJSON.h	/^	int type;					\/* The type of the item, as above. *\/$/;"	m	struct:cJSON
+type	myserver/include/cJSON.h	/^	int type;					\/* The type of the item, as above. *\/$/;"	m	struct:cJSON
+update	myclient/src/cJSON.c	/^static int update(printbuffer *p)$/;"	f	file:
+update	myserver/src/cJSON.c	/^static int update(printbuffer *p)$/;"	f	file:
+valuedouble	myclient/include/cJSON.h	/^	double valuedouble;			\/* The item's number, if type==cJSON_Number *\/$/;"	m	struct:cJSON
+valuedouble	myserver/include/cJSON.h	/^	double valuedouble;			\/* The item's number, if type==cJSON_Number *\/$/;"	m	struct:cJSON
+valueint	myclient/include/cJSON.h	/^	int valueint;				\/* The item's number, if type==cJSON_Number *\/$/;"	m	struct:cJSON
+valueint	myserver/include/cJSON.h	/^	int valueint;				\/* The item's number, if type==cJSON_Number *\/$/;"	m	struct:cJSON
+valuestring	myclient/include/cJSON.h	/^	char *valuestring;			\/* The item's string, if type==cJSON_String *\/$/;"	m	struct:cJSON
+valuestring	myserver/include/cJSON.h	/^	char *valuestring;			\/* The item's string, if type==cJSON_String *\/$/;"	m	struct:cJSON
