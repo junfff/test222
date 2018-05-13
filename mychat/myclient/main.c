@@ -5,9 +5,9 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
-#include "/root/learn/mychat/include/chat_fifo.h"
-#include "/root/learn/mychat/include/mychat.h"
-#include "/root/learn/mychat/include/s2j.h"
+#include "chat_fifo.h"
+#include "mychat.h"
+#include "s2j.h"
 
 char *fifo_path[128];
 s_msg myinfo;
@@ -138,39 +138,10 @@ void OnMsg(SMP *server_mmap)
 		sleep(1);
 	}
 }
-void OnInput(SMP *server_mmap)
+int OnChat(int usrnum,char *context)
 {
-	int usrnum = 0;
-	char *context[1024];
-
-	// 5设置标准输入为非阻塞属性 读标准输入
-	// read 返回-1 继续轮询
-	// read 返回>1 字符串解析 填充struct c msg
-	//向服务器公共FIFO 写msg
-	// 6 轮询
-	while (1) {
-		printf("输入 quit 退出客户端！！\n    聊天：num 聊天内容！");
-		scanf("%s", server_mmap->cmd);
-
-		fflush(stdout);
-		fgets(server_mmap->cmd, BUF_MAX, stdin);
-		if (server_mmap->cmd[BUF_MAX - 1] == '\n') {
-			server_mmap->cmd[BUF_MAX - 1] = '\0';
-		}
-
-		if (strcmp(server_mmap->cmd, "quit") == 0) {
-			OnOffLine();
-			sleep(1);
-			// printf("输入线程 收到 停止命令 ！");
-			return;
-		}
-		else {
-			usrnum = parse(server_mmap->cmd, context);
-
-			printf("解析用户输入完成！\n");
-			continue;
-			c_msg to_server;
-			to_server.num = MSG_CHAT;
+	 c_msg to_server;
+	 to_server.num = MSG_CHAT;
 			to_server.src.num = myinfo.info.num;
 			strcpy(to_server.src.name, myinfo.info.name);
 			to_server.src.pid = myinfo.info.pid;
@@ -182,26 +153,65 @@ void OnInput(SMP *server_mmap)
 			SendMsg(&to_server);
 			printf("聊天信息，发送成功！usrnum = %d contxt = %s\n",
 			       usrnum, context);
+}
+void GetUsrList()
+{
+   printf("获取用户列表！！！\n");
+
+}
+void OnInput(SMP *server_mmap)
+{
+	int usrid = 0;
+	// 5设置标准输入为非阻塞属性 读标准输入
+	// read 返回-1 继续轮询
+	// read 返回>1 字符串解析 填充struct c msg
+	//向服务器公共FIFO 写msg
+	// 6 轮询
+	
+	printf("输入线程开始工作!!\n");
+	while (1) 
+  {
+		printf("s 选择聊天对象，l 获取在线用户  quit 退出程序。 \n");
+    scanf("%s",server_mmap->cmd);
+
+		printf("收到输入 cmd：%s \n",server_mmap->cmd);
+		if (strcasecmp(server_mmap->cmd,"quit") == 0)
+		{
+			OnOffLine();
+			sleep(1);
+			printf("输入线程 收到 停止命令 ！");
+			return;
 		}
+		else if(strcasecmp(server_mmap->cmd,"l") == 0)
+		{
+		    GetUsrList();
+		}
+    else if(strcasecmp(server_mmap->cmd,"s") == 0)
+    {
+      printf("输入用户id 开始聊天 ！！\n");
+      scanf("%d", &usrid);
+
+     while(1)
+     {
+        printf("当前聊天对象 %d 输入内容发送消息， 或 输入 b  退出当前聊天！\n",usrid);
+        scanf("%s",server_mmap->cmd);
+        if(strcasecmp(server_mmap->cmd,"b") == 0)
+        {
+           printf("已经退出聊天！！\n");
+           break;
+        }
+       OnChat(usrid,server_mmap->cmd);
+      } 
+    }
+else
+{
+   printf("无效命令 ！！\n");
+
+}
+
 
 
 	}
-}
-int parsse(char *buf,char *context)
-{
-   char *tmp = buf;
-   int num =0;
-
-   char *curp = strtok(tmp, ' ');
-   if (curp) {
-	   printf("strtok curp = %s", curp);
-   }
-   curp = strtok(NULL, ' ');
-   if (curp) {
-	   printf("curp = %s\n",curp);
-   }
-
-   return num;
 }
 
 int SendMsg(c_msg *to_msg)
