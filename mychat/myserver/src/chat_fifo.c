@@ -11,7 +11,7 @@
 #include "cJSON.h"
 #include <fcntl.h>
 #include "mychat.h"
-#include "chat_my_server.h"
+#include "chat_fifo.h"
 #include "s2j.h"
 
 int Init(char *name)
@@ -50,6 +50,7 @@ c_msg *ReadFifo(char *fifo_name)
    {
    	 //perror("read error !!");
    	 //exit(1);
+	   close(fd);
    	 return NULL;
    }
    else if(ret == 0)
@@ -57,14 +58,14 @@ c_msg *ReadFifo(char *fifo_name)
    	  close(fd);
       return NULL;
    }
-   printf("read buf : %s",buf);
+  // printf("read buf : %s\n<><><><><><><><>\n",buf);
    cJSON *json_obj = cJSON_Parse(buf);
-	 ret = close(fd);
 	 if(ret == -1)
 	 {
 	    perror("close fd error !!");
 	    exit(1);
 	 }
+	 close(fd);
    return (c_msg *)json_to_struct(json_obj);
 }
 
@@ -93,10 +94,65 @@ void *json_to_struct(cJSON* json_obj) {
 	                                return struct_c_msg;
 }
 
+cJSON *struct_to_json(void* struct_obj) {
+	    c_msg *struct_student = (c_msg *)struct_obj;
+	        
+	        /* create Student JSON object */
+	        s2j_create_json_obj(json_student);
+		    
+		    /* serialize data to Student JSON object. */
+		    s2j_json_set_basic_element(json_student, struct_student, int, num);
+		    
+				    /* serialize data to Student.Hometown JSON object. */
+				    s2j_json_set_struct_element(json_hometown, json_student, struct_hometown, struct_student, my_usr, src);
+				        s2j_json_set_basic_element(json_hometown, struct_hometown, int, num);
+				        s2j_json_set_basic_element(json_hometown, struct_hometown, string, name);
+				        s2j_json_set_basic_element(json_hometown, struct_hometown, int, pid);
+
+				    s2j_json_set_struct_element(json_dest, json_student, struct_dest, struct_student, my_usr, dest);
+				        s2j_json_set_basic_element(json_dest, struct_dest, int, num);
+				        s2j_json_set_basic_element(json_dest, struct_dest, string, name);
+				        s2j_json_set_basic_element(json_dest, struct_dest, int, pid);
+
+			        s2j_json_set_basic_element(json_student, struct_student, string, msg);
+				    
+					    
+					    /* return Student JSON object pointer */
+					    return json_student;
+
+}
+
+int SendMsg(char *fifo_path,c_msg *to_msg)
+{
+	int fd = open(fifo_path, O_WRONLY);
+	if (fd == -1) {
+		printf("fifo文件 未能打开 ！无法发送消息 ！！\n");
+		exit(1);
+	}
+	cJSON *json_info = struct_to_json(to_msg);
+
+	char *msg = cJSON_Print(json_info);
+	int len = strlen(msg);
+	int ret = write(fd, msg, len);
+	if (ret == -1) {
+		perror("fifo  write error !!");
+		exit(1);
+	}
+
+	return 0;
+
+}
 
 
-
-
+void GetFifoPath(my_usr info,char *fifo_path)
+{
+    strcpy(fifo_path, "../");                                               
+    strcat(fifo_path, info.name);
+    strcat(fifo_path, "_");
+    char *num[32];
+    sprintf(num, "%d", info.pid);
+    strcat(fifo_path, num);
+}
 
 
 

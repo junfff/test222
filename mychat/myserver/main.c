@@ -13,7 +13,7 @@
                   #include "cJSON.h"
                    #include <fcntl.h>
                     #include "mychat.h"
-                    #include "chat_my_server.h"
+                    #include "chat_fifo.h"
 #include "info_list.h"
 
 void show(char *str)
@@ -32,6 +32,27 @@ void show(char *str)
    //   wait(NULL);
 	// }
 }
+
+void PushMsg(c_msg *to_msg)
+{
+ 	  Info_Node *head = GetHead_List();
+ 	  Info_Node *cur = head;
+ 	  Info_Node *tmp = NULL;
+ 	  while(cur != NULL)
+ 	  {
+ 	  	tmp = cur->next;
+ 	  	if(cur->info.pid > 0)
+ 	  	{
+    	 	  char *fifo_path[128];
+    	 	  GetFifoPath(cur->info,fifo_path);
+				  SendMsg(fifo_path,to_msg);
+ 	  	}
+
+ 	  	cur = tmp;
+ 	  }
+
+
+}
 void OnMsg(SMP *server_mmap)
 {
 	 int showHint = 1;
@@ -48,7 +69,7 @@ void OnMsg(SMP *server_mmap)
    	    show("waitint client msg...\n");
         showHint = 0;
      }
-     c_msg *cmsg = ReadFifo();
+     c_msg *cmsg = ReadFifo(SERVER_FIFO);
     
      if(NULL == cmsg)
      {
@@ -57,7 +78,7 @@ void OnMsg(SMP *server_mmap)
      }
     showHint = 1;
     printf("num = %d  >>>>>>",cmsg->num);
-    if(cmsg->num == 1)
+    if(cmsg->num == MSG_REGISTER)
     {
     	 printf("用户注册:%s\n",cmsg->src.name);
     	 int ret = Add_List(&cmsg->src);
@@ -68,16 +89,53 @@ void OnMsg(SMP *server_mmap)
     	 else
     	 {
     	 	 printf("成功添加 用户:%s\n",cmsg->src.name);
-    	 	 SendClientMsg();
+    	 	 
+    	 	  c_msg to_msg;
+    	 	  to_msg.num = MSG_ONLINE;
+          to_msg.dest.num = cmsg->src.num;
+          strcpy(to_msg.dest.name, cmsg->src.name);
+          to_msg.dest.pid = cmsg->src.pid;
+    	 	 //通知所有在线用户 谁上线了
+          PushMsg(&to_msg);
     	 }
     }
-   else if(cmsg->num == 2)
+   else if(cmsg->num == MSG_CHAT)
    {
-      printf("用户聊天:%s to %s !!",cmsg->src.name,cmsg->dest.name);
+      printf("用户聊天:%s to %s 内容：< %s >!!\n",cmsg->src.name,cmsg->dest.name,cmsg->msg);
+    	 	  c_msg to_msg;
+    	 	  to_msg.num = MSG_CHAT;
+    	 		strcpy(to_msg.msg,cmsg->msg);
+
+          to_msg.src.num = cmsg->src.num;
+          strcpy(to_msg.src.name, cmsg->src.name);
+          to_msg.src.pid = cmsg->src.pid;
+    	 	
+    	 		to_msg.dest.num = cmsg->dest.num;
+    	 		strcpy(to_msg.dest.name,cmsg->dest.name);
+    	 		to_msg.dest.pid = cmsg->dest.pid;
+
+    	 		//通知所有在线用户 谁上线了
+          PushMsg(&to_msg);
    }
-   else if(cmsg->num == 3)
+   else if(cmsg->num == MSG_EXIT)
    {
-   	 printf("用户退出：%s",cmsg->src.name);
+   	 printf("用户退出：%s\n",cmsg->src.name);
+   	 int ret = Remove_List(&cmsg->src);
+   	 if(ret == 0)
+   	 {
+   	    printf("移除用户成功！！\n");
+    	 	  c_msg to_msg;
+    	 	  to_msg.num = MSG_OFFLINE;
+          to_msg.dest.num = cmsg->src.num;
+          strcpy(to_msg.dest.name, cmsg->src.name);
+          to_msg.dest.pid = cmsg->src.pid;
+    	 	 //通知所有在线用户 谁上线了
+          PushMsg(&to_msg);
+   	 }
+   	 else
+   	 {
+   	    printf("移除用户失败！！\n");
+   	 }
    }
    //3 判断协议号num
    //  1 用户注册
@@ -103,6 +161,7 @@ void OnInput(SMP *server_mmap)
    scanf("%s",server_mmap->cmd);
    if(strcmp(server_mmap->cmd,"quit") == 0)
    {
+        server_mmap->status = SMP_STOP;
    	    sleep(1);
    	    //printf("输入线程 收到 停止命令 ！");
    	    return;
@@ -169,9 +228,8 @@ int main()
 
    while(1)
    {
-      if(strcmp(server_mmap->cmd,"quit") == 0)
+      if(server_mmap->status == SMP_STOP)
       {
-         server_mmap->status = SMP_STOP;
          break;
       }
       //printf("主线程 命令是：%s \n",server_mmap->cmd);
@@ -180,7 +238,7 @@ int main()
 
 
 
-   //printf("主线城 开始回收 子线程！！！");
+   printf("主线程 开始回收 子线程！！！");
    waitpid(msg_pid,NULL,0);//WNOHANG 非阻塞 0 阻塞
    waitpid(input_pid,NULL,0);
 

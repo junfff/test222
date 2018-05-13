@@ -14,7 +14,9 @@ int Init_List();
 int Add_List(my_usr * info);
 
 int Remove_List(my_usr *info);
+
 Info_Node *GetHead_List();
 
+Info_Node *GetNodeBy_List(int num);
 int Deinit_List();
 #endif

@@ -10,9 +10,15 @@
 #define MSG_REGISTER 1
 #define MSG_CHAT 2
 #define MSG_EXIT 3
-#define SMP_START 1
-#define SMP_STOP 0
+#define MSG_ONLINE 4
+#define MSG_OFFLINE 5
+#define SMP_START 6
+#define SMP_STOP 7
+
+
 #define BUF_MAX 1024
+
+
 typedef struct
 {
    int num;
