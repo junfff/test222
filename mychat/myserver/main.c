@@ -16,6 +16,9 @@
                     #include "chat_fifo.h"
 #include "info_list.h"
 
+
+int fd = 0;
+int clientID = 1000;
 void show(char *str)
 {
 	// pid_t pid = fork();
@@ -69,7 +72,7 @@ void OnMsg(SMP *server_mmap)
    	    show("waitint client msg...\n");
         showHint = 0;
      }
-     c_msg *cmsg = ReadFifo(SERVER_FIFO);
+     c_msg *cmsg = ReadFifo(fd);
     
      if(NULL == cmsg)
      {
@@ -77,10 +80,11 @@ void OnMsg(SMP *server_mmap)
         continue;
      }
     showHint = 1;
-    printf("num = %d  >>>>>>",cmsg->num);
+    printf("协议号 = %d  >>>>>>",cmsg->num);
     if(cmsg->num == MSG_REGISTER)
     {
     	 printf("用户注册:%s\n",cmsg->src.name);
+    	 cmsg->src.num = clientID++;
     	 int ret = Add_List(&cmsg->src);
     	 if(ret == -1)
     	 {
@@ -172,28 +176,19 @@ int main()
 {
     printf("start myserver !!!\n");
    //1 打开公共FIFO 阻塞等待读取
-   Init(SERVER_FIFO);
+   fd = Init_fifo(SERVER_FIFO);
    Init_List();
 
    //2 读到内容字符串解析
     
    //smp
    SMP *server_mmap;   
-   int fd = open("tmp_mmap",O_RDWR | O_CREAT,0644);
-   if(fd == -1)
-   {
-   	 perror("open error !!");
-   	 exit(1);
-   }
-   ftruncate(fd,sizeof(SMP));
-   server_mmap = mmap(NULL,sizeof(SMP),PROT_READ | PROT_WRITE,MAP_SHARED,fd,0);
+   server_mmap = mmap(NULL,sizeof(SMP),PROT_READ | PROT_WRITE,MAP_SHARED | MAP_ANONYMOUS,-1,0);
    if(server_mmap == MAP_FAILED)
    {
    	 perror("mmap error !!");
    	 exit(1);
    }
-   unlink("tmp_mmap");
-   close(fd);
 
 	 server_mmap->status = SMP_START; //服务器运行状态
 
@@ -243,6 +238,7 @@ int main()
    waitpid(input_pid,NULL,0);
 
 
+	 Deinit_fifo(fd);
    munmap(server_mmap,sizeof(SMP));
    Deinit_List();
    remove(SERVER_FIFO);
