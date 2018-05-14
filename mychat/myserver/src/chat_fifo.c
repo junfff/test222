@@ -14,9 +14,9 @@
 #include "chat_fifo.h"
 #include "s2j.h"
 
-int Init(char *name)
+int Init_fifo(char *name)
 {
-   int ret;
+	 int ret = 0;
    //建立管道
    if(access(name,F_OK) == -1)
    {
@@ -28,44 +28,44 @@ int Init(char *name)
      }
    }
 
-   //unlink(name);  
-
-   return ret;
-}
-c_msg *ReadFifo(char *fifo_name)
-{
-   int fd = open(fifo_name,O_RDONLY | O_NONBLOCK);
+   int fd = open(name,O_RDONLY | O_NONBLOCK);
    if(fd == -1)
    {
       perror("open fifo error !");
       exit(1);
    }
-
-   //printf("open fifo succeed !fd=%d\n",fd);
+	 //printf("init fifo name = %s , fd = %d",name,fd);
+   return fd;
+}
+int Deinit_fifo(int fd)
+{
+   int ret = close(fd);
+   if(ret == -1)
+   {
+      perror("close fd error !!!\n");
+   }
+   return ret;
+}
+c_msg *ReadFifo(int fd)
+{
+   //printf("start readfifo !fd=%d  num = %d\n",fd,numm);
    int len = sizeof(c_msg);
    char buf[len];
    memset(buf,0,len);
    int ret = read(fd,buf,sizeof(buf));
+   //printf("read fd >> ret = %d  !fd=%d  num = %d\n",ret, fd,numm);
    if(ret == -1)
    {
    	 //perror("read error !!");
    	 //exit(1);
-	   close(fd);
    	 return NULL;
    }
    else if(ret == 0)
    {
-   	  close(fd);
       return NULL;
    }
-  // printf("read buf : %s\n<><><><><><><><>\n",buf);
+   //printf("read buf : %s\n<><><><><><><><>\n",buf);
    cJSON *json_obj = cJSON_Parse(buf);
-	 if(ret == -1)
-	 {
-	    perror("close fd error !!");
-	    exit(1);
-	 }
-	 close(fd);
    return (c_msg *)json_to_struct(json_obj);
 }
 
@@ -76,6 +76,7 @@ void *json_to_struct(cJSON* json_obj) {
 
 	        /* 反序列化数据到Student结构体对象 */
 	        s2j_struct_get_basic_element(struct_c_msg, json_obj, int, num);
+	        s2j_struct_get_basic_element(struct_c_msg, json_obj, string, msg);
 
 	                        /* 反序列化数据到Student.Hometown结构体对象 */
 
@@ -89,7 +90,6 @@ void *json_to_struct(cJSON* json_obj) {
 	                            s2j_struct_get_basic_element(struct_dest, json_dest, string, name);
 	                            s2j_struct_get_basic_element(struct_dest, json_dest, int, pid);
 
-	            s2j_struct_get_array_element(struct_c_msg, json_obj, string, msg);
 	                                /* 返回Student结构体对象指针 */
 	                                return struct_c_msg;
 }
@@ -138,7 +138,7 @@ int SendMsg(char *fifo_path,c_msg *to_msg)
 		perror("fifo  write error !!");
 		exit(1);
 	}
-
+  //printf("SendMsg content = %s",msg); 
 	return 0;
 
 }

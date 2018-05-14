@@ -3,9 +3,12 @@
 
 #include "../include/cJSON.h"
 #include "../include/mychat.h"
+
 int Init(char *name);
 
-c_msg *ReadFifo(char *fifo_name);
+int Deinit_fifo(int fd);
+
+c_msg *ReadFifo(int fd);
 
 void *json_to_struct(cJSON* json_obj);
 

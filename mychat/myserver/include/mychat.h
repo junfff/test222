@@ -31,7 +31,7 @@ typedef struct
    int num;
    my_usr src;
    my_usr dest;
-   char msg[256];
+   char msg[BUF_MAX];
 }c_msg;
 
 typedef struct
