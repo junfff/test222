@@ -8,8 +8,9 @@
 #include <arpa/inet.h>
 #include <string.h>
 
-#define SERVER_PORT 6666
-#define SERVER_IP "127.0.0.1"
+#define SERVER_PORT 33000
+#define SERVER_IP "47.106.123.211"
+//#define SERVER_IP "127.0.0.1"
 int main()
 {
 	int lfd,ret;
@@ -41,25 +42,16 @@ int main()
 	ret = connect(lfd,(struct sockaddr *)&addr,addrlen);
 	if(ret == -1)
 	{
+		perror(">>> connect error:");
 		printf("client connect error !!ret = %s\n",strerror(ret));
 		exit(1);
 	}
-int num = 0;
 	while(1)
 	{
 		printf("client start send char !!!ret = %d lfd = %d\n",ret,lfd);
-		char *send = NULL;
-		num++;
-		if(num%2==0)
-		{
-			send = "aaaaaaaaaaaa";
-		}
-		else
-		{
-			send = "bbbbbbbbbbbbbbbb";
-		}
 
-	ret = write(lfd,send,strlen(send));
+		fgets(buf,sizeof(buf),stdin);
+	ret = write(lfd,buf,strlen(buf));
 	if(ret == -1)
 	{
 		printf("write error !!");
