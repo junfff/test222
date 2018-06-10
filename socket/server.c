@@ -96,6 +96,11 @@ int main()
 			break;
 		}
 
+		if(ret == 0)
+		{
+			printf("read 0 ,client close!! ");
+			break;
+		}
 		for(int i = 0;i<ret;i++)
 		{
 			buf[i] = toupper(buf[i]);

@@ -15,7 +15,7 @@ target = $(patsubst %.c, %, $(alltarget)) #生成的文件名
   
 bin_target = ${dir_bin}/${target}  
 CC = g++  
-CXXFLAGS = -g -Wall -I$(dir_inc) -I$(dir_3rd)  
+CXXFLAGS = -g -Wall -I$(dir_inc) -I$(dir_3rd) -pthread 
 LDFLAGS = -L${dir_lib}  
 libs= -lopencv_core -lopencv_highgui #链接库模块，使用空格隔开多个文件  
   
