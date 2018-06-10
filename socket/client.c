@@ -9,8 +9,8 @@
 #include <string.h>
 
 #define SERVER_PORT 33000
-#define SERVER_IP "47.106.123.211"
-//#define SERVER_IP "127.0.0.1"
+//#define SERVER_IP "47.106.123.211"
+#define SERVER_IP "127.0.0.1"
 int main()
 {
 	int lfd,ret;
@@ -36,7 +36,7 @@ int main()
 
 
 
-	printf("client connect !!lfd = %d\n",lfd);
+	//printf("client connect !!lfd = %d\n",lfd);
 	socklen_t addrlen = sizeof(addr);
 	//int connect(int sockfd, const struct sockaddr *addr,socklen_t addrlen);
 	ret = connect(lfd,(struct sockaddr *)&addr,addrlen);
@@ -48,7 +48,7 @@ int main()
 	}
 	while(1)
 	{
-		printf("client start send char !!!ret = %d lfd = %d\n",ret,lfd);
+		//	printf("client start send char !!!ret = %d lfd = %d\n",ret,lfd);
 
 		fgets(buf,sizeof(buf),stdin);
 		ret = write(lfd,buf,strlen(buf));
@@ -57,7 +57,7 @@ int main()
 			printf("write error !!");
 			exit(1);
 		}
-		printf("client send ret = %d\n}",ret);
+		//	printf("client send ret = %d\n}",ret);
 
 	 	//ssize_t read(int fd, void *buf, size_t count);
   		ret = read(lfd,buf,sizeof(buf));
@@ -67,9 +67,8 @@ int main()
 			exit(1);
 		}
 
-	 	printf("client rev buf is:%s\n",buf);
+	 	printf("%s\n",buf);
 
-	 	sleep(1);
 	}
 	close(lfd);
 
