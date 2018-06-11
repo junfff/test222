@@ -18,7 +18,7 @@
 #include <ctype.h>
 #include <fcntl.h>
 
-#include "wrap.h"
+#include "./include/wrap.h"
 
 #define SERVER_PORT 33000
 #define BACK_LOG 128
@@ -44,14 +44,14 @@ void *OnClientLink(void *arg)
 			break;
 		}
 
-        printf("received from %s at PORT %d\n",
-        		inet_ntop(AF_INET,&info->addr.sin_addr.s_addr,str,sizeof(str)),
-        		ntohs(info->addr.sin_port));
+      printf("received from %s at PORT %d\n",
+        			inet_ntop(AF_INET,&info->addr.sin_addr.s_addr,str,sizeof(str)),
+        			ntohs(info->addr.sin_port));
 
-        for(i = 0; i < n; i++)
-        {
+      for(i = 0; i < n; i++)
+      {
         	buf[i] = toupper(buf[i]);
-        }
+      }
 
 
 		//ssize_t write(int fd, const void *buf, size_t count);
@@ -61,9 +61,9 @@ void *OnClientLink(void *arg)
 	}
 	//int close(int fd);
 	Close(info->fd);
-    printf("client closed  from %s at PORT %d\n",
-        	inet_ntop(AF_INET,&(*info).addr.sin_addr,str,sizeof(str)),
-        	ntohs((*info).addr.sin_port));
+   printf("client closed  from %s at PORT %d\n",
+        		inet_ntop(AF_INET,&(*info).addr.sin_addr,str,sizeof(str)),
+        		ntohs((*info).addr.sin_port));
 
 	return (void *)0;
 }
@@ -75,7 +75,7 @@ int main()
 	struct s_info clie[256];
 	int i = 0;
 
-    //int socket(int domain, int type, int protocol);
+   //int socket(int domain, int type, int protocol);
 	info.fd = Socket(AF_INET,SOCK_STREAM,0);
 
 	int opt = 1;
@@ -83,7 +83,7 @@ int main()
 
 	info.addr.sin_family = AF_INET;
 	info.addr.sin_port = htons(SERVER_PORT);
-    info.addr.sin_addr.s_addr = htonl(INADDR_ANY);
+   info.addr.sin_addr.s_addr = htonl(INADDR_ANY);
 
 	//int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
 	Bind(info.fd,(struct sockaddr *)&info.addr,sizeof(info.addr));
@@ -102,8 +102,8 @@ int main()
 		clie[i].fd = cfd;
 		clie[i].addr = caddr;
 
-       	//int pthread_create(pthread_t *thread, const pthread_attr_t *attr,
-        //                 void *(*start_routine) (void *), void *arg);
+      //int pthread_create(pthread_t *thread, const pthread_attr_t *attr,
+      //                 void *(*start_routine) (void *), void *arg);
 
 		pthread_t tid;
 		pthread_create(&tid,NULL,OnClientLink,(void *)&clie[i]);
@@ -111,9 +111,9 @@ int main()
 		pthread_detach(tid);
 		i++;
 		char str[BUFSIZ];
-        printf("accept from %s at PORT %d\n",
-        		inet_ntop(AF_INET,&caddr.sin_addr.s_addr,str,sizeof(str)),
-        		ntohs(caddr.sin_port));
+      printf("accept from %s at PORT %d\n",
+        			inet_ntop(AF_INET,&caddr.sin_addr.s_addr,str,sizeof(str)),
+        			ntohs(caddr.sin_port));
 	}
 	return 0;
 }

@@ -9,8 +9,8 @@
 #include <string.h>
 
 #define SERVER_PORT 33000
-//#define SERVER_IP "47.106.123.211"
-#define SERVER_IP "127.0.0.1"
+#define SERVER_IP "47.106.123.211"
+//#define SERVER_IP "127.0.0.1"
 int main()
 {
 	int lfd,ret;

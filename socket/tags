@@ -1,0 +1,60 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/744610c/
+${target}	makefile	/^${target} : ${obj}  $/;"	t
+%.o	makefile	/^%.o:%.c  $/;"	t
+.phony	makefile	/^.phony:clean  $/;"	t
+Accept	src/wrap.c	/^int Accept(int fd, struct sockaddr *addr, socklen_t *addrlen)$/;"	f	typeref:typename:int
+BACK_LOG	server_pthread.c	/^#define BACK_LOG /;"	d	file:
+Bind	src/wrap.c	/^int Bind(int fd,const struct sockaddr *addr,socklen_t addrlen)$/;"	f	typeref:typename:int
+CC	makefile	/^CC = g++  $/;"	m
+Close	src/wrap.c	/^int Close(int fd)$/;"	f	typeref:typename:int
+Connect	src/wrap.c	/^int Connect(int fd,const struct sockaddr *addr,socklen_t addrlen)$/;"	f	typeref:typename:int
+LDFLAGS	makefile	/^LDFLAGS = -L${dir_lib}  $/;"	m
+Listen	src/wrap.c	/^int Listen(int fd,int backlog)$/;"	f	typeref:typename:int
+OnClientLink	server_pthread.c	/^void *OnClientLink(void *arg)$/;"	f	typeref:typename:void *
+Read	src/wrap.c	/^ssize_t Read(int fd,void *ptr,size_t nbytes)$/;"	f	typeref:typename:ssize_t
+Readline	src/wrap.c	/^ssize_t Readline(int fd,void *vptr,size_t maxlen)$/;"	f	typeref:typename:ssize_t
+Readn	src/wrap.c	/^ssize_t Readn(int fd,void *vptr,size_t n)$/;"	f	typeref:typename:ssize_t
+SERVER_IP	client.c	/^#define SERVER_IP /;"	d	file:
+SERVER_IP	server.c	/^#define SERVER_IP /;"	d	file:
+SERVER_IP	tmp/server_fork.c	/^#define SERVER_IP /;"	d	file:
+SERVER_PORT	client.c	/^#define SERVER_PORT /;"	d	file:
+SERVER_PORT	server.c	/^#define SERVER_PORT /;"	d	file:
+SERVER_PORT	server_pthread.c	/^#define SERVER_PORT /;"	d	file:
+SERVER_PORT	tmp/server_fork.c	/^#define SERVER_PORT /;"	d	file:
+Socket	src/wrap.c	/^int Socket(int family,int type,int protocol)$/;"	f	typeref:typename:int
+Write	src/wrap.c	/^ssize_t Write(int fd,const void *ptr,size_t nbytes)$/;"	f	typeref:typename:ssize_t
+Writen	src/wrap.c	/^ssize_t Writen(int fd,const void *vptr,size_t n)$/;"	f	typeref:typename:ssize_t
+_WRAP_H_	include/wrap.h	/^#define _WRAP_H_$/;"	d
+addr	server_pthread.c	/^	struct sockaddr_in addr;$/;"	m	struct:s_info	typeref:struct:sockaddr_in	file:
+addr	test.c	/^   struct sockaddr_in addr;$/;"	m	struct:s_info	typeref:struct:sockaddr_in	file:
+all	makefile	/^all:$(target)$/;"	t
+alltarget	makefile	/^alltarget = $(wildcard *.c)  $/;"	m
+bin_target	makefile	/^bin_target = ${dir_bin}\/${target}  $/;"	m
+clean	makefile	/^clean:  $/;"	t
+dir_3rd	makefile	/^dir_3rd = .\/3party #第三方库的头文件放到此处  $/;"	m
+dir_bin	makefile	/^dir_bin = .\/bin #生成的文件放到此处  $/;"	m
+dir_inc	makefile	/^dir_inc = .\/include #所有头文件放到此处  $/;"	m
+dir_lib	makefile	/^dir_lib = .\/lib #第三方库文件的链接库放到此处  $/;"	m
+dir_obj	makefile	/^dir_obj = .\/obj #所有中间件文件放到此处  $/;"	m
+dir_src	makefile	/^dir_src = .\/scr #所有源文件放到此处  $/;"	m
+fd	server_pthread.c	/^	int fd;$/;"	m	struct:s_info	typeref:typename:int	file:
+fd	test.c	/^   int fd;$/;"	m	struct:s_info	typeref:typename:int	file:
+libs	makefile	/^libs= -lopencv_core -lopencv_highgui #链接库模块，使用空格隔开多个文件  $/;"	m
+main	client.c	/^int main()$/;"	f	typeref:typename:int
+main	server.c	/^int main()$/;"	f	typeref:typename:int
+main	server_pthread.c	/^int main()$/;"	f	typeref:typename:int
+main	test.c	/^int main()$/;"	f	typeref:typename:int
+main	tmp/server_fork.c	/^int main()$/;"	f	typeref:typename:int
+my_read	src/wrap.c	/^ssize_t my_read(int fd,char *ptr)$/;"	f	typeref:typename:ssize_t
+obj	makefile	/^obj = $(patsubst .\/lib\/%.o, .\/src\/%.c , $(src))  $/;"	m
+perr_exit	src/wrap.c	/^void perr_exit(const char *s)$/;"	f	typeref:typename:void
+s_info	server_pthread.c	/^struct s_info$/;"	s	file:
+s_info	test.c	/^struct s_info$/;"	s	file:
+src	makefile	/^src = $(wildcard .\/src\/*.c)   $/;"	m
+target	makefile	/^target = $(patsubst %.c, %, $(alltarget)) #生成的文件名  $/;"	m
