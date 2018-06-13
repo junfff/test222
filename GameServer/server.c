@@ -54,6 +54,7 @@ void *OnClientLink(void *arg)
       	}
 
 
+		printf("write buf length = %d\n",n);
 		//ssize_t write(int fd, const void *buf, size_t count);
 		Write(STDOUT_FILENO,buf,n);
 		Write(info->fd,buf,n);
