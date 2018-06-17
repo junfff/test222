@@ -1,0 +1,7 @@
+#!/bin/bash
+for file in ./ProtoFile/*.proto
+do
+echo $file
+protoc -I=./ProtoFile --cpp_out=./ProtoCpp $file
+sleep 3
+done
