@@ -16,7 +16,7 @@ src_main = $(wildcard ./*.c, ./*.cpp)
 obj = $(patsubst ./lib/%.o, ./src/%.c , $(src)) 
   
 alltarget = $(wildcard *.c, wildcard *.cpp)  
-target = $(patsubst %.c, %, $(alltarget)) $(patsubst %.cpp, %, $(alltarget)) #生成的文件名  
+target = $(patsubst %.cpp, %, $(alltarget)) #生成的文件名  
   
 CC = g++  
 protobuf_flags = -I$(dir_protobuf) -L$(dir_protobuflib) -lprotobuf
