@@ -20,12 +20,59 @@
 
 //2.40	2.90	3.50	39.79%	32.93%	27.28%	0.95	0.97 | 0.90 | 1.01 60 20 19
 
-enum dataType
+typedef struct odds
 {
-	p1,
-	p2
-};
-int Parse(char *buf,float fs[])
+    char  name[256];
+	float fs[100];
+}odds;
+void str_replace(char * cp, int n,const  char * str)
+{
+    int lenofstr;
+    //int i;
+    char * tmp;
+    lenofstr = strlen(str);
+    //str3比str2短，往前移动
+    if(lenofstr < n)
+    {
+        tmp = cp+n;
+        while(*tmp)
+        {
+            *(tmp-(n-lenofstr)) = *tmp; //n-lenofstr是移动的距离
+            tmp++;
+        }
+        *(tmp-(n-lenofstr)) = *tmp; //move '\0'
+    }
+    else
+      //str3比str2长，往后移动
+      if(lenofstr > n)
+      {
+          tmp = cp;
+          while(*tmp) tmp++;
+          while(tmp>=cp+n)
+          {
+              *(tmp+(lenofstr-n)) = *tmp;
+              tmp--;
+          }
+      }
+    strncpy(cp,str,lenofstr);
+}
+int replace(char *token,const char *from,const char *to)
+{
+	int count = 0;
+	//开始查找字符串str2
+    char *p = strstr(token,from);
+    while(p)
+    {
+        count++;
+        //每找到一个str2，就用str3来替换
+        str_replace(p,strlen(from),to);
+        p = p+strlen(to);
+        p = strstr(p,from);
+    }
+    printf("replace count  = %d from=(%s),to=(%s)\n",count,from,to);
+	return count;
+}
+int Parse(char *buf,odds *od)
 {
 	int index = 0;
 	//char *tmp = buf;
@@ -37,10 +84,17 @@ int Parse(char *buf,float fs[])
 	char* token = strtok_r(buf, " ",&saveptr);
     while( token != NULL )
     {
-        result = atof(token);
-        //printf( "(%s) === result:%g\n", token,result );
-
-        fs[index] = result;
+		if(index == 0)
+		{
+			strcpy(od->name,token);
+			//printf("=== od name = %s\n",token);
+		}
+		else
+		{
+        	result = atof(token);
+       		od->fs[index - 1] = result;
+        	//printf( "(%s) === result:%g\n", token,result );
+		}
     	index++;
         token = strtok_r( NULL, " ",&saveptr);
     }
@@ -48,27 +102,30 @@ int Parse(char *buf,float fs[])
 	printf("======================================\n");
 	return 0;
 }
-void Show(float fs[])
+void Show(odds *od)
 {
-	float p1,p2,p3,s1,s2,s3,fh,k1,k2,k3,b1,b2,b3;
+	float c1,c2,c3,p1,p2,p3,s1,s2,s3,fh,k1,k2,k3,b1,b2,b3;
     float bk1,bk2,bk3,pk1,pk2,pk3;
-    p1 = fs[0];
-    p2 = fs[1];
-    p3 = fs[2];
-    s1 = fs[3];
-    s2 = fs[4];
-    s3 = fs[5];
-    fh = fs[6];
-    k1 = fs[7];
-    k2 = fs[8];
-    k3 = fs[9];
-    b1 = fs[10];
-    b2 = fs[11];
-    b3 = fs[12];
+    c1 = od->fs[0];
+    c2 = od->fs[1];
+    c3 = od->fs[2];
+    p1 = od->fs[3];
+    p2 = od->fs[4];
+    p3 = od->fs[5];
+    s1 = od->fs[6];
+    s2 = od->fs[7];
+    s3 = od->fs[8];
+    fh = od->fs[9];
+    k1 = od->fs[10];
+    k2 = od->fs[11];
+    k3 = od->fs[12];
+    b1 = od->fs[13];
+    b2 = od->fs[14];
+    b3 = od->fs[15];
 
 	fh *= 100;
 
-	printf(">>>>>>>>>> p1 = %g\n}",p1);
+	printf(">>>>>>>>>>  %s: %g\t%g\t%g\t%g\t%g\t%g\t <<<<<<<<<<<<<<<<<<<\n}",od->name,c1,c2,c3,p1,p2,p3);
 	pk1 = p1*b1/100;
 	pk2 = p2*b2/100;
 	pk3 = p3*b3/100;
@@ -84,7 +141,7 @@ void Show(float fs[])
 }
 int main()
 {
-	float fs[100];
+	odds od;
 	int fd;
 	fd =open("/home/ljf/learn/kelly/bin/data.txt",O_RDONLY);
 	if(fd == -1)
@@ -104,10 +161,19 @@ int main()
     printf("read:\n%s\n",buf);
 	char *saveptr;
 	char* token = strtok_r(buf, "\n",&saveptr);
+
+    const char *tostr = " ";
+    const char *fstr1 = "	";
+    const char *fstr2 = "|";
     while( token != NULL )
     {
-    	Parse(token,fs);
-    	Show(fs);
+    	replace(token,fstr1,tostr);
+    	replace(token,fstr2,tostr);
+
+
+
+    	Parse(token,&od);
+    	Show(&od);
         token = strtok_r( NULL, "\n",&saveptr);
     }
 
