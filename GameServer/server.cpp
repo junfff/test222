@@ -20,6 +20,8 @@
 
 #include "./include/wrap.h"
 #include "./include/person.pb.h"
+namespace protobuf = google::protobuf;
+//using namespace protobufMsg;
 
 #define SERVER_PORT 33000
 #define BACK_LOG 128
@@ -54,7 +56,7 @@ void *OnClientLink(void *arg)
       	//	{
         //	buf[i] = toupper(buf[i]);
       	//}
-		std::Person p;
+		protobufMsg:: Person p;
       	//p.MergePartialFromCodedStream(buf);
 
 		//printf("write buf length = %d p id = %d name = %s email = %s\n",
