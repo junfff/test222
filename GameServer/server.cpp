@@ -57,11 +57,14 @@ void *OnClientLink(void *arg)
         //	buf[i] = toupper(buf[i]);
       	//}
 		protobufMsg:: Person p;
-      	//p.MergePartialFromCodedStream(buf);
+      	p.MergePartialFromCodedStream(buf);
+      	google::protobuf::io::CodedInputStream stream;
 
-		//printf("write buf length = %d p id = %d name = %s email = %s\n",
-		//		n,p.id,p.name,p.email);
-		//ssize_t write(int fd, const void *buf, size_t count);
+      	p.MergeFromCodedStream
+
+		printf("write buf length = %d p id = %d name = %s email = %s\n",
+				n,p.id,p.name,p.email);
+		ssize_t write(int fd, const void *buf, size_t count);
 		Write(STDOUT_FILENO,buf,n);
 		Write(info->fd,buf,n);
 
