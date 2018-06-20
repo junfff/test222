@@ -19,21 +19,23 @@
 #endif
 // @@protoc_insertion_point(includes)
 
+namespace protobufMsg {
 class PersonDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<Person>
       _instance;
 } _Person_default_instance_;
+}  // namespace protobufMsg
 namespace protobuf_person_2eproto {
 static void InitDefaultsPerson() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_Person_default_instance_;
-    new (ptr) ::Person();
+    void* ptr = &::protobufMsg::_Person_default_instance_;
+    new (ptr) ::protobufMsg::Person();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::Person::InitAsDefaultInstance();
+  ::protobufMsg::Person::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_Person =
@@ -47,20 +49,20 @@ void InitDefaults() {
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Person, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobufMsg::Person, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Person, name_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Person, id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Person, email_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobufMsg::Person, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobufMsg::Person, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobufMsg::Person, email_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::Person)},
+  { 0, -1, sizeof(::protobufMsg::Person)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_Person_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::protobufMsg::_Person_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -84,11 +86,12 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\014person.proto\"1\n\006Person\022\014\n\004name\030\001 \001(\t\022\n"
-      "\n\002id\030\002 \001(\005\022\r\n\005email\030\003 \001(\tb\006proto3"
+      "\n\014person.proto\022\013protobufMsg\"1\n\006Person\022\014\n"
+      "\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\022\r\n\005email\030\003 \001(\tb\006"
+      "proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 73);
+      descriptor, 86);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "person.proto", &protobuf_RegisterTypes);
 }
@@ -104,6 +107,7 @@ struct StaticDescriptorInitializer {
   }
 } static_descriptor_initializer;
 }  // namespace protobuf_person_2eproto
+namespace protobufMsg {
 
 // ===================================================================
 
@@ -120,7 +124,7 @@ Person::Person()
   ::google::protobuf::internal::InitSCC(
       &protobuf_person_2eproto::scc_info_Person.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Person)
+  // @@protoc_insertion_point(constructor:protobufMsg.Person)
 }
 Person::Person(const Person& from)
   : ::google::protobuf::Message(),
@@ -135,7 +139,7 @@ Person::Person(const Person& from)
     email_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.email_);
   }
   id_ = from.id_;
-  // @@protoc_insertion_point(copy_constructor:Person)
+  // @@protoc_insertion_point(copy_constructor:protobufMsg.Person)
 }
 
 void Person::SharedCtor() {
@@ -145,7 +149,7 @@ void Person::SharedCtor() {
 }
 
 Person::~Person() {
-  // @@protoc_insertion_point(destructor:Person)
+  // @@protoc_insertion_point(destructor:protobufMsg.Person)
   SharedDtor();
 }
 
@@ -169,7 +173,7 @@ const Person& Person::default_instance() {
 
 
 void Person::Clear() {
-// @@protoc_insertion_point(message_clear_start:Person)
+// @@protoc_insertion_point(message_clear_start:protobufMsg.Person)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -184,7 +188,7 @@ bool Person::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Person)
+  // @@protoc_insertion_point(parse_start:protobufMsg.Person)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -199,7 +203,7 @@ bool Person::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->name().data(), static_cast<int>(this->name().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Person.name"));
+            "protobufMsg.Person.name"));
         } else {
           goto handle_unusual;
         }
@@ -229,7 +233,7 @@ bool Person::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->email().data(), static_cast<int>(this->email().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Person.email"));
+            "protobufMsg.Person.email"));
         } else {
           goto handle_unusual;
         }
@@ -248,17 +252,17 @@ bool Person::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Person)
+  // @@protoc_insertion_point(parse_success:protobufMsg.Person)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Person)
+  // @@protoc_insertion_point(parse_failure:protobufMsg.Person)
   return false;
 #undef DO_
 }
 
 void Person::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Person)
+  // @@protoc_insertion_point(serialize_start:protobufMsg.Person)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -267,7 +271,7 @@ void Person::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), static_cast<int>(this->name().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Person.name");
+      "protobufMsg.Person.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -282,7 +286,7 @@ void Person::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->email().data(), static_cast<int>(this->email().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Person.email");
+      "protobufMsg.Person.email");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->email(), output);
   }
@@ -291,13 +295,13 @@ void Person::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:Person)
+  // @@protoc_insertion_point(serialize_end:protobufMsg.Person)
 }
 
 ::google::protobuf::uint8* Person::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:Person)
+  // @@protoc_insertion_point(serialize_to_array_start:protobufMsg.Person)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -306,7 +310,7 @@ void Person::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), static_cast<int>(this->name().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Person.name");
+      "protobufMsg.Person.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -322,7 +326,7 @@ void Person::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->email().data(), static_cast<int>(this->email().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Person.email");
+      "protobufMsg.Person.email");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->email(), target);
@@ -332,12 +336,12 @@ void Person::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:Person)
+  // @@protoc_insertion_point(serialize_to_array_end:protobufMsg.Person)
   return target;
 }
 
 size_t Person::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Person)
+// @@protoc_insertion_point(message_byte_size_start:protobufMsg.Person)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -372,22 +376,22 @@ size_t Person::ByteSizeLong() const {
 }
 
 void Person::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Person)
+// @@protoc_insertion_point(generalized_merge_from_start:protobufMsg.Person)
   GOOGLE_DCHECK_NE(&from, this);
   const Person* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const Person>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Person)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protobufMsg.Person)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Person)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protobufMsg.Person)
     MergeFrom(*source);
   }
 }
 
 void Person::MergeFrom(const Person& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Person)
+// @@protoc_insertion_point(class_specific_merge_from_start:protobufMsg.Person)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -407,14 +411,14 @@ void Person::MergeFrom(const Person& from) {
 }
 
 void Person::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Person)
+// @@protoc_insertion_point(generalized_copy_from_start:protobufMsg.Person)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Person::CopyFrom(const Person& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Person)
+// @@protoc_insertion_point(class_specific_copy_from_start:protobufMsg.Person)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -445,10 +449,11 @@ void Person::InternalSwap(Person* other) {
 
 
 // @@protoc_insertion_point(namespace_scope)
+}  // namespace protobufMsg
 namespace google {
 namespace protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::Person* Arena::CreateMaybeMessage< ::Person >(Arena* arena) {
-  return Arena::CreateInternal< ::Person >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::protobufMsg::Person* Arena::CreateMaybeMessage< ::protobufMsg::Person >(Arena* arena) {
+  return Arena::CreateInternal< ::protobufMsg::Person >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

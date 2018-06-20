@@ -7,7 +7,6 @@
 
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/stubs/port.h>
-#include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
 #include <google/protobuf/descriptor.h>
@@ -19,6 +18,7 @@
 #include "third_party/protobuf/version.h"
 #endif
 // @@protoc_insertion_point(includes)
+
 namespace ptest {
 class personDefaultTypeInternal {
  public:
@@ -27,14 +27,9 @@ class personDefaultTypeInternal {
 } _person_default_instance_;
 }  // namespace ptest
 namespace protobuf_example_2eproto {
-void InitDefaultspersonImpl() {
+static void InitDefaultsperson() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   {
     void* ptr = &::ptest::_person_default_instance_;
     new (ptr) ::ptest::person();
@@ -43,9 +38,11 @@ void InitDefaultspersonImpl() {
   ::ptest::person::InitAsDefaultInstance();
 }
 
-void InitDefaultsperson() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultspersonImpl);
+::google::protobuf::internal::SCCInfo<0> scc_info_person =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsperson}, {}};
+
+void InitDefaults() {
+  ::google::protobuf::internal::InitSCC(&scc_info_person.base);
 }
 
 ::google::protobuf::Metadata file_level_metadata[1];
@@ -70,15 +67,14 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 
 void protobuf_AssignDescriptors() {
   AddDescriptors();
-  ::google::protobuf::MessageFactory* factory = NULL;
   AssignDescriptors(
-      "example.proto", schemas, file_default_instances, TableStruct::offsets, factory,
+      "example.proto", schemas, file_default_instances, TableStruct::offsets,
       file_level_metadata, NULL, NULL);
 }
 
 void protobuf_AssignDescriptorsOnce() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
+  static ::google::protobuf::internal::once_flag once;
+  ::google::protobuf::internal::call_once(once, protobuf_AssignDescriptors);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
@@ -101,8 +97,8 @@ void AddDescriptorsImpl() {
 }
 
 void AddDescriptors() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
+  static ::google::protobuf::internal::once_flag once;
+  ::google::protobuf::internal::call_once(once, AddDescriptorsImpl);
 }
 // Force AddDescriptors() to be called at dynamic initialization time.
 struct StaticDescriptorInitializer {
@@ -125,16 +121,14 @@ const int person::kEmailFieldNumber;
 
 person::person()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_example_2eproto::InitDefaultsperson();
-  }
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_example_2eproto::scc_info_person.base);
   SharedCtor();
   // @@protoc_insertion_point(constructor:ptest.person)
 }
 person::person(const person& from)
   : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
+      _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.name().size() > 0) {
@@ -152,7 +146,6 @@ void person::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   email_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   id_ = 0;
-  _cached_size_ = 0;
 }
 
 person::~person() {
@@ -166,9 +159,7 @@ void person::SharedDtor() {
 }
 
 void person::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  _cached_size_.Set(size);
 }
 const ::google::protobuf::Descriptor* person::descriptor() {
   ::protobuf_example_2eproto::protobuf_AssignDescriptorsOnce();
@@ -176,17 +167,10 @@ const ::google::protobuf::Descriptor* person::descriptor() {
 }
 
 const person& person::default_instance() {
-  ::protobuf_example_2eproto::InitDefaultsperson();
+  ::google::protobuf::internal::InitSCC(&protobuf_example_2eproto::scc_info_person.base);
   return *internal_default_instance();
 }
 
-person* person::New(::google::protobuf::Arena* arena) const {
-  person* n = new person;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
 
 void person::Clear() {
 // @@protoc_insertion_point(message_clear_start:ptest.person)
@@ -206,7 +190,7 @@ bool person::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:ptest.person)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
@@ -387,9 +371,7 @@ size_t person::ByteSizeLong() const {
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  SetCachedSize(cached_size);
   return total_size;
 }
 
@@ -452,11 +434,12 @@ void person::Swap(person* other) {
 }
 void person::InternalSwap(person* other) {
   using std::swap;
-  name_.Swap(&other->name_);
-  email_.Swap(&other->email_);
+  name_.Swap(&other->name_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  email_.Swap(&other->email_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   swap(id_, other->id_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata person::GetMetadata() const {
@@ -467,5 +450,12 @@ void person::InternalSwap(person* other) {
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace ptest
+namespace google {
+namespace protobuf {
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::ptest::person* Arena::CreateMaybeMessage< ::ptest::person >(Arena* arena) {
+  return Arena::CreateInternal< ::ptest::person >(arena);
+}
+}  // namespace protobuf
+}  // namespace google
 
 // @@protoc_insertion_point(global_scope)
