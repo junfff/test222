@@ -58,8 +58,6 @@ void *OnClientLink(void *arg)
         //	buf[i] = toupper(buf[i]);
       	//}
 		protobufMsg:: Person p;
-      	//p.MergePartialFromCodedStream(buf);
-      	//google::protobuf::io::CodedInputStream stream;
 
       	p.ParseFromString(buf);
 
@@ -68,11 +66,15 @@ void *OnClientLink(void *arg)
 		cout << "name = " << p.name() << "\t";
 		cout << "email = " << p.email() << "\t" << endl;
 
+		p.set_id(p.id() + 100);
 
-		//printf("write buf length = %d p id = %d name = %s email = %s\n",n,p.id(),p.name().c_str,p.email().c_str);
-		ssize_t write(int fd, const void *buf, size_t count);
-		Write(STDOUT_FILENO,buf,n);
-		Write(info->fd,buf,n);
+		//Write(STDOUT_FILENO,buf,n);
+
+		string newstr = p.SerializeAsString();
+
+		Write(info->fd,newstr.c_str(),newstr.length());
+
+		cout << "send msg " << newstr.c_str() << "length: " << newstr.length()  << endl;
 
 	}
 	//int close(int fd);
