@@ -21,7 +21,8 @@
 #include "./include/wrap.h"
 #include "./include/person.pb.h"
 namespace protobuf = google::protobuf;
-//using namespace protobufMsg;
+using namespace protobufMsg;
+using namespace std;
 
 #define SERVER_PORT 33000
 #define BACK_LOG 128
@@ -57,13 +58,18 @@ void *OnClientLink(void *arg)
         //	buf[i] = toupper(buf[i]);
       	//}
 		protobufMsg:: Person p;
-      	p.MergePartialFromCodedStream(buf);
-      	google::protobuf::io::CodedInputStream stream;
+      	//p.MergePartialFromCodedStream(buf);
+      	//google::protobuf::io::CodedInputStream stream;
 
-      	p.MergeFromCodedStream
+      	p.ParseFromString(buf);
 
-		printf("write buf length = %d p id = %d name = %s email = %s\n",
-				n,p.id,p.name,p.email);
+		cout << "write buf length = " << n << "\t";
+		cout << "id = " << p.id() << "\t";
+		cout << "name = " << p.name() << "\t";
+		cout << "email = " << p.email() << "\t" << endl;
+
+
+		//printf("write buf length = %d p id = %d name = %s email = %s\n",n,p.id(),p.name().c_str,p.email().c_str);
 		ssize_t write(int fd, const void *buf, size_t count);
 		Write(STDOUT_FILENO,buf,n);
 		Write(info->fd,buf,n);
