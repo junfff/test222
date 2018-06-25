@@ -20,6 +20,10 @@
 
 #include "./include/wrap.h"
 #include "./include/person.pb.h"
+#include "./include/MarshalEndian.h"
+#include <list>
+#include "BaseMessage.h"
+
 namespace protobuf = google::protobuf;
 using namespace protobufMsg;
 using namespace std;
@@ -57,25 +61,33 @@ void *OnClientLink(void *arg)
       	//	{
         //	buf[i] = toupper(buf[i]);
       	//}
-		protobufMsg:: Person p;
 
-      	p.ParseFromString(buf);
 
-		cout << "write buf length = " << n << "\t";
-		cout << "id = " << p.id() << "\t";
-		cout << "name = " << p.name() << "\t";
-		cout << "email = " << p.email() << "\t" << endl;
+		//protobufMsg:: Person p;
 
-		p.set_id(p.id() + 100);
+      	//p.ParseFromString(buf);
+
+		//cout << "write buf length = " << n << "\t";
+		//cout << "id = " << p.id() << "\t";
+		//cout << "name = " << p.name() << "\t";
+		//cout << "email = " << p.email() << "\t" << endl;
+
+		//p.set_id(p.id() + 100);
 
 		//Write(STDOUT_FILENO,buf,n);
 
-		string newstr = p.SerializeAsString();
+		//string newstr = p.SerializeAsString();
 
-		Write(info->fd,newstr.c_str(),newstr.length());
+		//Write(info->fd,newstr.c_str(),newstr.length());
 
-		cout << "send msg " << newstr.c_str() << "length: " << newstr.length()  << endl;
+		//cout << "send msg " << newstr.c_str() << "length: " << newstr.length()  << endl;
 
+		IMarshalEndian *ime = new MarshalEndian();
+
+		list<BaseMessage> ls =  ime->Decode(buf,n);
+
+		Write(info->fd,buf,n);
+		cout << "send msg:" << buf << "\t buf length:" << n << endl;
 	}
 	//int close(int fd);
 	Close(info->fd);
