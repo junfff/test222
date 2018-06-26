@@ -36,7 +36,7 @@ set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 " 自动补全配置  
 set completeopt=longest,menu    "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)  
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif "离开插入模式后自动关闭预览窗口  
-inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"    "回车即选中当前项  
+"inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"    "回车即选中当前项  
 "上下左右键的行为 会显示其他信息  
 inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"  
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"  
@@ -67,12 +67,28 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 0
 let g:clang_user_options='|| exit 0'  
 nnoremap <leader>jh :YcmCompleter GoToDefinitionElseDeclaration<CR> " 跳转到定义处  
 nnoremap <leader>jk :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>jj :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>jj :YcmCompleter GoToDefinition<CR> 
+nnoremap <leader>ff :YcmCompleter YcmQuickFixOpened<CR> 
 " #####YouCompleteMe Configure   
 
+let g:ycm_error_symbol = '!!'
+let g:ycm_warning_symbol = '??'
+let g:ycm_semantic_triggers =  {
+  \   'c' : ['->', '.','re![_a-zA-z0-9]'],
+  \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+  \             're!\[.*\]\s'],
+  \   'ocaml' : ['.', '#'],
+  \   'cpp,objcpp' : ['->', '.', '::','re![_a-zA-Z0-9]'],
+  \   'perl' : ['->'],
+  \   'php' : ['->', '::'],
+  \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+  \   'ruby' : ['.', '::'],
+  \   'lua' : ['.', ':'],
+  \   'erlang' : [':'],
+  \ }
 
-
-
+"右边的数字是补全菜单的高度，自己定义"
+set pumheight=10
 
 
 
