@@ -74,7 +74,6 @@ int threadpool_add(threadpool_t *pool,void *(*function)(void *arg),void *arg)
 	pool->queue_size++;
 
 
-	printf("threadpool add signal thread >>>>>>>>>>>>> \n");
 	pthread_cond_signal(&(pool->queue_not_empty));  //唤醒一个 等待任务的线程
 	pthread_mutex_unlock(&(pool->lock));
 
@@ -83,7 +82,6 @@ int threadpool_add(threadpool_t *pool,void *(*function)(void *arg),void *arg)
 }
 void *threadpool_thread(void *arg)
 {
-	printf("threadpool thread start >>>>>>>>>>> \n");
 	threadpool_t *pool = (threadpool_t *)arg;
 	threadpool_task_t task;
 
@@ -93,7 +91,7 @@ void *threadpool_thread(void *arg)
 
 		while((pool->queue_size == 0) && (!pool->shutdown))  // 无任务时 阻塞 条件变量， 有任务时 跳过 while  
 		{
-			printf("thread 0x%x is waiting\n",(unsigned int)pthread_self());
+			printf("thread 0x%x is waiting...\n",(unsigned int)pthread_self());
 			pthread_cond_wait(&(pool->queue_not_empty), &(pool->lock));
 
 			if(pool->wait_exit_thr_num > 0)
@@ -129,7 +127,7 @@ void *threadpool_thread(void *arg)
 		pthread_mutex_unlock(&(pool->lock));
 
 
-		printf("thread 0x%x start working\n",(unsigned int)pthread_self());
+		printf("thread 0x%x working starting...\n",(unsigned int)pthread_self());
 		pthread_mutex_lock(&(pool->thread_counter));
 		pool->busy_thr_num++;
 		pthread_mutex_unlock(&(pool->thread_counter));
@@ -138,7 +136,7 @@ void *threadpool_thread(void *arg)
 
 
 
-		printf("thread 0x%x end working\n",(unsigned int)pthread_self());
+		printf("thread 0x%x working end...\n",(unsigned int)pthread_self());
 		pthread_mutex_lock(&(pool->thread_counter));
 		pool->busy_thr_num--;
 		pthread_mutex_unlock(&(pool->thread_counter));
@@ -301,6 +299,7 @@ threadpool_t *threadpool_create(int min_thr_num,int max_thr_num,int queue_max_si
 			printf("malloc task_queue fail\n");
 			break;
 		}
+		memset(pool->task_queue,0,sizeof(threadpool_task_t)*queue_max_size);
 
 
 		if(pthread_mutex_init(&(pool->lock),NULL) != 0
@@ -332,7 +331,7 @@ threadpool_t *threadpool_create(int min_thr_num,int max_thr_num,int queue_max_si
 void *process_event(void *arg)
 {
 	struct myevent_s *ev = (struct myevent_s *)arg;
-	printf("process event fd:%d,events:%d\n",ev->fd,ev->events);
+	//printf("process event fd:%d,events:%d\n",ev->fd,ev->events);
 	ev->call_back(ev->fd,ev->events,ev->arg);
 
 	return NULL;

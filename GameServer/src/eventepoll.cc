@@ -42,7 +42,7 @@ void eventadd(int efd,int events,struct myevent_s *ev)
 	struct epoll_event epv = {0,{0}};
 	int op;
 	epv.data.ptr = ev;
-	epv.events = ev->events = events;
+	epv.events = ev->events = events | EPOLLET;
 
 	if(ev->status == 1)
 	{
@@ -61,7 +61,7 @@ void eventadd(int efd,int events,struct myevent_s *ev)
 	}
 	else
 	{
-		printf("event add OK [fd=%d] , op=%d, events[%d]\n",ev->fd,op,events);
+		//printf("event add OK [fd=%d] , op=%d, events[%d]\n",ev->fd,op,events);
 	}
 
 }
@@ -117,7 +117,7 @@ void recvdata(int fd,int events, void *arg)
 	{
 		ev->len = len;
 		ev->buf[len] = '\0';
-		printf("C[%d]:%s\n",fd,ev->buf);
+		printf("C[%d]:%s",fd,ev->buf);
 
 		ev->fd = fd;
 		ev->call_back = senddata;
@@ -136,8 +136,15 @@ void recvdata(int fd,int events, void *arg)
 	}
 	else
 	{
-		close(ev->fd);
-		printf("recv[fd=%d] error[%d]:%s\n",fd,errno,strerror(errno));
+		if(errno == EINTR || errno == EWOULDBLOCK || errno == EAGAIN)
+		{//正常
+			printf("recv[fd=%d] len<0正常 [%d]:%s\n",fd,errno,strerror(errno));
+		}
+		else
+		{
+			close(ev->fd);
+			printf("recv[fd=%d] error[%d]:%s\n",fd,errno,strerror(errno));
+		}
 	}
 }
 
@@ -200,6 +207,9 @@ void initlistensocket(int efd,short port)
 
 	struct sockaddr_in sin;
 	memset(&sin,0,sizeof(sin));
+
+	int opt = 1;
+	setsockopt(lfd,SOL_SOCKET,SO_REUSEADDR,&opt,sizeof(opt));
 
 	sin.sin_family = AF_INET;
 	sin.sin_addr.s_addr = INADDR_ANY;
@@ -270,23 +280,14 @@ int Epoll_Start(int argc, char *argv[],threadpool_t *thp)
 
 			if((events[i].events & EPOLLIN) && (ev->events & EPOLLIN))
 			{
-				struct myevent_s *myev = (struct myevent_s *)malloc(sizeof(struct myevent_s));
-				//memcpy(myev,ev,sizeof(myevent_s));
-				myev->fd = ev->fd;
-				myev->call_back = ev->call_back;
-				myev->events = events[i].events;
-				printf("threadpool add fd:%d,evnets:%d\n",myev->fd,myev->events);
-				threadpool_add(thp,process_event,(void *)myev);
+				ev->events = events[i].events;
+				threadpool_add(thp,process_event,(void *)ev);
 				//ev->call_back(ev->fd,events[i].events,ev->arg);
 			}
 			if((events[i].events & EPOLLOUT) && (ev->events & EPOLLOUT))
 			{
-				struct myevent_s *myev = (struct myevent_s *)malloc(sizeof(struct myevent_s));
-				//memcpy(myev,ev,sizeof(myevent_s));
-				myev->fd = ev->fd;
-				myev->call_back = ev->call_back;
-				myev->events = events[i].events;
-				threadpool_add(thp,process_event,(void *)myev);
+				ev->events = events[i].events;
+				threadpool_add(thp,process_event,(void *)ev);
 				//ev->call_back(ev->fd,events[i].events,ev->arg);
 			}
 		}
