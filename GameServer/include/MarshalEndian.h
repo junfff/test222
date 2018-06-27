@@ -30,9 +30,9 @@ class MarshalEndian :implements IMarshalEndian
 		//默认是utf8的编码格式  
  		//UTF8Encoding utf8;
 		//包头1  
-		const short t1 = 0x55;
+		const short t1 = 0x28;
 		//包头2  
-		const short t2 = 0xAA;
+		const short t2 = 0x06;
 		//字节数常量 两个包头4个字节，一个消息id4个字节，封装消息长度 int32 4个字节  
 		const int ConstLenght = 8;
 

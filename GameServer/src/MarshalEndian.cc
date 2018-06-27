@@ -10,8 +10,12 @@
 #include <Interface.h>
 #include "MarshalEndian.h"
 #include "BaseMessage.h"
-#include "string"
+#include "string.h"
 #include <fstream>
+#include <assert.h>
+#include "../include/person.pb.h"
+
+using namespace protobufMsg;
 using namespace std;
 // 消息解析器  
 
@@ -51,7 +55,7 @@ int MarshalEndian:: Encode(BaseMessage* msg,char *buf)
     bw.write((char *)&t2,sizeof(t2));
 	//#pragma endregion
 
-	int len = 0;
+	short len = 0;
 	//#region 包协议  
     if (msg != NULL)
     {
@@ -77,7 +81,15 @@ void MarshalEndian::  handleDataUint(char *dataUnit, int size)
   	memcpy(&MsgID,dataUnit,4);
   	memcpy(buf,dataUnit + 4,size - 4);
 
-  	printf("recv msgID : %d\n",MsgID);
+  	printf(">>>>>>>>>>>>  recv msgID : %d\n",MsgID);
+	protobufMsg:: Person p;
+
+    p.ParseFromString(buf);
+
+	cout << "write buf length = " << size << "\t";
+	cout << "id = " << p.id() << "\t";
+	cout << "name = " << p.name() << "\t";
+	cout << "email = " << p.email() << "\t" << endl;
 }
 int MarshalEndian:: Decode(char *server_reply, int readSize)
 {
