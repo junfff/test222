@@ -18,7 +18,8 @@ class MarshalEndian :implements IMarshalEndian
 		void Initialize() override;
 		void Dispose() override;  
 		int Encode(BaseMessage *msg,char *buf) override;  
-		int Decode(char *buff, int len,list<BaseMessage> ls) override;
+		int Decode(char *buff, int len) override;
+		void handleDataUint(char *dataUnit, int size) override;
 
 	protected:
 		void Dispose(bool flag1);
@@ -37,4 +38,14 @@ class MarshalEndian :implements IMarshalEndian
 
 		//public IRemote Context { get; set; }
 
+
+    	//char server_reply[5000];
+
+    	//Create socket
+    	//下面的AF_INET也可以用PF_INET。AF_INET主要是用于互联网地址，而 PF_INET 是协议相关，通常是sockets和端口
+    	int rcv_size = 4*640000;    /* 接收缓冲区大小为4*640K */
+
+    	char recbuff[800000];//接收的数据缓存大小，这是我自己设置的区域，为了存放报文
+    	unsigned long buffsize = 0 ;
+    	//buffsize=0//该值标示当前缓存数据的大小，及下一帧数据存放的地址
 };
