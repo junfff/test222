@@ -21,5 +21,6 @@ Interface IMarshalEndian
 		virtual	void Initialize() = 0;  
 		virtual	void Dispose() = 0;  
 		virtual	int Encode(BaseMessage *msg,char *buf) = 0;  
-		virtual int Decode(char *buff, int len,list<BaseMessage> ls) = 0;
+		virtual int Decode(char *buff, int len) = 0;
+		virtual void handleDataUint(char *dataUnit, int size) = 0;
 };
