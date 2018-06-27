@@ -84,10 +84,10 @@ void *OnClientLink(void *arg)
 
 		IMarshalEndian *ime = new MarshalEndian();
 
-		list<BaseMessage> ls =  ime->Decode(buf,n);
+		int ret =  ime->Decode(buf,n);
 
 		Write(info->fd,buf,n);
-		cout << "send msg:" << buf << "\t buf length:" << n << endl;
+		cout << "send msg:" << buf << "\t buf length:" << n << "ret:" << ret << endl;
 	}
 	//int close(int fd);
 	Close(info->fd);
