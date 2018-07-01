@@ -14,7 +14,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-
+#include <time.h>
 
 //       int open(const char *pathname, int flags);
 
@@ -69,7 +69,7 @@ int replace(char *token,const char *from,const char *to)
         p = p+strlen(to);
         p = strstr(p,from);
     }
-    printf("replace count  = %d from=(%s),to=(%s)\n",count,from,to);
+    //printf("replace count  = %d from=(%s),to=(%s)\n",count,from,to);
 	return count;
 }
 int Parse(char *buf,odds *od)
@@ -125,7 +125,14 @@ void Show(odds *od)
 
 	fh *= 100;
 
-	printf(">>>>>>>>>>  %s: %g\t%g\t%g\t%g\t%g\t%g\t <<<<<<<<<<<<<<<<<<<\n}",od->name,c1,c2,c3,p1,p2,p3);
+    time_t t;
+	struct tm *timeinfo;  //结构体
+	time(&t);
+	timeinfo = localtime(&t);
+	printf("时间：%s\n", asctime(timeinfo));  //以字符串形式输出localtime本地时间
+	printf(">>>>>>>>>>  %s:  <<<<<<<<<<<<<<<<<<<\n",od->name);
+	printf(">>>>>>>>>>  %g     %g     %g\t <<<<<<<<<<<<<<<<<<<\n",c1,c2,c3);
+	printf(">>>>>>>>>>  %g     %g     %g\t <<<<<<<<<<<<<<<<<<<\n",p1,p2,p3);
 	pk1 = p1*b1/100;
 	pk2 = p2*b2/100;
 	pk3 = p3*b3/100;
@@ -158,6 +165,8 @@ int main()
     	perror("read error");
     	exit(1);
     }
+
+
     printf("read:\n%s\n",buf);
 	char *saveptr;
 	char* token = strtok_r(buf, "\n",&saveptr);
