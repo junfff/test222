@@ -26,3 +26,12 @@ then
 fi
 read YOU_INPUT
 echo "you input: $YOU_INPUT"
+
+case "$YOU_INPUT" in
+	yse|y|YES)
+		echo "you say yes !!!";;
+	[nN-nB]*)
+		echo "you say no !!!";;
+	*)
+		echo "what you say ????";;
+esac
