@@ -9,6 +9,7 @@
  ================================================================*/
 //#include "./include/eventepoll.h"
 #include "./include/threadpool.h"
+#include "./include/myevents.h"
 #include <string.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -16,9 +17,6 @@
 #include <fcntl.h>
 #include <assert.h>
 
-#define SERV_PORT 33000
-#define LISTEN_BACKLOG 32
-threadpool_t *thp;
 
 evutil_socket_t initlistensocket(int port)
 {
@@ -55,22 +53,12 @@ evutil_socket_t initlistensocket(int port)
     return lfd;
 }
 
-void read_cb(struct bufferevent *bev,void *ctx)
+
+void read_cb(struct bufferevent *bev,void *arg)
 {
- 	//threadpool_add(thp,process_event,(void *)bev);
-
-#define MAX_LINE    256
-    char line[MAX_LINE+1];
-    int n;
-    evutil_socket_t fd = bufferevent_getfd(bev);
-
-    while (n = bufferevent_read(bev, line, MAX_LINE), n > 0) {
-        line[n] = '\0';
-        printf("fd=%u, read line: %s\n", fd, line);
-
-        bufferevent_write(bev, line, n);
-    }
-
+	myevent_s *ev = (myevent_s *)arg;
+	eventset(ev,readdata,arg);
+ 	threadpool_add(thp,process_event,(void *)ev);
 }
 
 void write_cb(struct bufferevent *bev,void *ctx)
@@ -93,7 +81,6 @@ void error_cb(struct bufferevent *bev, short event, void *ctx)
 
 }
 
-
 void do_accept(evutil_socket_t listener, short event, void *arg)
 {
     struct event_base *base = (struct event_base *)arg;
@@ -112,8 +99,23 @@ void do_accept(evutil_socket_t listener, short event, void *arg)
 
     printf("ACCEPT: fd = %u\n", fd);
 
+
     struct bufferevent *bev = bufferevent_socket_new(base, fd, BEV_OPT_CLOSE_ON_FREE);
-    bufferevent_setcb(bev, read_cb, write_cb, error_cb, arg);
+	if(NULL == bev)
+	{
+		printf("bufferevent new error!!");
+		close(fd);
+		return;
+	}
+	myevent_s *mev = myevent_new(fd,bev);
+	if(NULL == mev)
+	{
+		printf("myevent new error!!");
+		close(fd);
+		bufferevent_free(bev);
+		return;
+	}
+    bufferevent_setcb(bev, read_cb, write_cb, error_cb, mev);
     bufferevent_enable(bev, EV_READ|EV_WRITE|EV_PERSIST);
 }
 
@@ -123,6 +125,7 @@ int main(int argc,char *argv[])
 	printf("pool inited\n");
 
     //Epoll_Start(argc,argv,thp);
+
 	event_enable_debug_mode();
     struct event_base *base = event_init();
     assert(base != NULL);
