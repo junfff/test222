@@ -16,6 +16,8 @@
 #include <event.h>
 #include <fcntl.h>
 #include <assert.h>
+#include <event2/thread.h>
+
 
 
 evutil_socket_t initlistensocket(int port)
@@ -56,13 +58,27 @@ evutil_socket_t initlistensocket(int port)
 
 void read_cb(struct bufferevent *bev,void *arg)
 {
+	printf("start read cb \n");
 	myevent_s *ev = (myevent_s *)arg;
-	eventset(ev,readdata,arg);
- 	threadpool_add(thp,process_event,(void *)ev);
+	eventset(ev,recv_data,arg);
+
+	if(bev->input == NULL)
+	{
+		printf("read cb input is null >>>>>>>> \n");
+	}
+	else
+	{
+		printf("read cb input not null !!!!!!!!!!!!!!!!!!!!!\n");
+	}
+ 	threadpool_add(thp,process_event,(void *)arg);
 }
 
-void write_cb(struct bufferevent *bev,void *ctx)
+void write_cb(struct bufferevent *bev,void *arg)
 {
+	printf("start write cb\n");
+	myevent_s *ev = (myevent_s *)arg;
+	eventset(ev,send_data,arg);
+ 	threadpool_add(thp,process_event,(void *)arg);
 }
 void error_cb(struct bufferevent *bev, short event, void *ctx)
 {
@@ -97,10 +113,9 @@ void do_accept(evutil_socket_t listener, short event, void *arg)
         return;
     }
 
-    printf("ACCEPT: fd = %u\n", fd);
+	evutil_make_socket_nonblocking(fd);
 
-
-    struct bufferevent *bev = bufferevent_socket_new(base, fd, BEV_OPT_CLOSE_ON_FREE);
+    struct bufferevent *bev = bufferevent_socket_new(base, fd, BEV_OPT_THREADSAFE | BEV_OPT_CLOSE_ON_FREE);
 	if(NULL == bev)
 	{
 		printf("bufferevent new error!!");
@@ -115,8 +130,11 @@ void do_accept(evutil_socket_t listener, short event, void *arg)
 		bufferevent_free(bev);
 		return;
 	}
+	evbuffer_enable_locking(bev->output,NULL);
+	evbuffer_enable_locking(bev->input,NULL);
     bufferevent_setcb(bev, read_cb, write_cb, error_cb, mev);
-    bufferevent_enable(bev, EV_READ|EV_WRITE|EV_PERSIST);
+    bufferevent_enable(bev, EV_PERSIST | EV_READ);
+    printf("ACCEPT: fd = %u\n", fd);
 }
 
 int main(int argc,char *argv[])
@@ -126,6 +144,7 @@ int main(int argc,char *argv[])
 
     //Epoll_Start(argc,argv,thp);
 
+	evthread_use_pthreads();
 	event_enable_debug_mode();
     struct event_base *base = event_init();
     assert(base != NULL);
