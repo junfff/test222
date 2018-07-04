@@ -437,7 +437,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/ljf/Downloads/libevent-2.1.8-stable'
+ac_pwd='/home/ljf/learn/libevent-2.1.8-stable'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'
@@ -939,12 +939,12 @@ S["mkdir_p"]="$(MKDIR_P)"
 S["MKDIR_P"]="/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]="strip"
-S["install_sh"]="${SHELL} /home/ljf/Downloads/libevent-2.1.8-stable/install-sh"
-S["MAKEINFO"]="${SHELL} /home/ljf/Downloads/libevent-2.1.8-stable/missing makeinfo"
-S["AUTOHEADER"]="${SHELL} /home/ljf/Downloads/libevent-2.1.8-stable/missing autoheader"
-S["AUTOMAKE"]="${SHELL} /home/ljf/Downloads/libevent-2.1.8-stable/missing automake-1.15"
-S["AUTOCONF"]="${SHELL} /home/ljf/Downloads/libevent-2.1.8-stable/missing autoconf"
-S["ACLOCAL"]="${SHELL} /home/ljf/Downloads/libevent-2.1.8-stable/missing aclocal-1.15"
+S["install_sh"]="${SHELL} /home/ljf/learn/libevent-2.1.8-stable/install-sh"
+S["MAKEINFO"]="${SHELL} /home/ljf/learn/libevent-2.1.8-stable/missing makeinfo"
+S["AUTOHEADER"]="${SHELL} /home/ljf/learn/libevent-2.1.8-stable/missing autoheader"
+S["AUTOMAKE"]="${SHELL} /home/ljf/learn/libevent-2.1.8-stable/missing automake-1.15"
+S["AUTOCONF"]="${SHELL} /home/ljf/learn/libevent-2.1.8-stable/missing autoconf"
+S["ACLOCAL"]="${SHELL} /home/ljf/learn/libevent-2.1.8-stable/missing aclocal-1.15"
 S["VERSION"]="2.1.8-stable"
 S["PACKAGE"]="libevent"
 S["CYGPATH_W"]="echo"
