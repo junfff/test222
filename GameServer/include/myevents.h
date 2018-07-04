@@ -11,7 +11,6 @@
 
 #pragma once
 #include "threadpool.h"
-#include <event.h>
 
 #define MAX_EVENTS 1024
 #define BUFLEN 4096
@@ -23,7 +22,7 @@ struct myevent_s
 	int fd;
 	int events;
 	void *arg;
-	void (*call_back)(struct bufferevent *bev,void *arg);
+	void (*call_back)(void *arg);
 	int status;
 	char buf[BUFLEN];
 	int len;
@@ -31,11 +30,11 @@ struct myevent_s
 };
 
 extern struct event_base *g_base;
-extern struct myevent_s g_events[MAX_EVENTS+1];
 extern  threadpool_t *thp;
+extern struct myevent_s g_events[MAX_EVENTS+1];//声明
 
-void readdata(struct bufferevent *bev,void *ctx);
-void writedata(struct bufferevent *bev,void *ctx);
+void recv_data(void *arg);
+void send_data(void *arg);
 
 myevent_s *myevent_new(int fd,void *arg);
-void eventset(struct myevent_s *ev,void (*call_back)(struct bufferevent *,void *),void *arg);
+void eventset(struct myevent_s *ev,void (*call_back)(void *),void *arg);

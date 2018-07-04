@@ -17,7 +17,8 @@
 #include <signal.h>
 #include <errno.h>
 #include "../include/threadpool.h"
-#include "../include/eventepoll.h"
+#include "../include/myevents.h"
+#include <event.h>
 
 
 int threadpool_add_threadnum(threadpool_t *pool)
@@ -327,12 +328,11 @@ threadpool_t *threadpool_create(int min_thr_num,int max_thr_num,int queue_max_si
 	return NULL;
 }
 
-
 void *process_event(void *arg)
 {
 	struct myevent_s *ev = (struct myevent_s *)arg;
-	//printf("process event fd:%d,events:%d\n",ev->fd,ev->events);
-	ev->call_back(ev->fd,ev->events,ev->arg);
+	printf("process event fd:%d,events:%d , callback:%p,arg:%p\n",ev->fd,ev->events,ev->call_back,ev->arg);
+	ev->call_back(ev->arg);
 
 	return NULL;
 }

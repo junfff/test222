@@ -25,9 +25,10 @@
 #include "../include/myevents.h"
 
 struct event_base *g_base; 
-struct myevent_s g_events[MAX_EVENTS+1];
 threadpool_t *thp;
-void eventset(struct myevent_s *ev,void (*call_back)(struct bufferevent *,void *),void *arg)
+struct myevent_s g_events[MAX_EVENTS+1];//定义
+
+void eventset(struct myevent_s *ev,void (*call_back)(void *),void *arg)
 {
     ev->call_back = call_back;
     ev->arg = arg;
@@ -52,26 +53,66 @@ myevent_s *myevent_new(int fd,void * arg)
 
 	struct myevent_s *ev = &g_events[i];
 	ev->fd = fd;
-    ev->call_back = NULL;
+    ev->call_back = recv_data;
     ev->events = 0;
     ev->arg = arg;
-    ev->status = 0;
+    ev->status = 1;
     memset(ev->buf,0,sizeof(ev->buf));
     ev->len = 0;
     ev->last_active = time(NULL);
 
     return ev;
 }
-void readdata(struct bufferevent *bev,void *arg)
+void recv_data(void *arg)
 {
+	printf("recvttt>>>>>>>>\n");
+	printf("start recv data !!! >>>\n");
+	struct myevent_s *ev = (struct myevent_s *)arg;
+	struct bufferevent *bev = (struct bufferevent *)ev->arg;
+	bufferevent_lock(bev);
     char line[MAX_LINE+1];
     int n;
     evutil_socket_t fd = bufferevent_getfd(bev);
 
-    while (n = bufferevent_read(bev, line, MAX_LINE), n > 0) {
+	if(bev->input == NULL)
+	{
+		printf("input is null >>\n");
+	}
+	return;
+	evbuffer_lock(bev->input);
+	struct evbuffer *evbuf = bufferevent_get_input(bev);
+	int ret = evbuffer_remove(evbuf,ev->buf,BUFSIZ);
+	if(ret == -1)
+	{
+		printf("evbuffer_remove error!!\n");
+		return;
+	}
+    printf("fd=%u, read line: %s\n", fd, ev->buf);
+	ev->len = strlen(ev->buf);
+	bufferevent_disable(bev,EV_READ);
+    bufferevent_enable(bev,EV_WRITE);
+    evbuffer_unlock(bev->input);
+    bufferevent_unlock(bev);
+	return;
+    while ((n = bufferevent_read(bev, line, MAX_LINE)) > 0)
+    {
         line[n] = '\0';
-        printf("fd=%u, read line: %s\n", fd, line);
 
-        bufferevent_write(bev, line, n);
+		strcpy(ev->buf,line);
+
+        //bufferevent_write(bev, line, n);
     }
+}
+void send_data(void *arg)
+{
+	printf("start send data !!>>>");
+	struct myevent_s *ev = (struct myevent_s *)arg;
+	struct bufferevent *bev = (struct bufferevent *)ev->arg;
+
+    bufferevent_write(bev, ev->buf, ev->len);
+    evutil_socket_t fd = bufferevent_getfd(bev);
+	printf("on send data fd:%d,len:%d\n",fd,ev->len);
+
+	bufferevent_disable(bev,EV_WRITE);
+    bufferevent_enable(bev,EV_READ);
 }
