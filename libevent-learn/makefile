@@ -8,19 +8,21 @@ dir_lib = ./lib #第三方库文件的链接库放到此处
 dir_protobuf = /usr/local/protobuf/include
 dir_protobuflib = /usr/local/protobuf/lib
 dir_usrlocal = /usr/local/include
+dir_usrinclude = /usr/include
 dir_usrlib = /usr/local/lib 
 
 .PHONY : clean all 
-src = $(wildcard ./src/*.c, ./src/*.cc)   
-src_main = $(wildcard ./*.c, ./*.cpp)   
-obj = $(patsubst ./lib/%.o, ./src/%.c , $(src)) 
+	src = $(wildcard ./src/*.c, ./src/*.cc)   
+	src_main = $(wildcard ./*.c, ./*.cpp)   
+	obj = $(patsubst ./lib/%.o, ./src/%.c , $(src)) 
 
 alltarget = $(wildcard *.c, wildcard *.cpp)  
 target = $(patsubst %.cpp, %, $(alltarget)) #生成的文件名  
 
 CC = g++  
-protobuf_flags = -I$(dir_protobuf) -L$(dir_protobuflib) -lprotobuf -I$(dir_usrlocal) -I$(dir_usrlib)
-CXXFLAGS = -g -Wall -I$(dir_inc) -I$(dir_3rd) -pthread -I$(dir_protobuf) -L$(dir_protobuflib) -lprotobuf -levent
+libevent = -I/usr/include -L/usr/lib -levnet
+protobuf = -I$(dir_protobuf) -L$(dir_protobuflib) -lprotobuf
+CXXFLAGS = -g -Wall -I$(dir_inc) -pthread -levent
 LDFLAGS = -L${dir_lib}  
 libs= -lopencv_core -lopencv_highgui #链接库模块，使用空格隔开多个文件  
 
