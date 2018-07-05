@@ -59,18 +59,34 @@ evutil_socket_t initlistensocket(int port)
 void read_cb(struct bufferevent *bev,void *arg)
 {
 	printf("start read cb \n");
-	myevent_s *ev = (myevent_s *)arg;
-	eventset(ev,recv_data,arg);
-
-	if(bev->input == NULL)
+	myevent_s *ev = (myevent_s *)bev->cbarg;
+	if(ev == NULL)
 	{
-		printf("read cb input is null >>>>>>>> \n");
+		printf("bev ev is NULL!!!");
+		return;
+	}
+
+	struct evbuffer *input = bufferevent_get_input(bev);
+	if(input == NULL)
+	{
+		printf("bev input is NULL!!!");
+		return;
+	}
+	evbuffer_add_buffer(ev->buf,input);
+	if(NULL != ev->buf)
+	{
+		printf("ev buf not null !!\n");
 	}
 	else
 	{
-		printf("read cb input not null !!!!!!!!!!!!!!!!!!!!!\n");
+		printf("buf is null !!!\n");
 	}
- 	threadpool_add(thp,process_event,(void *)arg);
+	return;
+	eventset(ev, recv_data,bev);
+
+ 	threadpool_add(thp,process_event,(void *)bev);
+    // bufferevent_write(bev, line, n);
+
 }
 
 void write_cb(struct bufferevent *bev,void *arg)
@@ -93,6 +109,8 @@ void error_cb(struct bufferevent *bev, short event, void *ctx)
     else if (event & BEV_EVENT_ERROR) {
         printf("some other error\n");
     }
+
+    myevent_free(bev->cbarg);
     bufferevent_free(bev);
 
 }
@@ -130,9 +148,10 @@ void do_accept(evutil_socket_t listener, short event, void *arg)
 		bufferevent_free(bev);
 		return;
 	}
-	evbuffer_enable_locking(bev->output,NULL);
-	evbuffer_enable_locking(bev->input,NULL);
-    bufferevent_setcb(bev, read_cb, write_cb, error_cb, mev);
+	bev->cbarg = mev;
+	//evbuffer_enable_locking(bev->output,NULL);
+	//evbuffer_enable_locking(bev->input,NULL);
+    bufferevent_setcb(bev, read_cb, write_cb, error_cb, bev);
     bufferevent_enable(bev, EV_PERSIST | EV_READ);
     printf("ACCEPT: fd = %u\n", fd);
 }

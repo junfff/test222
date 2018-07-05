@@ -15,7 +15,7 @@
 #define MAX_EVENTS 1024
 #define BUFLEN 4096
 #define SERV_PORT 33000
-#define MAX_LINE    256
+//#define MAX_LINE    256
 #define LISTEN_BACKLOG 32 
 struct myevent_s
 {
@@ -24,7 +24,7 @@ struct myevent_s
 	void *arg;
 	void (*call_back)(void *arg);
 	int status;
-	char buf[BUFLEN];
+	struct evbuffer *buf;
 	int len;
 	long last_active;
 };
@@ -36,5 +36,6 @@ extern struct myevent_s g_events[MAX_EVENTS+1];//声明
 void recv_data(void *arg);
 void send_data(void *arg);
 
+void myevent_free(void *);
 myevent_s *myevent_new(int fd,void *arg);
 void eventset(struct myevent_s *ev,void (*call_back)(void *),void *arg);
