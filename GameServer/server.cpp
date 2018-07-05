@@ -55,47 +55,48 @@ evutil_socket_t initlistensocket(int port)
     return lfd;
 }
 
-
+//已经读取足够的数据
 void read_cb(struct bufferevent *bev,void *arg)
 {
-	printf("start read cb \n");
-	myevent_s *ev = (myevent_s *)bev->cbarg;
+	//printf("start read cb \n");
+	myevent_s *ev = (myevent_s *)arg;
 	if(ev == NULL)
 	{
 		printf("bev ev is NULL!!!");
 		return;
 	}
-
+	evbuffer_lock(bev->input);
 	struct evbuffer *input = bufferevent_get_input(bev);
-	if(input == NULL)
+	int ret = evbuffer_get_length(input);
+	if(ret <= 0)
 	{
-		printf("bev input is NULL!!!");
+		printf(">>>没有可读内容 ret:%d\n",ret);
 		return;
 	}
-	evbuffer_add_buffer(ev->buf,input);
-	if(NULL != ev->buf)
+	ev->len = evbuffer_remove(input,ev->buf,BUFSIZ);
+	ev->buf[ev->len] = '\0';
+	evbuffer_unlock(bev->input);
+
+
+	if(ev->len == 1 && ev->buf[0] == '\n')
 	{
-		printf("ev buf not null !!\n");
+	    ret = evbuffer_get_length(input);
+		printf(">>>len == 1 buf == /n  ret:%d\n",ret);
+		//bufferevent_flush(bev,EV_READ,BEV_NORMAL);
+		//evbuffer_drain(input,ev->len);
+		return;
 	}
-	else
-	{
-		printf("buf is null !!!\n");
-	}
-	return;
-	eventset(ev, recv_data,bev);
+	eventset(ev, recv_data,arg);
 
- 	threadpool_add(thp,process_event,(void *)bev);
-    // bufferevent_write(bev, line, n);
-
-}
-
-void write_cb(struct bufferevent *bev,void *arg)
-{
-	printf("start write cb\n");
-	myevent_s *ev = (myevent_s *)arg;
-	eventset(ev,send_data,arg);
  	threadpool_add(thp,process_event,(void *)arg);
 }
+//已经写入足够的数据
+void write_cb(struct bufferevent *bev, void *ctx)
+{
+	//printf("start write cb\n");
+	//myevent_s *ev = (myevent_s *)bev->cbarg;
+}
+//发生错误时被调用
 void error_cb(struct bufferevent *bev, short event, void *ctx)
 {
     evutil_socket_t fd = bufferevent_getfd(bev);
@@ -111,7 +112,6 @@ void error_cb(struct bufferevent *bev, short event, void *ctx)
     }
 
     myevent_free(bev->cbarg);
-    bufferevent_free(bev);
 
 }
 
@@ -133,26 +133,17 @@ void do_accept(evutil_socket_t listener, short event, void *arg)
 
 	evutil_make_socket_nonblocking(fd);
 
-    struct bufferevent *bev = bufferevent_socket_new(base, fd, BEV_OPT_THREADSAFE | BEV_OPT_CLOSE_ON_FREE);
-	if(NULL == bev)
-	{
-		printf("bufferevent new error!!");
-		close(fd);
-		return;
-	}
-	myevent_s *mev = myevent_new(fd,bev);
+	myevent_s *mev = myevent_new(fd,base);
 	if(NULL == mev)
 	{
-		printf("myevent new error!!");
+		printf("myevent new error!!\n");
 		close(fd);
-		bufferevent_free(bev);
 		return;
 	}
-	bev->cbarg = mev;
-	//evbuffer_enable_locking(bev->output,NULL);
-	//evbuffer_enable_locking(bev->input,NULL);
-    bufferevent_setcb(bev, read_cb, write_cb, error_cb, bev);
-    bufferevent_enable(bev, EV_PERSIST | EV_READ);
+	evbuffer_enable_locking(mev->bev->output,NULL);
+	evbuffer_enable_locking(mev->bev->input,NULL);
+    bufferevent_setcb(mev->bev, read_cb, NULL, error_cb, mev);
+    bufferevent_enable(mev->bev, EV_PERSIST | EV_READ | EV_WRITE);
     printf("ACCEPT: fd = %u\n", fd);
 }
 
