@@ -35,6 +35,24 @@ void eventset(struct myevent_s *ev,void (*call_back)(void *),void *arg)
     ev->last_active = time(NULL);
 }
 
+void myevent_free(void *arg)
+{
+	struct myevent_s *ev = (struct myevent_s *)arg;
+	if(NULL == ev)
+	{
+		return;
+	}
+
+    ev->fd = 0;
+ 	ev->call_back = NULL;
+ 	ev->events = 0;
+ 	ev->arg = NULL;
+ 	ev->status = 0;
+ 	//memset(ev->buf,0,sizeof(ev->buf));
+ 	evbuffer_free(ev->buf);
+ 	ev->len = 0;
+ 	ev->last_active = 0;   
+}
 myevent_s *myevent_new(int fd,void * arg)
 {
 	int i;
@@ -57,9 +75,9 @@ myevent_s *myevent_new(int fd,void * arg)
     ev->events = 0;
     ev->arg = arg;
     ev->status = 1;
-    memset(ev->buf,0,sizeof(ev->buf));
     ev->len = 0;
     ev->last_active = time(NULL);
+    //ev->buf = evbuffer_new();
 
     return ev;
 }
@@ -70,9 +88,6 @@ void recv_data(void *arg)
 	struct myevent_s *ev = (struct myevent_s *)arg;
 	struct bufferevent *bev = (struct bufferevent *)ev->arg;
 	bufferevent_lock(bev);
-    char line[MAX_LINE+1];
-    int n;
-    evutil_socket_t fd = bufferevent_getfd(bev);
 
 	if(bev->input == NULL)
 	{
@@ -87,21 +102,14 @@ void recv_data(void *arg)
 		printf("evbuffer_remove error!!\n");
 		return;
 	}
-    printf("fd=%u, read line: %s\n", fd, ev->buf);
-	ev->len = strlen(ev->buf);
+ 	//   printf("fd=%u, read line: %s\n", fd, ev->buf);
+	//	ev->len = strlen(ev->buf);
 	bufferevent_disable(bev,EV_READ);
     bufferevent_enable(bev,EV_WRITE);
     evbuffer_unlock(bev->input);
     bufferevent_unlock(bev);
 	return;
-    while ((n = bufferevent_read(bev, line, MAX_LINE)) > 0)
-    {
-        line[n] = '\0';
-
-		strcpy(ev->buf,line);
-
-        //bufferevent_write(bev, line, n);
-    }
+    //bufferevent_write(bev, line, n);
 }
 void send_data(void *arg)
 {
