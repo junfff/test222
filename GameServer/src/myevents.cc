@@ -20,6 +20,7 @@
 #include <time.h>
 #include <sys/epoll.h>
 #include <event.h>
+#include <ctype.h>
 
 #include "../include/threadpool.h"
 #include "../include/myevents.h"
@@ -45,15 +46,15 @@ void myevent_free(void *arg)
 
     ev->fd = 0;
  	ev->call_back = NULL;
- 	ev->events = 0;
+ 	//ev->events = 0;
  	ev->arg = NULL;
  	ev->status = 0;
- 	//memset(ev->buf,0,sizeof(ev->buf));
- 	evbuffer_free(ev->buf);
  	ev->len = 0;
  	ev->last_active = 0;   
+ 	memset(ev->buf,0,sizeof(ev->buf));
+ 	bufferevent_free(ev->bev);
 }
-myevent_s *myevent_new(int fd,void * arg)
+myevent_s *myevent_new(int fd,struct event_base *base)
 {
 	int i;
     for(i=0;i<MAX_EVENTS;i++)
@@ -69,58 +70,58 @@ myevent_s *myevent_new(int fd,void * arg)
         return NULL;
     }
 
+    struct bufferevent *bev = bufferevent_socket_new(base, fd,
+    			BEV_OPT_THREADSAFE | BEV_OPT_CLOSE_ON_FREE | BEV_OPT_DEFER_CALLBACKS);
+	if(NULL == bev)
+	{
+		printf("bufferevent new error!!");
+		return NULL;
+	}
 	struct myevent_s *ev = &g_events[i];
 	ev->fd = fd;
     ev->call_back = recv_data;
-    ev->events = 0;
-    ev->arg = arg;
+    //ev->events = 0;
+    ev->arg = NULL;
     ev->status = 1;
     ev->len = 0;
     ev->last_active = time(NULL);
-    //ev->buf = evbuffer_new();
+ 	memset(ev->buf,0,sizeof(ev->buf));
+ 	ev->bev = bev;
 
     return ev;
 }
 void recv_data(void *arg)
 {
-	printf("recvttt>>>>>>>>\n");
-	printf("start recv data !!! >>>\n");
+	//printf("start recv data !!! >>>\n");
 	struct myevent_s *ev = (struct myevent_s *)arg;
-	struct bufferevent *bev = (struct bufferevent *)ev->arg;
+	struct bufferevent *bev = (struct bufferevent *)ev->bev;
 	bufferevent_lock(bev);
 
-	if(bev->input == NULL)
+ 	printf(">>>>> on recv fd=%u,len:%d, read : %s\n", ev->fd, ev->len,ev->buf);
+	for(int i =0;i<ev->len;i++)
 	{
-		printf("input is null >>\n");
+		ev->buf[i] = toupper(ev->buf[i]);
 	}
-	return;
-	evbuffer_lock(bev->input);
-	struct evbuffer *evbuf = bufferevent_get_input(bev);
-	int ret = evbuffer_remove(evbuf,ev->buf,BUFSIZ);
-	if(ret == -1)
-	{
-		printf("evbuffer_remove error!!\n");
-		return;
-	}
- 	//   printf("fd=%u, read line: %s\n", fd, ev->buf);
-	//	ev->len = strlen(ev->buf);
-	bufferevent_disable(bev,EV_READ);
-    bufferevent_enable(bev,EV_WRITE);
-    evbuffer_unlock(bev->input);
+
     bufferevent_unlock(bev);
-	return;
-    //bufferevent_write(bev, line, n);
+
+	eventset(ev,send_data,arg);
+ 	threadpool_add(thp,process_event,(void *)arg);
 }
+
 void send_data(void *arg)
 {
-	printf("start send data !!>>>");
+	//printf(">>>>>>>.  start send data !!>>>\n");
 	struct myevent_s *ev = (struct myevent_s *)arg;
-	struct bufferevent *bev = (struct bufferevent *)ev->arg;
+	struct bufferevent *bev = (struct bufferevent *)ev->bev;
+
+	bufferevent_lock(bev);
 
     bufferevent_write(bev, ev->buf, ev->len);
-    evutil_socket_t fd = bufferevent_getfd(bev);
-	printf("on send data fd:%d,len:%d\n",fd,ev->len);
 
-	bufferevent_disable(bev,EV_WRITE);
-    bufferevent_enable(bev,EV_READ);
+    bufferevent_unlock(bev);
+
+    evutil_socket_t fd = bufferevent_getfd(bev);
+	printf(">>>>>>  on send data fd:%d,len:%d\n",fd,ev->len);
+
 }

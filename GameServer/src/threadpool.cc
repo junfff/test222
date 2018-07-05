@@ -92,7 +92,9 @@ void *threadpool_thread(void *arg)
 
 		while((pool->queue_size == 0) && (!pool->shutdown))  // 无任务时 阻塞 条件变量， 有任务时 跳过 while  
 		{
+			printf("===========\n");
 			printf("thread 0x%x is waiting...\n",(unsigned int)pthread_self());
+			printf("============================\n");
 			pthread_cond_wait(&(pool->queue_not_empty), &(pool->lock));
 
 			if(pool->wait_exit_thr_num > 0)
@@ -128,7 +130,9 @@ void *threadpool_thread(void *arg)
 		pthread_mutex_unlock(&(pool->lock));
 
 
+		printf("============================\n");
 		printf("thread 0x%x working starting...\n",(unsigned int)pthread_self());
+		printf("===========\n");
 		pthread_mutex_lock(&(pool->thread_counter));
 		pool->busy_thr_num++;
 		pthread_mutex_unlock(&(pool->thread_counter));
@@ -331,7 +335,7 @@ threadpool_t *threadpool_create(int min_thr_num,int max_thr_num,int queue_max_si
 void *process_event(void *arg)
 {
 	struct myevent_s *ev = (struct myevent_s *)arg;
-	printf("process event fd:%d,events:%d , callback:%p,arg:%p\n",ev->fd,ev->events,ev->call_back,ev->arg);
+	//printf("process event fd:%d,events:%d , callback:%p,arg:%p\n",ev->fd,ev->events,ev->call_back,ev->arg);
 	ev->call_back(ev->arg);
 
 	return NULL;
