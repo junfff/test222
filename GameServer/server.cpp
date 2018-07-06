@@ -82,6 +82,9 @@ void read_cb(struct bufferevent *bev,void *arg)
 	{
 	    ret = evbuffer_get_length(input);
 		printf(">>>len == 1 buf == /n  ret:%d\n",ret);
+
+		bufferevent_trigger_event(bev,BEV_EVENT_ERROR,0);
+
 		//bufferevent_flush(bev,EV_READ,BEV_NORMAL);
 		//evbuffer_drain(input,ev->len);
 		return;
@@ -140,10 +143,15 @@ void do_accept(evutil_socket_t listener, short event, void *arg)
 		close(fd);
 		return;
 	}
+
+
 	evbuffer_enable_locking(mev->bev->output,NULL);
 	evbuffer_enable_locking(mev->bev->input,NULL);
     bufferevent_setcb(mev->bev, read_cb, NULL, error_cb, mev);
     bufferevent_enable(mev->bev, EV_PERSIST | EV_READ | EV_WRITE);
+
+	struct timeval tv = {TIME_OUT,0};
+	bufferevent_set_timeouts(mev->bev,&tv,NULL);
     printf("ACCEPT: fd = %u\n", fd);
 }
 

@@ -17,6 +17,7 @@
 #define SERV_PORT 33000
 //#define MAX_LINE    256
 #define LISTEN_BACKLOG 32 
+#define TIME_OUT 30
 
 // 一个客户端绑定一个 myevents
 struct myevent_s

@@ -95,13 +95,18 @@ void recv_data(void *arg)
 	//printf("start recv data !!! >>>\n");
 	struct myevent_s *ev = (struct myevent_s *)arg;
 	struct bufferevent *bev = (struct bufferevent *)ev->bev;
+
+
 	bufferevent_lock(bev);
 
  	printf(">>>>> on recv fd=%u,len:%d, read : %s\n", ev->fd, ev->len,ev->buf);
-	for(int i =0;i<ev->len;i++)
-	{
-		ev->buf[i] = toupper(ev->buf[i]);
-	}
+ 	IMarshalEndian *ime = new MarshalEndian();
+
+		int ret =  ime->Decode(buf,n);
+	//for(int i =0;i<ev->len;i++)
+	//{
+	//	ev->buf[i] = toupper(ev->buf[i]);
+	//}
 
     bufferevent_unlock(bev);
 
