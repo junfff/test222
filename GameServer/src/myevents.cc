@@ -52,6 +52,9 @@ void myevent_free(void *arg)
  	ev->len = 0;
  	ev->last_active = 0;   
  	memset(ev->buf,0,sizeof(ev->buf));
+ 	ev->ime->Dispose();
+ 	delete ev->ime;
+
  	bufferevent_free(ev->bev);
 }
 myevent_s *myevent_new(int fd,struct event_base *base)
@@ -88,6 +91,9 @@ myevent_s *myevent_new(int fd,struct event_base *base)
  	memset(ev->buf,0,sizeof(ev->buf));
  	ev->bev = bev;
 
+ 	ev->ime = new MarshalEndian(); 
+ 	ev->ime->Initialize();
+
     return ev;
 }
 void recv_data(void *arg)
@@ -100,13 +106,12 @@ void recv_data(void *arg)
 	bufferevent_lock(bev);
 
  	printf(">>>>> on recv fd=%u,len:%d, read : %s\n", ev->fd, ev->len,ev->buf);
- 	IMarshalEndian *ime = new MarshalEndian();
 
-		int ret =  ime->Decode(buf,n);
-	//for(int i =0;i<ev->len;i++)
-	//{
-	//	ev->buf[i] = toupper(ev->buf[i]);
-	//}
+	int ret =  ev->ime->Decode(ev->buf,ev->len);
+	if(ret != 0)
+	{
+		printf("imarshalEndian error !! ret = %d\n",ret);
+	}
 
     bufferevent_unlock(bev);
 

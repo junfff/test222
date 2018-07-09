@@ -11,6 +11,7 @@
 
 #pragma once
 #include "threadpool.h"
+#include "MarshalEndian.h"
 
 #define MAX_EVENTS 1024
 #define BUFLEN 4096
@@ -31,6 +32,7 @@ struct myevent_s
 	char buf[BUFLEN+1];
 	int len;
 	long last_active;
+	IMarshalEndian *ime;
 };
 
 extern struct event_base *g_base;
