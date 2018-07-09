@@ -17,7 +17,7 @@
 #include <fcntl.h>
 #include <assert.h>
 #include <event2/thread.h>
-
+#include "./include/Business/BusinessMoudle.h"
 
 
 evutil_socket_t initlistensocket(int port)
@@ -160,6 +160,8 @@ int main(int argc,char *argv[])
 	thp = threadpool_create(3,100,100); // 创建 线程  最小线程，最大，队列最大
 	printf("pool inited\n");
 
+	Business_Init();
+
     //Epoll_Start(argc,argv,thp);
 
 	evthread_use_pthreads();
@@ -175,6 +177,8 @@ int main(int argc,char *argv[])
 	event_add(listen_event,NULL);
 	event_base_dispatch(base);
 
+	//********************end
+	Business_Deinit();
 	threadpool_destroy(thp);
 	printf("server end >>>>>>>>>>>>\n");
 	return 0;

@@ -18,6 +18,7 @@ using namespace std;
 Interface IMarshalEndian
 {
 	public:
+		virtual ~IMarshalEndian(){}
 		virtual	void Initialize() = 0;  
 		virtual	void Dispose() = 0;  
 		virtual	int Encode(BaseMessage *msg,char *buf) = 0;  

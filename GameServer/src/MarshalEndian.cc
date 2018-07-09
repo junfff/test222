@@ -14,6 +14,7 @@
 #include <fstream>
 #include <assert.h>
 #include "../include/person.pb.h"
+#include "../include/Business/BusinessMoudle.h"
 
 using namespace protobufMsg;
 using namespace std;
@@ -73,6 +74,7 @@ int MarshalEndian:: Encode(BaseMessage* msg,char *buf)
     return 0;
 }
 
+// 得到一个完整的数据包
 void MarshalEndian::  handleDataUint(char *dataUnit, int size)
 {
   	//得到数据之后，在这里进行拼包或者进行下一步处理等操作
@@ -82,6 +84,9 @@ void MarshalEndian::  handleDataUint(char *dataUnit, int size)
   	memcpy(buf,dataUnit + 4,size - 4);
 
   	printf(">>>>>>>>>>>>  recv msgID : %d\n",MsgID);
+  	Business_Process(MsgID,buf);
+
+
 	protobufMsg:: Person p;
 
     p.ParseFromString(buf);
