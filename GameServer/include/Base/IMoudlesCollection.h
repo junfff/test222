@@ -10,17 +10,19 @@
 
 
 #pragma once
-
 #include "GameBase.h"
-#include "Interface.h"
 #include "IBusinessMoudle.h"
-
-Interface IMoudlesCollection : implements IInitialize, implements IDisposable
+#include "../IMarshalEndian.h"
+//class IMarshalEndian;
+namespace GameBase
 {
-	public:
-		virtual ~IMoudlesCollection(){}
+	Interface IMoudlesCollection : implements IInitialize, implements IDisposable
+	{
+		public:
+			virtual ~IMoudlesCollection(){}
 
-		virtual IBusinessMoudle *get_busMDL() = 0;
-};
+			virtual IBusinessMoudle *get_busMDL() = 0;
+			virtual IMarshalEndian *get_Ime() = 0;
+	};
 
-
+}

@@ -14,8 +14,11 @@
 #include "Interface.h"
 #include <list>
 #include "BaseMessage.h"
+#include "Base/IMoudles.h"
+
+using namespace GameBase;
 using namespace std;
-Interface IMarshalEndian
+Interface IMarshalEndian : implements IMoudles
 {
 	public:
 		virtual ~IMarshalEndian(){}

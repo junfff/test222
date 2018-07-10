@@ -9,12 +9,13 @@
  ================================================================*/
 #include <Interface.h>
 #include "MarshalEndian.h"
-#include "BaseMessage.h"
+#include "../include/BaseMessage.h"
 #include "string.h"
 #include <fstream>
 #include <assert.h>
 #include "../include/person.pb.h"
 #include "../include/Business/BusinessMoudle.h"
+#include "../include/Base/MoudlesCollection.h"
 
 using namespace protobufMsg;
 using namespace std;
@@ -84,7 +85,7 @@ void MarshalEndian::  handleDataUint(char *dataUnit, int size)
   	memcpy(buf,dataUnit + 4,size - 4);
 
   	printf(">>>>>>>>>>>>  recv msgID : %d\n",MsgID);
-  	Business_Process(MsgID,buf);
+   	//coreMoudles->get_busMDL()->Process(MsgID,buf);
 
 
 	protobufMsg:: Person p;

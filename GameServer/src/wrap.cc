@@ -142,8 +142,8 @@ int Close(int fd)
 
 ssize_t Readn(int fd,void *vptr,size_t n)
 {
-  size_t nleft;   //剩余未读取的字节数
-  ssize_t nread;  //int实际读到的字节数
+  	size_t nleft;   //剩余未读取的字节数
+  	ssize_t nread;  //int实际读到的字节数
 	char *ptr;
 
 	ptr = (char *)vptr;
@@ -152,9 +152,9 @@ ssize_t Readn(int fd,void *vptr,size_t n)
 	while(nleft > 0)
 	{
 		if((nread = read(fd,ptr,nleft)) < 0)
-	  {
+	  	{
 			if(errno == EINTR)
-		  {
+		  	{
 				nread = 0;
 			}
 			else
@@ -231,7 +231,7 @@ ssize_t my_read(int fd,char *ptr)
 				return 0;
 			}
 
-      read_ptr = read_buf;
+      		read_ptr = read_buf;
 			break;
 		}
 	}

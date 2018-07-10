@@ -10,13 +10,16 @@
 
 
 #pragma once
-#include <Interface.h>
+#include "../Interface.h"
+#include "IMoudles.h"
 
-Interface IBusinessMoudle
+namespace GameBase
 {
-	public:
-		virtual ~IBusinessMoudle(){}
+	Interface IBusinessMoudle : implements IMoudles
+	{
+		public:
+			virtual ~IBusinessMoudle(){}
 
-        virtual int Set_ID() = 0;
-		virtual int Process(char *buf) = 0;
-};
+			virtual int Process(int MsgID,char *buf) = 0;
+	};
+}

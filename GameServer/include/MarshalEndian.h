@@ -25,6 +25,7 @@ class MarshalEndian :implements IMarshalEndian
 		void Dispose(bool flag1);
 	private:
 
+		IMoudlesCollection *coreMoudles;
 		//用于存储剩余未解析的字节数  
 		list<char> _LBuff;
 		//默认是utf8的编码格式  

@@ -10,23 +10,27 @@
 
 
 #pragma once
-#include <Interface.h>
-
-Interface IInitialize
+#include "../Interface.h"
+//#include "IMoudlesCollection.h"
+namespace GameBase
 {
-	public:
-		virtual ~IInitialize(){}
+	Interface IInitialize
+	{
+		public:
+			virtual ~IInitialize(){}
 
-		virtual void Initialize() = 0;
-};
-Interface IDisposable
-{
-	public:
-		virtual ~IDisposable(){}
+			virtual void Initialize() = 0;
+	};
+	Interface IDisposable
+	{
+		public:
+			virtual ~IDisposable(){}
 
-		//
-        // 摘要:
-        //     Performs application-defined tasks associated with freeing, releasing, or resetting
-        //     unmanaged resources.
-       	virtual void Dispose() = 0;
-};
+			//
+        	// 摘要:
+        	//     Performs application-defined tasks associated with freeing, releasing, or resetting
+        	//     unmanaged resources.
+       		virtual void Dispose() = 0;
+	};
+
+}

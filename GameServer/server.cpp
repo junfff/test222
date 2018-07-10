@@ -17,7 +17,15 @@
 #include <fcntl.h>
 #include <assert.h>
 #include <event2/thread.h>
-#include "./include/Business/BusinessMoudle.h"
+#include "./include/Interface.h"
+#include "./include/Base/GameBase.h"
+#include "./include/Base/IMoudles.h"
+
+using namespace GameBase;
+
+
+MoudlesCollection *moudlesMgr;
+
 
 
 evutil_socket_t initlistensocket(int port)
@@ -136,7 +144,7 @@ void do_accept(evutil_socket_t listener, short event, void *arg)
 
 	evutil_make_socket_nonblocking(fd);
 
-	myevent_s *mev = myevent_new(fd,base);
+	myevent_s *mev = myevent_new(fd,base,moudlesMgr);
 	if(NULL == mev)
 	{
 		printf("myevent new error!!\n");
@@ -157,10 +165,12 @@ void do_accept(evutil_socket_t listener, short event, void *arg)
 
 int main(int argc,char *argv[])
 {
+	moudlesMgr = new MoudlesCollection();
+	moudlesMgr->Initialize();
+
 	thp = threadpool_create(3,100,100); // 创建 线程  最小线程，最大，队列最大
 	printf("pool inited\n");
 
-	Business_Init();
 
     //Epoll_Start(argc,argv,thp);
 
@@ -178,8 +188,9 @@ int main(int argc,char *argv[])
 	event_base_dispatch(base);
 
 	//********************end
-	Business_Deinit();
 	threadpool_destroy(thp);
+	moudlesMgr->Dispose();
+	delete moudlesMgr;
 	printf("server end >>>>>>>>>>>>\n");
 	return 0;
 }

@@ -11,7 +11,8 @@
 
 #pragma once
 #include "threadpool.h"
-#include "MarshalEndian.h"
+#include "Base/MoudlesCollection.h"
+using namespace GameBase;
 
 #define MAX_EVENTS 1024
 #define BUFLEN 4096
@@ -32,7 +33,8 @@ struct myevent_s
 	char buf[BUFLEN+1];
 	int len;
 	long last_active;
-	IMarshalEndian *ime;
+
+	MoudlesCollection *coreMoudles;
 };
 
 extern struct event_base *g_base;
@@ -43,5 +45,5 @@ void recv_data(void *arg);
 void send_data(void *arg);
 
 void myevent_free(void *);
-myevent_s *myevent_new(int fd,struct event_base *base);
+myevent_s *myevent_new(int fd,struct event_base *base,MoudlesCollection *moudlesMgr);
 void eventset(struct myevent_s *ev,void (*call_back)(void *),void *arg);

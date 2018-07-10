@@ -7,7 +7,7 @@
  *   描    述：
  *
  ================================================================*/
-#include <BaseMessage.h>
+#include "../include/BaseMessage.h"
 #include <stdlib.h>
 char *BaseMessage:: GetByte()
 {

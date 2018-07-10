@@ -10,15 +10,25 @@
 
 
 #pragma once
+//#include "IMoudles.h"
 #include "IMoudlesCollection.h"
-
-class MoudlesCollection : implements IMoudlesCollection
+#include <vector>
+using namespace std;
+namespace GameBase
 {
-	public:
+	class MoudlesCollection : implements IMoudlesCollection
+	{
+		public:
 
-		void Initialize() override;
-		void Dispose() override;
-	 	IBusinessMoudle *get_busMDL() override;
-	private:
-	 	IBusinessMoudle *busMDL;
-};
+			void Initialize() override;
+			void Dispose() override;
+	 		IBusinessMoudle *get_busMDL() override;
+		 	IMarshalEndian *get_Ime() override;
+
+		private:
+	 		IBusinessMoudle *busMDL;
+	 		IMarshalEndian *Ime;
+
+	 		vector<IMoudles *> moudles_v;
+	};
+}
