@@ -11,10 +11,22 @@
 
 #pragma once
 #include "IBusiness.h"
+#include "../Base/IBusinessMoudle.h"
+using namespace GameBase;
 
-int bus_len;
-extern IBusiness *bus_set;//声明
+namespace Business
+{
+	class BusinessMoudle : implements IBusinessMoudle
+	{
+		public:
+			IMoudlesCollection *coreMoudles;
+			void Initialize() override;
+			void Dispose() override;
+		  	IMoudlesCollection *get_CoreMoudles() override;
+			int Process(int MsgID,char *buf) override;
 
-void Business_Init();
-void Business_Deinit();
-int Business_Process(int id,char *buf);
+		private:
+			int bus_len;
+			IBusiness *bus_set;//声明
+	};
+}

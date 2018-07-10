@@ -1,6 +1,6 @@
 #Makefile file  
-dir_inc = ./include #所有头文件放到此处  
-dir_src = ./scr #所有源文件放到此处  
+dir_inc = ./include  #所有头文件放到此处  
+dir_src = ./src  #所有源文件放到此处  
 dir_obj = ./obj #所有中间件文件放到此处  
 dir_bin = ./bin #生成的文件放到此处  
 dir_3rd = ./3party #第三方库的头文件放到此处  
