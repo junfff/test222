@@ -1,29 +1,34 @@
-#include "../../include/Business/BusinessMoudle.h"
-#include "../../include/Base/IMoudlesCollection.h"
+#include "../../include/Business/BusinessModule.h"
+#include "../../include/Base/IModulesCollection.h"
+#include "../../include/Business/PersonBusiness.h"
 #include <stdlib.h>
+#include <stdio.h>
 using namespace GameBase;
 namespace Business
 {
-	IMoudlesCollection *BusinessMoudle::get_CoreMoudles()
+	void BusinessModule::Initialize()
 	{
-		return coreMoudles;
-	}
+		bus_v.push_back(new PersonBusiness(1));
 
-	void BusinessMoudle::Initialize()
-	{
 	}
-	void BusinessMoudle::Dispose()
+	void BusinessModule::Dispose()
 	{
+		bus_v.clear();
+		bus_v.shrink_to_fit();
 	}
-	int BusinessMoudle:: Process(int MsgID,char *buf)
+	int BusinessModule:: Process(int MsgID,char *buf,void *ev)
 	{
-		for(int i=0;i<bus_len;i++)
-		{
-			if(bus_set[i].Get_ID() == MsgID)
-			{
-				return bus_set[i].Process(buf);
-			}
-		}
+		size_t len = bus_v.size();
+    	for (size_t i =0; i < len; i ++)
+    	{
+        	IBusiness *b = bus_v[i];
+        	if(b->Get_ID() == MsgID)
+        	{
+        		b->Process(buf,ev);
+        	}
+    	}
+
+		printf("not find business !!!! MsgID:%d\n",MsgID);
 		return -1;
 	}
 

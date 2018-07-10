@@ -14,11 +14,12 @@
 #include "Interface.h"
 #include <list>
 #include "BaseMessage.h"
-#include "Base/IMoudles.h"
+#include "Base/GameBase.h"
+#include "Base/IModules.h"
 
 using namespace GameBase;
 using namespace std;
-Interface IMarshalEndian : implements IMoudles
+Interface IMarshalEndian : implements IModules
 {
 	public:
 		virtual ~IMarshalEndian(){}
@@ -27,4 +28,6 @@ Interface IMarshalEndian : implements IMoudles
 		virtual	int Encode(BaseMessage *msg,char *buf) = 0;  
 		virtual int Decode(char *buff, int len) = 0;
 		virtual void handleDataUint(char *dataUnit, int size) = 0;
+		virtual void SetContext(void *ev) = 0;
+
 };

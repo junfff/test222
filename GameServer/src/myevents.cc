@@ -24,6 +24,7 @@
 
 #include "../include/threadpool.h"
 #include "../include/myevents.h"
+#include "../include/MarshalEndian.h"
 
 struct event_base *g_base; 
 threadpool_t *thp;
@@ -52,11 +53,13 @@ void myevent_free(void *arg)
  	ev->len = 0;
  	ev->last_active = 0;   
  	memset(ev->buf,0,sizeof(ev->buf));
- 	ev->coreMoudles = NULL;
+ 	ev->Ime->Dispose();
+ 	delete ev->Ime;
+ 	ev->coreModules = NULL;
 
  	bufferevent_free(ev->bev);
 }
-myevent_s *myevent_new(int fd,struct event_base *base,MoudlesCollection *moudlesMgr)
+myevent_s *myevent_new(int fd,struct event_base *base,ModulesCollection *modulesMgr)
 {
 	int i;
     for(i=0;i<MAX_EVENTS;i++)
@@ -89,8 +92,11 @@ myevent_s *myevent_new(int fd,struct event_base *base,MoudlesCollection *moudles
     ev->last_active = time(NULL);
  	memset(ev->buf,0,sizeof(ev->buf));
  	ev->bev = bev;
+ 	ev->Ime = new MarshalEndian();
+ 	ev->Ime->Initialize();
+ 	ev->Ime->SetContext(ev);
 
- 	ev->coreMoudles = moudlesMgr;
+ 	ev->coreModules = modulesMgr;
 
     return ev;
 }
@@ -105,16 +111,14 @@ void recv_data(void *arg)
 
  	printf(">>>>> on recv fd=%u,len:%d, read : %s\n", ev->fd, ev->len,ev->buf);
 
-	int ret =  ev->coreMoudles->get_Ime()->Decode(ev->buf,ev->len);
+	int ret = ev->Ime->Decode(ev->buf,ev->len);
 	if(ret != 0)
 	{
 		printf("imarshalEndian error !! ret = %d\n",ret);
+		bufferevent_trigger_event(bev,BEV_EVENT_ERROR,1);
 	}
 
     bufferevent_unlock(bev);
-
-	eventset(ev,send_data,arg);
- 	threadpool_add(thp,process_event,(void *)arg);
 }
 
 void send_data(void *arg)

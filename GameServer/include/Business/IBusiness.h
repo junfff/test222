@@ -12,11 +12,13 @@
 #pragma once
 
 #include "Interface.h"
-Interface IBusiness
+namespace Business
 {
-	public:
-		virtual ~IBusiness(){}
-		virtual int Get_ID() = 0;
-        virtual int Set_ID() = 0;
-		virtual int Process(char *buf) = 0;
-};
+	Interface IBusiness
+	{
+		public:
+			virtual ~IBusiness(){}
+			virtual int Get_ID() = 0;
+			virtual int Process(char *buf,void *ev) = 0;
+	};
+}

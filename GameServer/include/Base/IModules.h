@@ -9,24 +9,23 @@
  ================================================================*/
 
 
-#ifndef _ICOREMOUDLES_H
-#define _ICOREMOUDLES_H
+#ifndef _IMOUDLES_H
+#define _IMOUDLES_H
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 #include "../Interface.h"
 #include "GameBase.h"      
-#include "IMoudlesCollection.h"
-	//class IMoudlesCollection;
+
   	namespace GameBase         
  	{
-     	Interface ICoreMoudles 
-     	{
-         	public:            
-             	virtual ~ICoreMoudles(){}       
-             	virtual  IMoudlesCollection *get_CoreMoudles() = 0;
-      	};
+      	Interface IModules :implements IInitialize,implements IDisposable
+      	{
+        	public:            
+            	virtual ~IModules(){} 
+
+     	};
   	}
 
 #ifdef __cplusplus

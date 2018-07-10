@@ -11,7 +11,7 @@ dir_usrlocal = /usr/local/include
 dir_usrlib = /usr/local/lib 
 
 .PHONY : clean all 
-src = $(wildcard ./src/*.c, ./src/*.cc)   
+src = $(wildcard ./src/*.c, ./src/*.cc) $(wildcard ./src/Base/*.cc) $(wildcard ./src/Business/*.cc)   
 src_main = $(wildcard ./*.c, ./*.cpp)   
 obj = $(patsubst ./lib/%.o, ./src/%.c , $(src)) 
 

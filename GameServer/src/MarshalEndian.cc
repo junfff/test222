@@ -13,14 +13,14 @@
 #include "string.h"
 #include <fstream>
 #include <assert.h>
-#include "../include/person.pb.h"
-#include "../include/Business/BusinessMoudle.h"
-#include "../include/Base/MoudlesCollection.h"
+#include "../include/Business/BusinessModule.h"
+#include "../include/Base/ModulesCollection.h"
 
-using namespace protobufMsg;
-using namespace std;
 // 消息解析器  
-
+void MarshalEndian::SetContext(void *ev)
+{
+	context = ev;
+}
 void MarshalEndian::Initialize()
 {
     //_LBuff = new list<char>(2);
@@ -85,17 +85,10 @@ void MarshalEndian::  handleDataUint(char *dataUnit, int size)
   	memcpy(buf,dataUnit + 4,size - 4);
 
   	printf(">>>>>>>>>>>>  recv msgID : %d\n",MsgID);
-   	//coreMoudles->get_busMDL()->Process(MsgID,buf);
+
+   	coreModules->get_busMDL()->Process(MsgID,buf,context);
 
 
-	protobufMsg:: Person p;
-
-    p.ParseFromString(buf);
-
-	cout << "write buf length = " << size << "\t";
-	cout << "id = " << p.id() << "\t";
-	cout << "name = " << p.name() << "\t";
-	cout << "email = " << p.email() << "\t" << endl;
 }
 int MarshalEndian:: Decode(char *server_reply, int readSize)
 {
@@ -109,7 +102,7 @@ int MarshalEndian:: Decode(char *server_reply, int readSize)
         //start token must be 0x0628, otherwise reconnect!
         unsigned char t0 = recbuff[0];//取出接收数据的前两个字节
         unsigned char t1 = recbuff[1];
-        assert(t0 == 0x28 && t1 == 0x06);//判断是否为0628H，是否符合启动字符条件，注意小端对齐
+        //assert(t0 == 0x28 && t1 == 0x06);//判断是否为0628H，是否符合启动字符条件，注意小端对齐
         if (!(t0 == 0x28 && t1 == 0x06))//如果不是0628H，则表示该次数据有误
         {
             return 1;
