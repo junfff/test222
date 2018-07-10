@@ -11,6 +11,7 @@
 
 #pragma once
 #include "IMarshalEndian.h"
+#include "./Base/IModulesCollection.h"
 
 class MarshalEndian :implements IMarshalEndian 
 {
@@ -20,12 +21,13 @@ class MarshalEndian :implements IMarshalEndian
 		int Encode(BaseMessage *msg,char *buf) override;  
 		int Decode(char *buff, int len) override;
 		void handleDataUint(char *dataUnit, int size) override;
+		void SetContext(void *ev) override;
 
 	protected:
 		void Dispose(bool flag1);
 	private:
-
-		IMoudlesCollection *coreMoudles;
+		IModulesCollection *coreModules;
+	    void *context;
 		//用于存储剩余未解析的字节数  
 		list<char> _LBuff;
 		//默认是utf8的编码格式  

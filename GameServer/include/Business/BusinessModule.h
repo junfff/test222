@@ -11,22 +11,24 @@
 
 #pragma once
 #include "IBusiness.h"
-#include "../Base/IBusinessMoudle.h"
+#include "../Base/IBusinessModule.h"
+#include "../Base/IModulesCollection.h"
+#include <vector>
 using namespace GameBase;
 
 namespace Business
 {
-	class BusinessMoudle : implements IBusinessMoudle
+	class BusinessModule : implements IBusinessModule
 	{
 		public:
-			IMoudlesCollection *coreMoudles;
+			IModulesCollection *coreModules;
 			void Initialize() override;
 			void Dispose() override;
-		  	IMoudlesCollection *get_CoreMoudles() override;
-			int Process(int MsgID,char *buf) override;
+		 	// 	IModulesCollection *get_CoreModules() override;
+			int Process(int MsgID,char *buf,void *ev) override;
 
 		private:
 			int bus_len;
-			IBusiness *bus_set;//声明
+	 		vector<IBusiness *> bus_v;
 	};
 }

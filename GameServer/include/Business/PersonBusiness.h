@@ -12,16 +12,18 @@
 #pragma once
 
 #include "IBusiness.h"
-
-class PersonBusiness :implements IBusiness 
+namespace Business
 {
-	public:
-        int Get_ID() override;
-        int Set_ID() override;
-		int Process(char *buf) override;		
-	protected:
+	class PersonBusiness :implements IBusiness 
+	{
+		public:
+			PersonBusiness(int id);
+        	int Get_ID() override;
+			int Process(char *buf,void *ev) override;		
+		protected:
 
-	private:
-		//MSG ID
-		int id;
-};
+		private:
+			//MSG ID
+			int id;
+	};
+}

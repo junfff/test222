@@ -19,12 +19,12 @@
 #include <event2/thread.h>
 #include "./include/Interface.h"
 #include "./include/Base/GameBase.h"
-#include "./include/Base/IMoudles.h"
+#include "./include/Base/IModules.h"
 
 using namespace GameBase;
 
 
-MoudlesCollection *moudlesMgr;
+ModulesCollection *moudlesMgr;
 
 
 
@@ -90,11 +90,7 @@ void read_cb(struct bufferevent *bev,void *arg)
 	{
 	    ret = evbuffer_get_length(input);
 		printf(">>>len == 1 buf == /n  ret:%d\n",ret);
-
-		bufferevent_trigger_event(bev,BEV_EVENT_ERROR,0);
-
-		//bufferevent_flush(bev,EV_READ,BEV_NORMAL);
-		//evbuffer_drain(input,ev->len);
+		bufferevent_trigger_event(bev,BEV_EVENT_ERROR,1);
 		return;
 	}
 	eventset(ev, recv_data,arg);
@@ -118,8 +114,13 @@ void error_cb(struct bufferevent *bev, short event, void *ctx)
     else if (event & BEV_EVENT_EOF) {
         printf("connection closed\n");
     }
-    else if (event & BEV_EVENT_ERROR) {
-        printf("some other error\n");
+    else if (event & BEV_EVENT_ERROR)
+    {
+    	int ret = 0;//TODO
+    	bufferevent_write(bev, "Param Error", 11);
+        printf("some other error! ret = %d\n",ret);
+
+        return;
     }
 
     myevent_free(bev->cbarg);
@@ -165,7 +166,7 @@ void do_accept(evutil_socket_t listener, short event, void *arg)
 
 int main(int argc,char *argv[])
 {
-	moudlesMgr = new MoudlesCollection();
+	moudlesMgr = new ModulesCollection();
 	moudlesMgr->Initialize();
 
 	thp = threadpool_create(3,100,100); // 创建 线程  最小线程，最大，队列最大
