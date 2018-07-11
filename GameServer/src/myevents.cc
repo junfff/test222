@@ -76,7 +76,7 @@ myevent_s *myevent_new(int fd,struct event_base *base,ModulesCollection *modules
     }
 
     struct bufferevent *bev = bufferevent_socket_new(base, fd,
-    			BEV_OPT_THREADSAFE | BEV_OPT_CLOSE_ON_FREE | BEV_OPT_DEFER_CALLBACKS);
+    			BEV_OPT_CLOSE_ON_FREE | BEV_OPT_THREADSAFE | BEV_OPT_DEFER_CALLBACKS);
 	if(NULL == bev)
 	{
 		printf("bufferevent new error!!");
@@ -102,16 +102,49 @@ myevent_s *myevent_new(int fd,struct event_base *base,ModulesCollection *modules
 }
 void recv_data(void *arg)
 {
+	int ret;
 	//printf("start recv data !!! >>>\n");
 	struct myevent_s *ev = (struct myevent_s *)arg;
 	struct bufferevent *bev = (struct bufferevent *)ev->bev;
 
 
 	bufferevent_lock(bev);
+	evbuffer_lock(bev->input);
 
+	struct evbuffer *input = bufferevent_get_input(bev);
+	if(input == NULL)
+	{
+		printf("input is null !!!>>>>>>>>>>>>>>>>>>\n");
+		evbuffer_unlock(bev->input);
+    	bufferevent_unlock(bev);
+		return;
+	}
+	ret = evbuffer_get_length(input);
+	if(ret <= 0)
+	{
+		printf(">>>没有可读内容 ret:%d\n",ret);
+		evbuffer_unlock(bev->input);
+    	bufferevent_unlock(bev);
+		return;
+	}
+
+    //开始读取内容
+	ev->len = evbuffer_remove(input,ev->buf,BUFSIZ);
+	ev->buf[ev->len] = '\0';
+	evbuffer_unlock(bev->input);
+
+
+	if(ev->len == 1 && ev->buf[0] == '\n')
+	{
+	    ret = evbuffer_get_length(input);
+    	bufferevent_unlock(bev);
+		printf(">>>len == 1 buf == /n  ret:%d\n",ret);
+		bufferevent_trigger_event(bev,BEV_EVENT_ERROR,1);
+		return;
+	}
  	printf(">>>>> on recv fd=%u,len:%d, read : %s\n", ev->fd, ev->len,ev->buf);
 
-	int ret = ev->Ime->Decode(ev->buf,ev->len);
+	ret = ev->Ime->Decode(ev->buf,ev->len);
 	if(ret != 0)
 	{
 		printf("imarshalEndian error !! ret = %d\n",ret);

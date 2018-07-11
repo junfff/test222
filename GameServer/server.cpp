@@ -20,6 +20,7 @@
 #include "./include/Interface.h"
 #include "./include/Base/GameBase.h"
 #include "./include/Base/IModules.h"
+#include <stdlib.h>
 
 using namespace GameBase;
 
@@ -73,28 +74,7 @@ void read_cb(struct bufferevent *bev,void *arg)
 		printf("bev ev is NULL!!!");
 		return;
 	}
-	evbuffer_lock(bev->input);
-	struct evbuffer *input = bufferevent_get_input(bev);
-	int ret = evbuffer_get_length(input);
-	if(ret <= 0)
-	{
-		printf(">>>没有可读内容 ret:%d\n",ret);
-		return;
-	}
-	ev->len = evbuffer_remove(input,ev->buf,BUFSIZ);
-	ev->buf[ev->len] = '\0';
-	evbuffer_unlock(bev->input);
-
-
-	if(ev->len == 1 && ev->buf[0] == '\n')
-	{
-	    ret = evbuffer_get_length(input);
-		printf(">>>len == 1 buf == /n  ret:%d\n",ret);
-		bufferevent_trigger_event(bev,BEV_EVENT_ERROR,1);
-		return;
-	}
 	eventset(ev, recv_data,arg);
-
  	threadpool_add(thp,process_event,(void *)arg);
 }
 //已经写入足够的数据
@@ -117,7 +97,8 @@ void error_cb(struct bufferevent *bev, short event, void *ctx)
     else if (event & BEV_EVENT_ERROR)
     {
     	int ret = 0;//TODO
-    	bufferevent_write(bev, "Param Error", 11);
+    	char err[] = "Param Error !!\n";
+    	bufferevent_write(bev, err, strlen(err));
         printf("some other error! ret = %d\n",ret);
 
         return;
