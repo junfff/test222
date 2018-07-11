@@ -10,13 +10,13 @@
 
 
 #pragma once
+#include <stdio.h>
 #include "threadpool.h"
 #include "Base/ModulesCollection.h"
 #include "IMarshalEndian.h"
 using namespace GameBase;
 
 #define MAX_EVENTS 1024
-#define BUFLEN 4096
 #define SERV_PORT 33000
 //#define MAX_LINE    256
 #define LISTEN_BACKLOG 32 
@@ -31,7 +31,7 @@ struct myevent_s
 	void *arg;
 	void (*call_back)(void *arg);
 	int status;
-	char buf[BUFLEN+1];
+	char buf[BUFSIZ+1];
 	int len;
 	long last_active;
 	IMarshalEndian *Ime;
