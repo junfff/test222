@@ -73,7 +73,7 @@
 #define EVENT__HAVE_ERRNO_H 1
 
 /* Define to 1 if you have ERR_remove_thread_stat(). */
-#define EVENT__HAVE_ERR_REMOVE_THREAD_STATE 1
+/* #undef EVENT__HAVE_ERR_REMOVE_THREAD_STATE */
 
 /* Define to 1 if you have the `eventfd' function. */
 #define EVENT__HAVE_EVENTFD 1
@@ -175,7 +175,7 @@
 #define EVENT__HAVE_NETINET_TCP_H 1
 
 /* Define if the system has openssl */
-#define EVENT__HAVE_OPENSSL 1
+/* #undef EVENT__HAVE_OPENSSL */
 
 /* Define to 1 if you have the `pipe' function. */
 #define EVENT__HAVE_PIPE 1
