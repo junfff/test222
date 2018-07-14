@@ -12,7 +12,7 @@ sample/dns-example.o: sample/dns-example.c /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
- /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h /usr/include/endian.h \
  /usr/include/x86_64-linux-gnu/bits/endian.h \
  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
@@ -42,11 +42,11 @@ sample/dns-example.o: sample/dns-example.c /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
  /usr/include/x86_64-linux-gnu/bits/socket2.h include/event2/util.h \
  include/event2/visibility.h /usr/include/x86_64-linux-gnu/sys/time.h \
- /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/7/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h /usr/include/netdb.h \
+ /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h /usr/include/netdb.h \
  /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h \
  /usr/include/rpc/netdb.h \
  /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
@@ -123,7 +123,7 @@ sample/../evconfig-private.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h:
+/usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
@@ -189,7 +189,7 @@ include/event2/visibility.h:
 
 /usr/include/x86_64-linux-gnu/sys/time.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h:
+/usr/lib/gcc/x86_64-linux-gnu/7/include/stdint.h:
 
 /usr/include/stdint.h:
 
@@ -199,7 +199,7 @@ include/event2/visibility.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h:
+/usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h:
 
 /usr/include/netdb.h:
 

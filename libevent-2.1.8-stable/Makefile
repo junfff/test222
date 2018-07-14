@@ -118,15 +118,15 @@ build_triplet = x86_64-pc-linux-gnu
 host_triplet = x86_64-pc-linux-gnu
 am__append_1 = libevent_pthreads.la
 am__append_2 = libevent_pthreads.pc
-am__append_3 = libevent_openssl.la
-am__append_4 = libevent_openssl.pc
+#am__append_3 = libevent_openssl.la
+#am__append_4 = libevent_openssl.pc
 noinst_PROGRAMS = $(am__EXEEXT_4) $(am__EXEEXT_6)
 EXTRA_PROGRAMS = $(am__EXEEXT_1)
 #am__append_5 = $(EVENT2_EXPORT)
-am__append_6 = sample/le-proxy sample/https-client
-am__append_7 = \
-	sample/hostcheck.h \
-	sample/openssl_hostname_validation.h
+#am__append_6 = sample/le-proxy sample/https-client
+#am__append_7 = \
+#	sample/hostcheck.h \
+#	sample/openssl_hostname_validation.h
 
 am__append_8 = $(SAMPLES)
 am__append_9 = $(TESTPROGRAMS)
@@ -134,9 +134,9 @@ am__append_10 = test/regress
 am__append_11 = test/regress.gen.c test/regress.gen.h
 am__append_12 = libevent_pthreads.la
 #am__append_13 = test/regress_iocp.c
-am__append_14 = test/regress_ssl.c
-am__append_15 = $(OPENSSL_INCS)
-am__append_16 = libevent_openssl.la $(OPENSSL_LIBS) ${OPENSSL_LIBADD}
+#am__append_14 = test/regress_ssl.c
+#am__append_15 = $(OPENSSL_INCS)
+#am__append_16 = libevent_openssl.la $(OPENSSL_LIBS) ${OPENSSL_LIBADD}
 #am__append_17 = evthread_win32.c
 am__append_18 = strlcpy.c
 am__append_19 = select.c
@@ -273,19 +273,19 @@ libevent_extra_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	-o $@
 #am_libevent_extra_la_rpath =
 am_libevent_extra_la_rpath = -rpath $(libdir)
-libevent_openssl_la_DEPENDENCIES =  \
-	$(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1)
+#libevent_openssl_la_DEPENDENCIES =  \
+#	$(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1)
 am__libevent_openssl_la_SOURCES_DIST = bufferevent_openssl.c
-am_libevent_openssl_la_OBJECTS =  \
-	libevent_openssl_la-bufferevent_openssl.lo
+#am_libevent_openssl_la_OBJECTS =  \
+#	libevent_openssl_la-bufferevent_openssl.lo
 libevent_openssl_la_OBJECTS = $(am_libevent_openssl_la_OBJECTS)
 libevent_openssl_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(AM_CFLAGS) $(CFLAGS) $(libevent_openssl_la_LDFLAGS) \
 	$(LDFLAGS) -o $@
-#am_libevent_openssl_la_rpath =
-am_libevent_openssl_la_rpath =  \
-	-rpath $(libdir)
+##am_libevent_openssl_la_rpath =
+#am_libevent_openssl_la_rpath =  \
+#	-rpath $(libdir)
 libevent_pthreads_la_DEPENDENCIES =  \
 	$(am__DEPENDENCIES_2)
 am__libevent_pthreads_la_SOURCES_DIST = evthread_pthread.c
@@ -299,8 +299,8 @@ libevent_pthreads_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 am_libevent_pthreads_la_rpath =  \
 	-rpath $(libdir)
 am__EXEEXT_1 = test/regress$(EXEEXT)
-am__EXEEXT_2 = sample/le-proxy$(EXEEXT) \
-	sample/https-client$(EXEEXT)
+#am__EXEEXT_2 = sample/le-proxy$(EXEEXT) \
+#	sample/https-client$(EXEEXT)
 am__EXEEXT_3 = sample/dns-example$(EXEEXT) \
 	sample/event-read-fifo$(EXEEXT) sample/hello-world$(EXEEXT) \
 	sample/http-server$(EXEEXT) sample/http-connect$(EXEEXT) \
@@ -335,20 +335,20 @@ sample_http_server_OBJECTS = $(am_sample_http_server_OBJECTS)
 sample_http_server_DEPENDENCIES = $(am__DEPENDENCIES_1) libevent.la
 am__sample_https_client_SOURCES_DIST = sample/https-client.c \
 	sample/hostcheck.c sample/openssl_hostname_validation.c
-am_sample_https_client_OBJECTS =  \
-	sample/https-client.$(OBJEXT) \
-	sample/hostcheck.$(OBJEXT) \
-	sample/openssl_hostname_validation.$(OBJEXT)
+#am_sample_https_client_OBJECTS =  \
+#	sample/https-client.$(OBJEXT) \
+#	sample/hostcheck.$(OBJEXT) \
+#	sample/openssl_hostname_validation.$(OBJEXT)
 sample_https_client_OBJECTS = $(am_sample_https_client_OBJECTS)
-sample_https_client_DEPENDENCIES = libevent.la \
-	libevent_openssl.la $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1)
+#sample_https_client_DEPENDENCIES = libevent.la \
+#	libevent_openssl.la $(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1)
 am__sample_le_proxy_SOURCES_DIST = sample/le-proxy.c
-am_sample_le_proxy_OBJECTS = sample/le-proxy.$(OBJEXT)
+#am_sample_le_proxy_OBJECTS = sample/le-proxy.$(OBJEXT)
 sample_le_proxy_OBJECTS = $(am_sample_le_proxy_OBJECTS)
-sample_le_proxy_DEPENDENCIES = libevent.la \
-	libevent_openssl.la $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1)
+#sample_le_proxy_DEPENDENCIES = libevent.la \
+#	libevent_openssl.la $(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1)
 am_sample_signal_test_OBJECTS = sample/signal-test.$(OBJEXT)
 sample_signal_test_OBJECTS = $(am_sample_signal_test_OBJECTS)
 sample_signal_test_DEPENDENCIES = $(am__DEPENDENCIES_1) libevent.la
@@ -384,8 +384,8 @@ am__objects_14 =  \
 	test/test_regress-regress_zlib.$(OBJEXT)
 #am__objects_15 =  \
 #	test/test_regress-regress_iocp.$(OBJEXT)
-am__objects_16 =  \
-	test/test_regress-regress_ssl.$(OBJEXT)
+#am__objects_16 =  \
+#	test/test_regress-regress_ssl.$(OBJEXT)
 am_test_regress_OBJECTS = test/test_regress-regress.$(OBJEXT) \
 	test/test_regress-regress.gen.$(OBJEXT) \
 	test/test_regress-regress_buffer.$(OBJEXT) \
@@ -404,8 +404,8 @@ am_test_regress_OBJECTS = test/test_regress-regress.$(OBJEXT) \
 	$(am__objects_14) $(am__objects_15) $(am__objects_16)
 test_regress_OBJECTS = $(am_test_regress_OBJECTS)
 am__DEPENDENCIES_3 = $(am__append_12)
-am__DEPENDENCIES_4 = libevent_openssl.la \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+#am__DEPENDENCIES_4 = libevent_openssl.la \
+#	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
 test_regress_DEPENDENCIES = $(am__DEPENDENCIES_1) libevent.la \
 	$(am__DEPENDENCIES_3) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_4)
@@ -822,11 +822,11 @@ INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
-LD = /usr/bin/ld -m elf_x86_64
+LD = /usr/bin/x86_64-linux-gnu-ld -m elf_x86_64
 LDFLAGS = 
 LIBEVENT_GC_SECTIONS = 
 LIBOBJS = 
-LIBS = -lcrypto 
+LIBS = 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIBTOOL_DEPS = ./ltmain.sh
 LIPO = 
@@ -842,7 +842,7 @@ OBJDUMP = objdump
 OBJEXT = o
 OPENSSL_INCS = 
 OPENSSL_LIBADD = 
-OPENSSL_LIBS = -lssl -lcrypto   
+OPENSSL_LIBS = 
 OTOOL = 
 OTOOL64 = 
 PACKAGE = libevent
@@ -906,7 +906,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /usr/local
+prefix = /usr
 program_transform_name = s,x,x,
 psdir = ${docdir}
 runstatedir = ${localstatedir}/run
@@ -1080,16 +1080,16 @@ nodist_include_event2_HEADERS = include/event2/event-config.h
 SAMPLES = sample/dns-example sample/event-read-fifo sample/hello-world \
 	sample/http-server sample/http-connect sample/signal-test \
 	sample/time-test $(am__append_6)
-sample_le_proxy_SOURCES = sample/le-proxy.c
-sample_le_proxy_LDADD = libevent.la libevent_openssl.la ${OPENSSL_LIBS} ${OPENSSL_LIBADD}
-sample_le_proxy_INCLUDES = $(OPENSSL_INCS)
-sample_https_client_SOURCES = \
-	sample/https-client.c \
-	sample/hostcheck.c \
-	sample/openssl_hostname_validation.c
+#sample_le_proxy_SOURCES = sample/le-proxy.c
+#sample_le_proxy_LDADD = libevent.la libevent_openssl.la ${OPENSSL_LIBS} ${OPENSSL_LIBADD}
+#sample_le_proxy_INCLUDES = $(OPENSSL_INCS)
+#sample_https_client_SOURCES = \
+#	sample/https-client.c \
+#	sample/hostcheck.c \
+#	sample/openssl_hostname_validation.c
 
-sample_https_client_LDADD = libevent.la libevent_openssl.la ${OPENSSL_LIBS} ${OPENSSL_LIBADD}
-sample_https_client_INCLUDES = $(OPENSSL_INCS)
+#sample_https_client_LDADD = libevent.la libevent_openssl.la ${OPENSSL_LIBS} ${OPENSSL_LIBADD}
+#sample_https_client_INCLUDES = $(OPENSSL_INCS)
 sample_event_read_fifo_SOURCES = sample/event-read-fifo.c
 sample_event_read_fifo_LDADD = $(LIBEVENT_GC_SECTIONS) libevent.la
 sample_time_test_SOURCES = sample/time-test.c
@@ -1232,10 +1232,10 @@ libevent_pthreads_la_LDFLAGS = $(GENERIC_LDFLAGS)
 libevent_extra_la_SOURCES = $(EXTRAS_SRC)
 libevent_extra_la_LIBADD = $(MAYBE_CORE) $(SYS_LIBS)
 libevent_extra_la_LDFLAGS = $(GENERIC_LDFLAGS)
-libevent_openssl_la_SOURCES = bufferevent_openssl.c
-libevent_openssl_la_LIBADD = $(MAYBE_CORE) $(OPENSSL_LIBS)
-libevent_openssl_la_LDFLAGS = $(GENERIC_LDFLAGS)
-libevent_openssl_la_CPPFLAGS = $(AM_CPPFLAGS) $(OPENSSL_INCS)
+#libevent_openssl_la_SOURCES = bufferevent_openssl.c
+#libevent_openssl_la_LIBADD = $(MAYBE_CORE) $(OPENSSL_LIBS)
+#libevent_openssl_la_LDFLAGS = $(GENERIC_LDFLAGS)
+#libevent_openssl_la_CPPFLAGS = $(AM_CPPFLAGS) $(OPENSSL_INCS)
 EVENT1_HDRS = \
 	include/evdns.h \
 	include/event.h \

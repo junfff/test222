@@ -1,6 +1,6 @@
 #libevent pkg-config source file
 
-prefix=/usr/local
+prefix=/usr
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
@@ -11,6 +11,6 @@ Version: 2.1.8-stable
 Requires: libevent
 Conflicts:
 Libs: -L${libdir} -levent_openssl
-Libs.private: -lcrypto  -lssl -lcrypto   
+Libs.private:  
 Cflags: -I${includedir} 
 

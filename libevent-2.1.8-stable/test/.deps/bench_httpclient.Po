@@ -21,7 +21,7 @@ test/bench_httpclient.o: test/bench_httpclient.c \
  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
  /usr/include/x86_64-linux-gnu/bits/select2.h \
- /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/7/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
@@ -30,7 +30,7 @@ test/bench_httpclient.o: test/bench_httpclient.c \
  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
- /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h /usr/include/endian.h \
+ /usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h /usr/include/endian.h \
  /usr/include/x86_64-linux-gnu/bits/endian.h \
  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
  /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
@@ -40,7 +40,7 @@ test/bench_httpclient.o: test/bench_httpclient.c \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
- /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h /usr/include/netdb.h \
+ /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h /usr/include/netdb.h \
  /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/sys/socket.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
  /usr/include/x86_64-linux-gnu/bits/socket.h \
@@ -149,7 +149,7 @@ include/event2/visibility.h:
 
 /usr/include/x86_64-linux-gnu/bits/select2.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h:
+/usr/lib/gcc/x86_64-linux-gnu/7/include/stdint.h:
 
 /usr/include/stdint.h:
 
@@ -169,7 +169,7 @@ include/event2/visibility.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h:
+/usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h:
 
 /usr/include/endian.h:
 
@@ -191,7 +191,7 @@ include/event2/visibility.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h:
+/usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h:
 
 /usr/include/netdb.h:
 
