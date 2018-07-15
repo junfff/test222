@@ -25,9 +25,10 @@ Interface IMarshalEndian : implements IModules
 		virtual ~IMarshalEndian(){}
 		virtual	void Initialize() = 0;  
 		virtual	void Dispose() = 0;  
-		virtual	int Encode(BaseMessage *msg,char *buf) = 0;  
+		virtual	int Encode(int MsgID,char *data,char *buf,int *len) = 0;  
 		virtual int Decode(char *buff, int len) = 0;
 		virtual void handleDataUint(char *dataUnit, int size) = 0;
 		virtual void SetContext(void *ev) = 0;
+		virtual void SetCoreModules(void *cm) = 0;
 
 };

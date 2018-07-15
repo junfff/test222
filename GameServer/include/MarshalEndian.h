@@ -18,10 +18,11 @@ class MarshalEndian :implements IMarshalEndian
 	public:
 		void Initialize() override;
 		void Dispose() override;  
-		int Encode(BaseMessage *msg,char *buf) override;  
+		int Encode(int MsgID,char *data,char *buf,int *len) override;  
 		int Decode(char *buff, int len) override;
 		void handleDataUint(char *dataUnit, int size) override;
 		void SetContext(void *ev) override;
+		void SetCoreModules(void *cm) override;
 
 	protected:
 		void Dispose(bool flag1);
