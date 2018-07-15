@@ -1,6 +1,7 @@
 #include "../../include/Business/BusinessModule.h"
 #include "../../include/Base/IModulesCollection.h"
 #include "../../include/Business/PersonBusiness.h"
+#include "../../include/Business/DefineProtobuf.h"
 #include <stdlib.h>
 #include <stdio.h>
 using namespace GameBase;
@@ -8,7 +9,7 @@ namespace Business
 {
 	void BusinessModule::Initialize()
 	{
-		bus_v.push_back(new PersonBusiness(1));
+		bus_v.push_back(new PersonBusiness(MSG_PERSON));
 
 	}
 	void BusinessModule::Dispose()
@@ -24,7 +25,7 @@ namespace Business
         	IBusiness *b = bus_v[i];
         	if(b->Get_ID() == MsgID)
         	{
-        		b->Process(buf,ev);
+        		return	b->Process(buf,ev);
         	}
     	}
 

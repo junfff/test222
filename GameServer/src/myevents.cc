@@ -95,6 +95,7 @@ myevent_s *myevent_new(int fd,struct event_base *base,ModulesCollection *modules
  	ev->Ime = new MarshalEndian();
  	ev->Ime->Initialize();
  	ev->Ime->SetContext(ev);
+ 	ev->Ime->SetCoreModules(modulesMgr);
 
  	ev->coreModules = modulesMgr;
 

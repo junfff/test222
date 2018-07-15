@@ -15,11 +15,17 @@
 #include <assert.h>
 #include "../include/Business/BusinessModule.h"
 #include "../include/Base/ModulesCollection.h"
+#include <arpa/inet.h>
+
 
 // 消息解析器  
 void MarshalEndian::SetContext(void *ev)
 {
 	context = ev;
+}
+void MarshalEndian::SetCoreModules(void *cm)
+{
+	coreModules = (IModulesCollection *)cm;
 }
 void MarshalEndian::Initialize()
 {
@@ -47,31 +53,72 @@ void MarshalEndian:: Dispose(bool flag1)
 }
 
 //char* MarshalEndian:: Encode(IBaseMessage msg)
-int MarshalEndian:: Encode(BaseMessage* msg,char *buf)
+int MarshalEndian:: Encode(int MsgID,char *data,char *buf,int *outlen)
 {
-	char *msgBuffer = msg->GetByte();
-	ofstream bw(buf, ios::binary);
+	printf("encode start : msgid:%d,data:%s\n",MsgID,data);
+	char *tmp = buf;
 
-	//#pragma region 封装包头  
-    bw.write((char *)&t1,sizeof(t1));
-    bw.write((char *)&t2,sizeof(t2));
-	//#pragma endregion
-
+	//short n = htons(t1);
+	memcpy(tmp,(char *)&t1,sizeof(short));
+	tmp += sizeof(short);
+	memcpy(tmp,(char *)&t2,sizeof(short));
+	tmp += sizeof(short);
 	short len = 0;
-	//#region 包协议  
-    if (msg != NULL)
-    {
-    	len = sizeof(msgBuffer) + 4;
-        bw.write((char *)&len,sizeof(len));
-        bw.write((char *)&msg->MsgID,sizeof(msg->MsgID));
-        bw.write(msgBuffer,sizeof(msgBuffer));
-    }
-    else
-    {
-    	bw.write((char *)&len,sizeof(len));
-    }
-	//#endregion
+	if(data!=NULL)
+	{
+        len = strlen(data) + 4;
+		memcpy(tmp,(char *)&len,sizeof(short));
+		tmp += sizeof(short);
+		memcpy(tmp,(char *)&MsgID,sizeof(int));
+		tmp += sizeof(int);
+		memcpy(tmp,data,strlen(data));
+		tmp += strlen(data);
+	}
+	else
+	{
+		memcpy(tmp,&len,sizeof(len));
+		tmp += sizeof(len);
+	}
+	// int totallen = 0;
+	// char tmp[1024];
+	// totallen = sizeof(t1) + sizeof(t2);
+	// ofstream bw(tmp, ios::binary);
+    //
+	// //#pragma region 封装包头
+    // bw.write((char *)&t1,sizeof(t1));
+    // bw.write((char *)&t2,sizeof(t2));
+	// //#pragma endregion
+    //
+	// short len = 0;
+	// //#region 包协议
+    // if (data != NULL)
+    // {
+    //     len = sizeof(data) + 4;
+    //     bw.write((char *)&len,sizeof(len));
+    //     bw.write((char *)&MsgID,sizeof(MsgID));
+    //     bw.write(data,strlen(data));
+    //
+    //     totallen += sizeof(len);
+    //     totallen += sizeof(MsgID);
+    //     totallen += strlen(data);
+    // }
+    // else
+    // {
+    //     bw.write((char *)&len,sizeof(len));
+    //     totallen += sizeof(len);
+    // }
+	// //#endregion
+    //
+	// strcpy(buf,tmp);
+	// *outlen = totallen;
+    //
 
+
+	*tmp = '\0';
+    *outlen = tmp - buf;
+    unsigned char t0 = buf[0];//取出接收数据的前两个字节
+    unsigned char t1 = buf[1];
+	printf("On encode ! buf:%s,len:%d, t0:%c,t1:%c\n",buf,*outlen,t0,t1);
     return 0;
 }
 
