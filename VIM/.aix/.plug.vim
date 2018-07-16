@@ -36,8 +36,8 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/ListToggle'
 
-
-
+Plug 't9md/vim-quickhl'
+Plug 'scrooloose/nerdcommenter'
 
 " ---- Plug List Complete ----
 call plug#end()

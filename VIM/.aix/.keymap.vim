@@ -7,7 +7,7 @@ nnoremap == gg=G :w<CR> <C-o> <C-o>
 inoremap <A-=> gg=G :w<CR> <C-o> <C-o>
 inoremap <F12> <ESC> gg=G :w<CR> <C-o> <C-o> i
 nnoremap <F12> <ESC> gg=G :w<CR> <C-o> <C-o>
-
+nnoremap <F4> :set nu
 nnoremap <leader>g :
 
 " Vundle keyfire
@@ -30,4 +30,8 @@ nnoremap <C-x> :bdelete<CR>
 
 "--------------------------------------------------------------------------------
 
-
+" Vim-quickhl
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
