@@ -40,10 +40,13 @@ func SetTitle()
         call SetComment_sh()  
   
     elseif &filetype == 'sh'   
-        call setline(1,"#!/system/bin/sh")   
+        call setline(1,"#!/bin/zsh")   
         call setline(2,"")  
         call SetComment_sh()  
-          
+    elseif expand("%:e") == 'sh'
+       call setline(1,"#!/bin/zsh")   
+        call setline(2,"")  
+        call SetComment_sh()       
     else  
          call SetComment()  
          if expand("%:e") == 'hpp'   
