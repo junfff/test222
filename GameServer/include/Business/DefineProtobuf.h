@@ -12,3 +12,4 @@
 #pragma once
 
 const int MSG_PERSON = 1000;
+const int MSG_HEARTBEAT = 1001;
