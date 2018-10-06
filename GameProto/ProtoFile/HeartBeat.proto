@@ -1,0 +1,5 @@
+syntax = "proto3";
+package protobufMsg;
+message HeartBeat {
+  int32 actionId = 1;
+}
