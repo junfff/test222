@@ -63,3 +63,151 @@
 [36mINFO[0m[1472] [2018-10-08 07:23:58] accepted (19/0) diff 2000 (42 ms) 
 [36mINFO[0m[1494] [2018-10-08 07:24:19] accepted (20/0) diff 2000 (29 ms) 
 [36mINFO[0m[1504] [2018-10-08 07:24:29] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[1582] [2018-10-08 07:25:48] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[1685] [2018-10-08 07:27:30] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[1735] [2018-10-08 07:28:21] accepted (21/0) diff 2000 (53 ms) 
+[36mINFO[0m[1735] [2018-10-08 07:28:21] accepted (22/0) diff 2000 (26 ms) 
+[36mINFO[0m[1751] [2018-10-08 07:28:37] accepted (23/0) diff 2000 (49 ms) 
+[36mINFO[0m[1776] [2018-10-08 07:29:01] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[1800] log ticker started                           
+[36mINFO[0m[1867] [2018-10-08 07:30:32] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[1869] [2018-10-08 07:30:34] accepted (24/0) diff 2000 (70 ms) 
+[36mINFO[0m[1917] [2018-10-08 07:31:23] accepted (25/0) diff 2000 (26 ms) 
+[36mINFO[0m[1920] [2018-10-08 07:31:26] accepted (26/0) diff 2000 (26 ms) 
+[36mINFO[0m[1958] [2018-10-08 07:32:04] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2036] [2018-10-08 07:33:22] accepted (27/0) diff 2000 (26 ms) 
+[36mINFO[0m[2049] [2018-10-08 07:33:34] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2096] [2018-10-08 07:34:22] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2116] [2018-10-08 07:34:41] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2119] [2018-10-08 07:34:45] accepted (28/0) diff 2000 (26 ms) 
+[36mINFO[0m[2145] [2018-10-08 07:35:11] accepted (29/0) diff 2000 (96 ms) 
+[36mINFO[0m[2159] [2018-10-08 07:35:24] accepted (30/0) diff 2000 (113 ms) 
+[36mINFO[0m[2185] [2018-10-08 07:35:51] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2211] [2018-10-08 07:36:17] accepted (31/0) diff 2000 (70 ms) 
+[36mINFO[0m[2216] [2018-10-08 07:36:21] accepted (32/0) diff 2000 (27 ms) 
+[36mINFO[0m[2225] [2018-10-08 07:36:31] accepted (33/0) diff 2000 (42 ms) 
+[36mINFO[0m[2276] [2018-10-08 07:37:22] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2326] [2018-10-08 07:38:12] accepted (34/0) diff 2000 (26 ms) 
+[36mINFO[0m[2367] [2018-10-08 07:38:53] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2386] [2018-10-08 07:39:12] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2388] [2018-10-08 07:39:13] accepted (35/0) diff 2000 (948 ms) 
+[36mINFO[0m[2400] log ticker started                           
+[36mINFO[0m[2419] [2018-10-08 07:39:44] accepted (36/0) diff 2000 (120 ms) 
+[36mINFO[0m[2458] [2018-10-08 07:40:24] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2502] [2018-10-08 07:41:08] accepted (37/0) diff 2000 (42 ms) 
+[36mINFO[0m[2525] [2018-10-08 07:41:31] accepted (38/0) diff 2000 (26 ms) 
+[36mINFO[0m[2550] [2018-10-08 07:41:55] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2624] [2018-10-08 07:43:09] accepted (39/0) diff 2000 (41 ms) 
+[36mINFO[0m[2641] [2018-10-08 07:43:26] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2693] [2018-10-08 07:44:19] accepted (40/0) diff 2000 (90 ms) 
+[36mINFO[0m[2709] [2018-10-08 07:44:35] accepted (41/0) diff 2000 (78 ms) 
+[36mINFO[0m[2732] [2018-10-08 07:44:58] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2824] [2018-10-08 07:46:29] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2830] [2018-10-08 07:46:35] accepted (42/0) diff 2000 (26 ms) 
+[36mINFO[0m[2841] [2018-10-08 07:46:47] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2859] [2018-10-08 07:47:04] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2877] [2018-10-08 07:47:23] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[2900] [2018-10-08 07:47:46] accepted (43/0) diff 2000 (26 ms) 
+[36mINFO[0m[2922] [2018-10-08 07:48:08] accepted (44/0) diff 2000 (83 ms) 
+[36mINFO[0m[2940] [2018-10-08 07:48:25] accepted (45/0) diff 2000 (26 ms) 
+[36mINFO[0m[2960] [2018-10-08 07:48:45] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3000] log ticker started                           
+[36mINFO[0m[3004] [2018-10-08 07:49:30] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3023] [2018-10-08 07:49:48] accepted (46/0) diff 2000 (26 ms) 
+[36mINFO[0m[3032] [2018-10-08 07:49:58] accepted (47/0) diff 2000 (36 ms) 
+[36mINFO[0m[3040] [2018-10-08 07:50:05] accepted (48/0) diff 2000 (27 ms) 
+[36mINFO[0m[3046] [2018-10-08 07:50:12] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3069] [2018-10-08 07:50:35] accepted (49/0) diff 2000 (31 ms) 
+[36mINFO[0m[3096] [2018-10-08 07:51:02] accepted (50/0) diff 2000 (37 ms) 
+[36mINFO[0m[3101] [2018-10-08 07:51:06] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3107] [2018-10-08 07:51:13] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3129] [2018-10-08 07:51:35] accepted (51/0) diff 2000 (26 ms) 
+[36mINFO[0m[3154] [2018-10-08 07:51:59] accepted (52/0) diff 2000 (26 ms) 
+[36mINFO[0m[3187] [2018-10-08 07:52:33] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3245] [2018-10-08 07:53:31] accepted (53/0) diff 2000 (29 ms) 
+[36mINFO[0m[3278] [2018-10-08 07:54:03] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3287] [2018-10-08 07:54:13] accepted (54/0) diff 2000 (41 ms) 
+[36mINFO[0m[3305] [2018-10-08 07:54:30] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3352] [2018-10-08 07:55:17] accepted (55/0) diff 2000 (32 ms) 
+[36mINFO[0m[3369] [2018-10-08 07:55:35] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3408] [2018-10-08 07:56:13] accepted (56/0) diff 2000 (62 ms) 
+[36mINFO[0m[3446] [2018-10-08 07:56:52] accepted (57/0) diff 2000 (97 ms) 
+[36mINFO[0m[3460] [2018-10-08 07:57:05] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3492] [2018-10-08 07:57:38] accepted (58/0) diff 2000 (35 ms) 
+[36mINFO[0m[3551] [2018-10-08 07:58:37] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3594] [2018-10-08 07:59:20] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3600] log ticker started                           
+[36mINFO[0m[3653] [2018-10-08 08:00:18] accepted (59/0) diff 2000 (60 ms) 
+[36mINFO[0m[3661] [2018-10-08 08:00:26] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3685] [2018-10-08 08:00:50] accepted (60/0) diff 2000 (49 ms) 
+[36mINFO[0m[3732] [2018-10-08 08:01:38] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3753] [2018-10-08 08:01:59] accepted (61/0) diff 2000 (42 ms) 
+[36mINFO[0m[3824] [2018-10-08 08:03:09] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3839] [2018-10-08 08:03:24] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3862] [2018-10-08 08:03:48] accepted (62/0) diff 2000 (62 ms) 
+[36mINFO[0m[3874] [2018-10-08 08:03:59] accepted (63/0) diff 2000 (26 ms) 
+[36mINFO[0m[3915] [2018-10-08 08:04:40] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[3916] [2018-10-08 08:04:41] accepted (64/0) diff 2000 (259 ms) 
+[36mINFO[0m[3958] [2018-10-08 08:05:24] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4014] [2018-10-08 08:06:19] accepted (65/0) diff 2000 (53 ms) 
+[36mINFO[0m[4033] [2018-10-08 08:06:38] accepted (66/0) diff 2000 (83 ms) 
+[36mINFO[0m[4037] [2018-10-08 08:06:43] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4118] [2018-10-08 08:08:04] accepted (67/0) diff 2000 (39 ms) 
+[36mINFO[0m[4141] [2018-10-08 08:08:27] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4200] log ticker started                           
+[36mINFO[0m[4211] [2018-10-08 08:09:36] accepted (68/0) diff 2000 (26 ms) 
+[36mINFO[0m[4213] [2018-10-08 08:09:39] accepted (69/0) diff 2000 (26 ms) 
+[36mINFO[0m[4219] [2018-10-08 08:09:44] accepted (70/0) diff 2000 (65 ms) 
+[36mINFO[0m[4232] [2018-10-08 08:09:58] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4308] [2018-10-08 08:11:14] accepted (71/0) diff 2000 (51 ms) 
+[36mINFO[0m[4323] [2018-10-08 08:11:29] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4328] [2018-10-08 08:11:34] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4330] [2018-10-08 08:11:36] accepted (72/0) diff 2000 (200 ms) 
+[36mINFO[0m[4352] [2018-10-08 08:11:58] accepted (73/0) diff 2000 (47 ms) 
+[36mINFO[0m[4403] [2018-10-08 08:12:48] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4406] [2018-10-08 08:12:51] accepted (74/0) diff 2000 (50 ms) 
+[36mINFO[0m[4455] [2018-10-08 08:13:41] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4491] [2018-10-08 08:14:17] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4543] [2018-10-08 08:15:09] accepted (75/0) diff 2000 (50 ms) 
+[36mINFO[0m[4545] [2018-10-08 08:15:10] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4574] [2018-10-08 08:15:40] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4640] [2018-10-08 08:16:45] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4644] [2018-10-08 08:16:50] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4715] [2018-10-08 08:18:00] accepted (76/0) diff 2000 (26 ms) 
+[36mINFO[0m[4731] [2018-10-08 08:18:17] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4750] [2018-10-08 08:18:36] accepted (77/0) diff 2000 (75 ms) 
+[36mINFO[0m[4754] [2018-10-08 08:18:40] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4764] [2018-10-08 08:18:50] accepted (78/0) diff 2000 (67 ms) 
+[36mINFO[0m[4785] [2018-10-08 08:19:10] accepted (79/0) diff 2000 (34 ms) 
+[36mINFO[0m[4800] log ticker started                           
+[36mINFO[0m[4822] [2018-10-08 08:19:48] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4829] [2018-10-08 08:19:55] accepted (80/0) diff 2000 (52 ms) 
+[36mINFO[0m[4883] [2018-10-08 08:20:48] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4915] [2018-10-08 08:21:20] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4981] [2018-10-08 08:22:26] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[4984] [2018-10-08 08:22:29] accepted (81/0) diff 2000 (1314 ms) 
+[36mINFO[0m[5049] [2018-10-08 08:23:34] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[5140] [2018-10-08 08:25:05] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[5155] [2018-10-08 08:25:21] accepted (82/0) diff 2000 (35 ms) 
+[36mINFO[0m[5231] [2018-10-08 08:26:37] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[5233] [2018-10-08 08:26:38] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[5271] [2018-10-08 08:27:17] accepted (83/0) diff 2000 (48 ms) 
+[36mINFO[0m[5301] [2018-10-08 08:27:47] accepted (84/0) diff 2000 (53 ms) 
+[36mINFO[0m[5314] [2018-10-08 08:27:59] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[5320] [2018-10-08 08:28:05] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[5325] [2018-10-08 08:28:11] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[5343] [2018-10-08 08:28:28] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[5400] log ticker started                           
+[36mINFO[0m[5412] [2018-10-08 08:29:38] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[5445] [2018-10-08 08:30:10] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[5470] [2018-10-08 08:30:35] accepted (85/0) diff 2000 (51 ms) 
+[36mINFO[0m[5472] [2018-10-08 08:30:37] accepted (86/0) diff 2000 (30 ms) 
+[36mINFO[0m[5535] [2018-10-08 08:31:41] accepted (87/0) diff 2000 (41 ms) 
+[36mINFO[0m[5549] [2018-10-08 08:31:54] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[5573] [2018-10-08 08:32:19] accepted (88/0) diff 2000 (68 ms) 
+[36mINFO[0m[5617] [2018-10-08 08:33:02] accepted (89/0) diff 2000 (95 ms) 
+[36mINFO[0m[5641] [2018-10-08 08:33:27] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[5714] [2018-10-08 08:34:40] accepted (90/0) diff 2000 (49 ms) 
+[36mINFO[0m[5722] [2018-10-08 08:34:48] accepted (91/0) diff 2000 (120 ms) 
+[36mINFO[0m[5731] [2018-10-08 08:34:56] new job from cn1.hfsvr.com:19891 diff 2000 algo cn/1 
+[36mINFO[0m[5755] [2018-10-08 08:35:21] accepted (92/0) diff 2000 (49 ms) 
