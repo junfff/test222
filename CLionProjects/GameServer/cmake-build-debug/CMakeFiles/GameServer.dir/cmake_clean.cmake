@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/GameServer.dir/src/Business/BusinessMoudle.cc.o"
   "CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o"
   "CMakeFiles/GameServer.dir/src/Business/HeartBeatBusiness.cc.o"
+  "CMakeFiles/GameServer.dir/src/main/HeartBeat.pb.cc.o"
+  "CMakeFiles/GameServer.dir/src/main/person.pb.cc.o"
   "GameServer.pdb"
   "GameServer"
 )

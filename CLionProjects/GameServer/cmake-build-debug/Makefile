@@ -48,10 +48,10 @@ RM = /home/ljf/clion-2018.2.4/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ljf/CLionProjects/GameServer
+CMAKE_SOURCE_DIR = /home/ljf/learn/CLionProjects/GameServer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ljf/CLionProjects/GameServer/cmake-build-debug
+CMAKE_BINARY_DIR = /home/ljf/learn/CLionProjects/GameServer/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ljf/CLionProjects/GameServer/cmake-build-debug/CMakeFiles /home/ljf/CLionProjects/GameServer/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ljf/learn/CLionProjects/GameServer/cmake-build-debug/CMakeFiles /home/ljf/learn/CLionProjects/GameServer/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ljf/CLionProjects/GameServer/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ljf/learn/CLionProjects/GameServer/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -258,6 +258,33 @@ src/main/BaseMessage.cc.s:
 	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/main/BaseMessage.cc.s
 .PHONY : src/main/BaseMessage.cc.s
 
+src/main/HeartBeat.pb.o: src/main/HeartBeat.pb.cc.o
+
+.PHONY : src/main/HeartBeat.pb.o
+
+# target to build an object file
+src/main/HeartBeat.pb.cc.o:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/main/HeartBeat.pb.cc.o
+.PHONY : src/main/HeartBeat.pb.cc.o
+
+src/main/HeartBeat.pb.i: src/main/HeartBeat.pb.cc.i
+
+.PHONY : src/main/HeartBeat.pb.i
+
+# target to preprocess a source file
+src/main/HeartBeat.pb.cc.i:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/main/HeartBeat.pb.cc.i
+.PHONY : src/main/HeartBeat.pb.cc.i
+
+src/main/HeartBeat.pb.s: src/main/HeartBeat.pb.cc.s
+
+.PHONY : src/main/HeartBeat.pb.s
+
+# target to generate assembly for a file
+src/main/HeartBeat.pb.cc.s:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/main/HeartBeat.pb.cc.s
+.PHONY : src/main/HeartBeat.pb.cc.s
+
 src/main/MarshalEndian.o: src/main/MarshalEndian.cc.o
 
 .PHONY : src/main/MarshalEndian.o
@@ -339,6 +366,33 @@ src/main/myevents.cc.s:
 	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/main/myevents.cc.s
 .PHONY : src/main/myevents.cc.s
 
+src/main/person.pb.o: src/main/person.pb.cc.o
+
+.PHONY : src/main/person.pb.o
+
+# target to build an object file
+src/main/person.pb.cc.o:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/main/person.pb.cc.o
+.PHONY : src/main/person.pb.cc.o
+
+src/main/person.pb.i: src/main/person.pb.cc.i
+
+.PHONY : src/main/person.pb.i
+
+# target to preprocess a source file
+src/main/person.pb.cc.i:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/main/person.pb.cc.i
+.PHONY : src/main/person.pb.cc.i
+
+src/main/person.pb.s: src/main/person.pb.cc.s
+
+.PHONY : src/main/person.pb.s
+
+# target to generate assembly for a file
+src/main/person.pb.cc.s:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/main/person.pb.cc.s
+.PHONY : src/main/person.pb.cc.s
+
 src/main/threadpool.o: src/main/threadpool.cc.o
 
 .PHONY : src/main/threadpool.o
@@ -417,6 +471,9 @@ help:
 	@echo "... src/main/BaseMessage.o"
 	@echo "... src/main/BaseMessage.i"
 	@echo "... src/main/BaseMessage.s"
+	@echo "... src/main/HeartBeat.pb.o"
+	@echo "... src/main/HeartBeat.pb.i"
+	@echo "... src/main/HeartBeat.pb.s"
 	@echo "... src/main/MarshalEndian.o"
 	@echo "... src/main/MarshalEndian.i"
 	@echo "... src/main/MarshalEndian.s"
@@ -426,6 +483,9 @@ help:
 	@echo "... src/main/myevents.o"
 	@echo "... src/main/myevents.i"
 	@echo "... src/main/myevents.s"
+	@echo "... src/main/person.pb.o"
+	@echo "... src/main/person.pb.i"
+	@echo "... src/main/person.pb.s"
 	@echo "... src/main/threadpool.o"
 	@echo "... src/main/threadpool.i"
 	@echo "... src/main/threadpool.s"

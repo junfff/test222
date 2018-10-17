@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 project(GameServer)
 
-set(dir_inc  ./src/include)  #所有头文件放到此处
+set(dir_inc  src/include)  #所有头文件放到此处
 set(dir_src  ./src)  #所有源文件放到此处
 set(dir_obj  ./obj) #所有中间件文件放到此处
 set(dir_bin  ./bin) #生成的文件放到此处
@@ -9,16 +9,17 @@ set(dir_3rd  ./3party) #第三方库的头文件放到此处
 set(dir_lib  ./lib) #第三方库文件的链接库放到此处
 
 set(dir_protobuf  /usr/local/protobuf/include)
-set(dir_protobuflib  /usr/local/protobuf/lib)
 set(dir_usrlocal  /usr/local/include)
-set(dir_usrlib  /usr/local/lib)
 
+set(dir_usrlib  /usr/local/lib)
+set(dir_protobuflib  /usr/local/protobuf/lib)
 
 #set(CMAKE_CXX_STANDARD 11)
 
 #set(CMAKE_CXX_FLAGS -pthread)
-#
-include_directories(/home/ljf/CLionProjects/GameServer/src/include)
+
+include_directories(${dir_inc})
+include_directories(${dir_protobuf})
 #include_directories(/usr/local/protobuf/include)
 #link_directories(/usr/lib)
 #link_libraries(event)
@@ -28,10 +29,11 @@ include_directories(/home/ljf/CLionProjects/GameServer/src/include)
 
 #include_directories(/usr/include/event2)     src/main/HeartBeat.pb.cc   src/main/person.pb.cc
 #include_directories(/usr/local/include)
-#link_libraries(GameServer -g -Wall  -I$(dir_inc) -lprotobuf -pthread  -levent -levent_pthreads -std=c++11)
+#link_libraries(hh  -lprotobuf -pthread  -levent -levent_pthreads)
 
 set(
         SOURCE_FILES
+
         src/Base/MoudlesCollection.cc
         src/main/myevents.cc
         src/main/MarshalEndian.cc
@@ -41,6 +43,7 @@ set(
         src/Business/BusinessMoudle.cc
         src/Business/PersonBusiness.cc
         src/Business/HeartBeatBusiness.cc
+        src/main/HeartBeat.pb.cc src/main/person.pb.cc
 )
 
 
@@ -59,5 +62,5 @@ add_executable(GameServer ${SOURCE_FILES})
 
 # 第三方库位置可以通过命令pkg-config --cflags --libs opencv查看
 
-#target_link_libraries(GameServer -g -Wall -I$(dir_inc) -I$(dir_3rd) -pthread -I$(dir_protobuf) -L$(dir_protobuflib) -lprotobuf -levent -levent_pthreads -std=c++11)
-target_link_libraries(GameServer -g -Wall  -I$(dir_inc) -lprotobuf -pthread  -levent -levent_pthreads -std=c++11)
+#target_link_libraries(GameServer -g -Wall -I${dir_inc} -I${dir_3rd} -pthread -I${dir_protobuf} -L${dir_protobuflib} -lprotobuf -levent -levent_pthreads -std=c++11)
+target_link_libraries(GameServer -g -Wall -lprotobuf -pthread  -levent -levent_pthreads -std=c++11)

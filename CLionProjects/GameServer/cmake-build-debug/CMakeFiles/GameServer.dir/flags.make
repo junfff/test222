@@ -6,5 +6,5 @@ CXX_FLAGS = -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ljf/CLionProjects/GameServer/src/include 
+CXX_INCLUDES = -I/home/ljf/learn/CLionProjects/GameServer/src/include -I/usr/local/protobuf/include 
 
