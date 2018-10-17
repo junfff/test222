@@ -1,4 +1,4 @@
-/home/ljf/clion-2018.2.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/ljf/learn/CLionProjects/GameServer
+/home/ljf/Downloads/clion-2018.2.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/ljf/learn/CLionProjects/GameServer
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/ljf/learn/CLionProjects/GameServer/cmake-build-debug

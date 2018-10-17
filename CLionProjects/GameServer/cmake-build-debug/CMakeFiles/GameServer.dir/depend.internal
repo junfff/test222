@@ -30,12 +30,58 @@ CMakeFiles/GameServer.dir/src/Business/BusinessMoudle.cc.o
  /home/ljf/learn/CLionProjects/GameServer/src/Business/./../include/Interface.h
  /home/ljf/learn/CLionProjects/GameServer/src/Business/BusinessMoudle.cc
 CMakeFiles/GameServer.dir/src/Business/HeartBeatBusiness.cc.o
+ ../src/include/Base/GameBase.h
+ ../src/include/Base/IBusinessModule.h
+ ../src/include/Base/IModules.h
+ ../src/include/Base/IModulesCollection.h
+ ../src/include/Base/ModulesCollection.h
+ ../src/include/BaseMessage.h
+ ../src/include/IMarshalEndian.h
+ ../src/include/Interface.h
+ ../src/include/myevents.h
+ ../src/include/threadpool.h
  /home/ljf/learn/CLionProjects/GameServer/src/Business/./../include/Business/DefineProtobuf.h
  /home/ljf/learn/CLionProjects/GameServer/src/Business/HeartBeatBusiness.cc
  /home/ljf/learn/CLionProjects/GameServer/src/include/Business/HeartBeatBusiness.h
  /home/ljf/learn/CLionProjects/GameServer/src/include/Business/IBusiness.h
  /home/ljf/learn/CLionProjects/GameServer/src/include/HeartBeat.pb.h
  /home/ljf/learn/CLionProjects/GameServer/src/include/Interface.h
+ /usr/local/protobuf/include/google/protobuf/arena.h
+ /usr/local/protobuf/include/google/protobuf/arena_impl.h
+ /usr/local/protobuf/include/google/protobuf/arenastring.h
+ /usr/local/protobuf/include/google/protobuf/descriptor.h
+ /usr/local/protobuf/include/google/protobuf/extension_set.h
+ /usr/local/protobuf/include/google/protobuf/generated_enum_util.h
+ /usr/local/protobuf/include/google/protobuf/generated_message_table_driven.h
+ /usr/local/protobuf/include/google/protobuf/generated_message_util.h
+ /usr/local/protobuf/include/google/protobuf/has_bits.h
+ /usr/local/protobuf/include/google/protobuf/implicit_weak_message.h
+ /usr/local/protobuf/include/google/protobuf/inlined_string_field.h
+ /usr/local/protobuf/include/google/protobuf/io/coded_stream.h
+ /usr/local/protobuf/include/google/protobuf/map.h
+ /usr/local/protobuf/include/google/protobuf/map_entry_lite.h
+ /usr/local/protobuf/include/google/protobuf/map_field_lite.h
+ /usr/local/protobuf/include/google/protobuf/map_type_handler.h
+ /usr/local/protobuf/include/google/protobuf/message.h
+ /usr/local/protobuf/include/google/protobuf/message_lite.h
+ /usr/local/protobuf/include/google/protobuf/metadata.h
+ /usr/local/protobuf/include/google/protobuf/metadata_lite.h
+ /usr/local/protobuf/include/google/protobuf/repeated_field.h
+ /usr/local/protobuf/include/google/protobuf/stubs/callback.h
+ /usr/local/protobuf/include/google/protobuf/stubs/casts.h
+ /usr/local/protobuf/include/google/protobuf/stubs/common.h
+ /usr/local/protobuf/include/google/protobuf/stubs/fastmem.h
+ /usr/local/protobuf/include/google/protobuf/stubs/hash.h
+ /usr/local/protobuf/include/google/protobuf/stubs/logging.h
+ /usr/local/protobuf/include/google/protobuf/stubs/macros.h
+ /usr/local/protobuf/include/google/protobuf/stubs/mutex.h
+ /usr/local/protobuf/include/google/protobuf/stubs/once.h
+ /usr/local/protobuf/include/google/protobuf/stubs/platform_macros.h
+ /usr/local/protobuf/include/google/protobuf/stubs/port.h
+ /usr/local/protobuf/include/google/protobuf/stubs/stringpiece.h
+ /usr/local/protobuf/include/google/protobuf/unknown_field_set.h
+ /usr/local/protobuf/include/google/protobuf/wire_format_lite.h
+ /usr/local/protobuf/include/google/protobuf/wire_format_lite_inl.h
 CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o
  ../src/include/Base/GameBase.h
  ../src/include/Base/IBusinessModule.h
@@ -137,7 +183,16 @@ CMakeFiles/GameServer.dir/src/main/HeartBeat.pb.cc.o
  /usr/local/protobuf/include/google/protobuf/wire_format_lite.h
  /usr/local/protobuf/include/google/protobuf/wire_format_lite_inl.h
 CMakeFiles/GameServer.dir/src/main/MarshalEndian.cc.o
- /home/ljf/learn/CLionProjects/GameServer/src/include/Base/GameBase.h
+ ../src/include/./Base/GameBase.h
+ ../src/include/./Base/IBusinessModule.h
+ ../src/include/./Base/IModulesCollection.h
+ ../src/include/./IMarshalEndian.h
+ ../src/include/Base/GameBase.h
+ ../src/include/Base/IModules.h
+ ../src/include/BaseMessage.h
+ ../src/include/IMarshalEndian.h
+ ../src/include/Interface.h
+ ../src/include/MarshalEndian.h
  /home/ljf/learn/CLionProjects/GameServer/src/include/Base/IBusinessModule.h
  /home/ljf/learn/CLionProjects/GameServer/src/include/Base/IModules.h
  /home/ljf/learn/CLionProjects/GameServer/src/include/Base/IModulesCollection.h
@@ -145,7 +200,6 @@ CMakeFiles/GameServer.dir/src/main/MarshalEndian.cc.o
  /home/ljf/learn/CLionProjects/GameServer/src/include/BaseMessage.h
  /home/ljf/learn/CLionProjects/GameServer/src/include/Business/BusinessModule.h
  /home/ljf/learn/CLionProjects/GameServer/src/include/Business/IBusiness.h
- /home/ljf/learn/CLionProjects/GameServer/src/include/IMarshalEndian.h
  /home/ljf/learn/CLionProjects/GameServer/src/include/Interface.h
  /home/ljf/learn/CLionProjects/GameServer/src/main/MarshalEndian.cc
 CMakeFiles/GameServer.dir/src/main/main.cpp.o

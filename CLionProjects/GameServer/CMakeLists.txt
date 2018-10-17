@@ -14,15 +14,16 @@ set(dir_usrlocal  /usr/local/include)
 set(dir_usrlib  /usr/local/lib)
 set(dir_protobuflib  /usr/local/protobuf/lib)
 
-#set(CMAKE_CXX_STANDARD 11)
-
+set(CMAKE_CXX_STANDARD 11)
 #set(CMAKE_CXX_FLAGS -pthread)
 
 include_directories(${dir_inc})
 include_directories(${dir_protobuf})
-#include_directories(/usr/local/protobuf/include)
+
+
+
 #link_directories(/usr/lib)
-#link_libraries(event)
+#link_libraries(${dir_protobuflib})
 #include_directories(/usr/include)
 
 
@@ -33,7 +34,6 @@ include_directories(${dir_protobuf})
 
 set(
         SOURCE_FILES
-
         src/Base/MoudlesCollection.cc
         src/main/myevents.cc
         src/main/MarshalEndian.cc
@@ -62,5 +62,5 @@ add_executable(GameServer ${SOURCE_FILES})
 
 # 第三方库位置可以通过命令pkg-config --cflags --libs opencv查看
 
-#target_link_libraries(GameServer -g -Wall -I${dir_inc} -I${dir_3rd} -pthread -I${dir_protobuf} -L${dir_protobuflib} -lprotobuf -levent -levent_pthreads -std=c++11)
-target_link_libraries(GameServer -g -Wall -lprotobuf -pthread  -levent -levent_pthreads -std=c++11)
+target_link_libraries(GameServer -g -Wall -I${dir_inc} -I${dir_3rd} -pthread -I${dir_protobuf} -L${dir_protobuflib} -lprotobuf -levent -levent_pthreads -std=c++11)
+#target_link_libraries(GameServer -g -Wall -pthread  -levent -levent_pthreads -lprotobuf -std=c++11)
