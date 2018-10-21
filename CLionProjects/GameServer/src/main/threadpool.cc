@@ -64,7 +64,7 @@ int threadpool_add(threadpool_t *pool,void *(*function)(void *arg),void *arg)
 
 	if(NULL != pool->task_queue[pool->queue_rear].arg)
 	{
-		free(pool->task_queue[pool->queue_rear].arg);
+		//free(pool->task_queue[pool->queue_rear].arg);
 		pool->task_queue[pool->queue_rear].arg = NULL;
 	}
 
