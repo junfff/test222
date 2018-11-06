@@ -150,7 +150,14 @@ int main()
 {
 	odds od;
 	int fd;
-	fd =open("/home/ljf/learn/kelly/bin/data.txt",O_RDONLY);
+	const char *home = getenv("HOME");
+	const char *path = "/learn/kelly/bin/data.txt";
+	printf("on start !! home = %s \n",home);
+	
+	char *allPath = new char[strlen(home) + strlen(path) + 1];
+  sprintf(allPath, "%s%s", home,path);
+	
+	fd =open(allPath,O_RDONLY);
 	if(fd == -1)
 	{
 		perror("open data txt error");
