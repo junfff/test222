@@ -49,6 +49,8 @@ void checksqlcode(const char *str){
     }
     printf("check %s , ok ! \n ",str);
 }
+
+
 int main_sql()
 {
 
