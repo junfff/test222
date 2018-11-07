@@ -1,0 +1,11 @@
+scp-r  用户名@计算机IP或者计算机名称:目录名本地路径
+
+
+
+
+scp -r root@47.106.123.211:/root/learn/.git ./
+
+ .gitattributes
+
+
+scp -r root@47.106.123.211:/root/learn/.gitattributes ./
