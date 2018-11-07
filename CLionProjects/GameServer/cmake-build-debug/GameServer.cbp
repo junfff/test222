@@ -46,6 +46,7 @@
 				<Compiler>
 					<Add directory="/home/ljf/learn/CLionProjects/GameServer/src/include"/>
 					<Add directory="/usr/local/protobuf/include"/>
+					<Add directory="/home/ljf/learn/CLionProjects/GameServer/oracle_include"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -71,6 +72,7 @@
 				<Compiler>
 					<Add directory="/home/ljf/learn/CLionProjects/GameServer/src/include"/>
 					<Add directory="/usr/local/protobuf/include"/>
+					<Add directory="/home/ljf/learn/CLionProjects/GameServer/oracle_include"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>

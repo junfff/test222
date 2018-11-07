@@ -103,16 +103,16 @@ static struct sqlexd {
    unsigned int   sqcmod;
    unsigned int   sqfmod;
    unsigned int   sqlpfmem;
-   unsigned char  *sqhstv[4];
-   unsigned long  sqhstl[4];
-            int   sqhsts[4];
-            short *sqindv[4];
-            int   sqinds[4];
-   unsigned long  sqharm[4];
-   unsigned long  *sqharc[4];
-   unsigned short  sqadto[4];
-   unsigned short  sqtdso[4];
-} sqlstm = {13,4};
+   unsigned char  *sqhstv[7];
+   unsigned long  sqhstl[7];
+            int   sqhsts[7];
+            short *sqindv[7];
+            int   sqinds[7];
+   unsigned long  sqharm[7];
+   unsigned long  *sqharc[7];
+   unsigned short  sqadto[7];
+   unsigned short  sqtdso[7];
+} sqlstm = {13,7};
 
 // Prototypes
 extern "C" {
@@ -137,9 +137,18 @@ typedef struct { unsigned short len; unsigned char arr[1]; } varchar;
 /* cud (compilation unit data) array */
 static const short sqlcud0[] =
 {13,4130,871,0,0,
-5,0,0,0,0,0,27,61,0,0,4,4,0,1,0,1,97,0,0,1,10,0,0,1,10,0,0,1,10,0,0,
-36,0,0,2,70,0,4,106,0,0,4,1,0,1,0,2,3,0,0,2,9,0,0,2,9,0,0,1,3,0,0,
-67,0,0,3,0,0,30,116,0,0,0,0,0,1,0,
+5,0,0,1,114,0,3,102,0,0,6,6,0,1,0,1,9,0,0,1,9,0,0,1,9,0,0,1,3,0,0,1,9,0,0,1,3,
+0,0,
+44,0,0,2,63,0,3,104,0,0,3,3,0,1,0,1,9,0,0,1,97,0,0,1,9,0,0,
+71,0,0,3,0,0,29,106,0,0,0,0,0,1,0,
+86,0,0,4,50,0,5,115,0,0,2,2,0,1,0,1,9,0,0,1,9,0,0,
+109,0,0,5,38,0,2,125,0,0,1,1,0,1,0,1,9,0,0,
+128,0,0,6,34,0,2,128,0,0,1,1,0,1,0,1,9,0,0,
+147,0,0,7,112,0,4,140,0,0,7,1,0,1,0,2,9,0,0,2,9,0,0,2,9,0,0,2,9,0,0,2,3,0,0,2,
+3,0,0,1,9,0,0,
+190,0,0,0,0,0,27,166,0,0,4,4,0,1,0,1,97,0,0,1,10,0,0,1,10,0,0,1,10,0,0,
+221,0,0,9,70,0,4,211,0,0,4,1,0,1,0,2,3,0,0,2,9,0,0,2,9,0,0,1,3,0,0,
+252,0,0,10,0,0,30,221,0,0,0,0,0,1,0,
 };
 
 
@@ -270,7 +279,7 @@ SQLCA_STORAGE_CLASS struct sqlca sqlca
 
 
 const char *serversid = "ljf/jkui9789@orcl";//prco编译器借用了c语言的数据类型语法而已
-
+const char *appName = "JMapp";
 int deptno;
 char dname[20];
 char loc[20];
@@ -288,6 +297,28 @@ struct { unsigned short len; unsigned char arr[20]; } dname3;
 struct { unsigned short len; unsigned char arr[20]; } loc3;
 //proc认识varchar
 
+
+struct account_info{
+    /* varchar  accountId[32]; */ 
+struct { unsigned short len; unsigned char arr[32]; } accountId;
+
+    /* varchar uuid[64]; */ 
+struct { unsigned short len; unsigned char arr[64]; } uuid;
+
+    /* varchar  name[32]; */ 
+struct { unsigned short len; unsigned char arr[32]; } name;
+
+    long mobilephone;
+    /* varchar  email[32]; */ 
+struct { unsigned short len; unsigned char arr[32]; } email;
+
+    int sex;
+    /* varchar   pwd[16]; */ 
+struct { unsigned short len; unsigned char arr[16]; } pwd;
+
+};
+
+struct account_info tmpInfo;
 /* EXEC SQL END DECLARE SECTION; */ 
 
 
@@ -301,6 +332,443 @@ void checksqlcode(const char *str){
     }
     printf("check %s , ok ! \n ",str);
 }
+/*==============================================================*/
+/* Table: JMaccount                                             */
+/*==============================================================*/
+//create table JMaccount
+//(
+//        accountId            VARCHAR2(32)         not null,
+//uuid                 VARCHAR2(64),
+//        name                 VARCHAR2(32),
+//mobilephone          INTEGER,
+//        email                VARCHAR2(32),
+//sex                  INTEGER,
+//        pwd                  VARCHAR2(16),
+//constraint PK_JMACCOUNT primary key (accountId)
+//);
+
+/*==============================================================*/
+/* Table: JMapp                                                 */
+/*==============================================================*/
+//create table JMapp
+//(
+//        appName              VARCHAR2(16)         not null,
+//constraint PK_JMAPP primary key (appName)
+//);
+
+/*==============================================================*/
+/* Table: JMusr                                                 */
+/*==============================================================*/
+//create table JMusr
+//(
+//        uuid                 VARCHAR2(64)         not null,
+//appName              VARCHAR2(16),
+//        accountId            VARCHAR2(32),
+//constraint AK_UUID_JMUSR unique (uuid)
+//);
+
+int sql_insert(struct account_info *info) {
+    //插入数据 - 曾
+    tmpInfo = *info;
+    /* EXEC SQL insert into JMaccount(accountId,uuid,name,mobilephone,email,sex,pwd) values(:tmpInfo.accountId,:tmpInfo.uuid,:tmpInfo.name,:tmpInfo.mobilephone,:tmpInfo.email,:tmpInfo.sex,tmpInfo.pwd); */ 
+
+{
+    struct sqlexd sqlstm;
+    sqlstm.sqlvsn = 13;
+    sqlstm.arrsiz = 6;
+    sqlstm.sqladtp = &sqladt;
+    sqlstm.sqltdsp = &sqltds;
+    sqlstm.stmt = "insert into JMaccount (accountId,uuid,name,mobilephone,e\
+mail,sex,pwd) values (:b0,:b1,:b2,:b3,:b4,:b5,tmpInfo.pwd)";
+    sqlstm.iters = (unsigned int  )1;
+    sqlstm.offset = (unsigned int  )5;
+    sqlstm.cud = sqlcud0;
+    sqlstm.sqlest = (unsigned char  *)&sqlca;
+    sqlstm.sqlety = (unsigned short)4352;
+    sqlstm.occurs = (unsigned int  )0;
+    sqlstm.sqhstv[0] = (unsigned char  *)&(tmpInfo.accountId);
+    sqlstm.sqhstl[0] = (unsigned long )34;
+    sqlstm.sqhsts[0] = (         int  )0;
+    sqlstm.sqindv[0] = (         short *)0;
+    sqlstm.sqinds[0] = (         int  )0;
+    sqlstm.sqharm[0] = (unsigned long )0;
+    sqlstm.sqadto[0] = (unsigned short )0;
+    sqlstm.sqtdso[0] = (unsigned short )0;
+    sqlstm.sqhstv[1] = (unsigned char  *)&(tmpInfo.uuid);
+    sqlstm.sqhstl[1] = (unsigned long )66;
+    sqlstm.sqhsts[1] = (         int  )0;
+    sqlstm.sqindv[1] = (         short *)0;
+    sqlstm.sqinds[1] = (         int  )0;
+    sqlstm.sqharm[1] = (unsigned long )0;
+    sqlstm.sqadto[1] = (unsigned short )0;
+    sqlstm.sqtdso[1] = (unsigned short )0;
+    sqlstm.sqhstv[2] = (unsigned char  *)&(tmpInfo.name);
+    sqlstm.sqhstl[2] = (unsigned long )34;
+    sqlstm.sqhsts[2] = (         int  )0;
+    sqlstm.sqindv[2] = (         short *)0;
+    sqlstm.sqinds[2] = (         int  )0;
+    sqlstm.sqharm[2] = (unsigned long )0;
+    sqlstm.sqadto[2] = (unsigned short )0;
+    sqlstm.sqtdso[2] = (unsigned short )0;
+    sqlstm.sqhstv[3] = (unsigned char  *)&(tmpInfo.mobilephone);
+    sqlstm.sqhstl[3] = (unsigned long )sizeof(long);
+    sqlstm.sqhsts[3] = (         int  )0;
+    sqlstm.sqindv[3] = (         short *)0;
+    sqlstm.sqinds[3] = (         int  )0;
+    sqlstm.sqharm[3] = (unsigned long )0;
+    sqlstm.sqadto[3] = (unsigned short )0;
+    sqlstm.sqtdso[3] = (unsigned short )0;
+    sqlstm.sqhstv[4] = (unsigned char  *)&(tmpInfo.email);
+    sqlstm.sqhstl[4] = (unsigned long )34;
+    sqlstm.sqhsts[4] = (         int  )0;
+    sqlstm.sqindv[4] = (         short *)0;
+    sqlstm.sqinds[4] = (         int  )0;
+    sqlstm.sqharm[4] = (unsigned long )0;
+    sqlstm.sqadto[4] = (unsigned short )0;
+    sqlstm.sqtdso[4] = (unsigned short )0;
+    sqlstm.sqhstv[5] = (unsigned char  *)&(tmpInfo.sex);
+    sqlstm.sqhstl[5] = (unsigned long )sizeof(int);
+    sqlstm.sqhsts[5] = (         int  )0;
+    sqlstm.sqindv[5] = (         short *)0;
+    sqlstm.sqinds[5] = (         int  )0;
+    sqlstm.sqharm[5] = (unsigned long )0;
+    sqlstm.sqadto[5] = (unsigned short )0;
+    sqlstm.sqtdso[5] = (unsigned short )0;
+    sqlstm.sqphsv = sqlstm.sqhstv;
+    sqlstm.sqphsl = sqlstm.sqhstl;
+    sqlstm.sqphss = sqlstm.sqhsts;
+    sqlstm.sqpind = sqlstm.sqindv;
+    sqlstm.sqpins = sqlstm.sqinds;
+    sqlstm.sqparm = sqlstm.sqharm;
+    sqlstm.sqparc = sqlstm.sqharc;
+    sqlstm.sqpadto = sqlstm.sqadto;
+    sqlstm.sqptdso = sqlstm.sqtdso;
+    sqlcxt((void **)0, &sqlctx, &sqlstm, &sqlfpn);
+}
+
+
+    checksqlcode("insert JMaccount");
+    /* EXEC SQL insert into JMusr(uuid,appName,accountId) values(:tmpInfo.uuid,:appName,:tmpInfo.accountId); */ 
+
+{
+    struct sqlexd sqlstm;
+    sqlstm.sqlvsn = 13;
+    sqlstm.arrsiz = 6;
+    sqlstm.sqladtp = &sqladt;
+    sqlstm.sqltdsp = &sqltds;
+    sqlstm.stmt = "insert into JMusr (uuid,appName,accountId) values (:b0,:\
+b1,:b2)";
+    sqlstm.iters = (unsigned int  )1;
+    sqlstm.offset = (unsigned int  )44;
+    sqlstm.cud = sqlcud0;
+    sqlstm.sqlest = (unsigned char  *)&sqlca;
+    sqlstm.sqlety = (unsigned short)4352;
+    sqlstm.occurs = (unsigned int  )0;
+    sqlstm.sqhstv[0] = (unsigned char  *)&(tmpInfo.uuid);
+    sqlstm.sqhstl[0] = (unsigned long )66;
+    sqlstm.sqhsts[0] = (         int  )0;
+    sqlstm.sqindv[0] = (         short *)0;
+    sqlstm.sqinds[0] = (         int  )0;
+    sqlstm.sqharm[0] = (unsigned long )0;
+    sqlstm.sqadto[0] = (unsigned short )0;
+    sqlstm.sqtdso[0] = (unsigned short )0;
+    sqlstm.sqhstv[1] = (unsigned char  *)appName;
+    sqlstm.sqhstl[1] = (unsigned long )0;
+    sqlstm.sqhsts[1] = (         int  )0;
+    sqlstm.sqindv[1] = (         short *)0;
+    sqlstm.sqinds[1] = (         int  )0;
+    sqlstm.sqharm[1] = (unsigned long )0;
+    sqlstm.sqadto[1] = (unsigned short )0;
+    sqlstm.sqtdso[1] = (unsigned short )0;
+    sqlstm.sqhstv[2] = (unsigned char  *)&(tmpInfo.accountId);
+    sqlstm.sqhstl[2] = (unsigned long )34;
+    sqlstm.sqhsts[2] = (         int  )0;
+    sqlstm.sqindv[2] = (         short *)0;
+    sqlstm.sqinds[2] = (         int  )0;
+    sqlstm.sqharm[2] = (unsigned long )0;
+    sqlstm.sqadto[2] = (unsigned short )0;
+    sqlstm.sqtdso[2] = (unsigned short )0;
+    sqlstm.sqphsv = sqlstm.sqhstv;
+    sqlstm.sqphsl = sqlstm.sqhstl;
+    sqlstm.sqphss = sqlstm.sqhsts;
+    sqlstm.sqpind = sqlstm.sqindv;
+    sqlstm.sqpins = sqlstm.sqinds;
+    sqlstm.sqparm = sqlstm.sqharm;
+    sqlstm.sqparc = sqlstm.sqharc;
+    sqlstm.sqpadto = sqlstm.sqadto;
+    sqlstm.sqptdso = sqlstm.sqtdso;
+    sqlcxt((void **)0, &sqlctx, &sqlstm, &sqlfpn);
+}
+
+
+    checksqlcode("insert JMusr");
+    /* EXEC SQL commit; */ 
+
+{
+    struct sqlexd sqlstm;
+    sqlstm.sqlvsn = 13;
+    sqlstm.arrsiz = 6;
+    sqlstm.sqladtp = &sqladt;
+    sqlstm.sqltdsp = &sqltds;
+    sqlstm.iters = (unsigned int  )1;
+    sqlstm.offset = (unsigned int  )71;
+    sqlstm.cud = sqlcud0;
+    sqlstm.sqlest = (unsigned char  *)&sqlca;
+    sqlstm.sqlety = (unsigned short)4352;
+    sqlstm.occurs = (unsigned int  )0;
+    sqlcxt((void **)0, &sqlctx, &sqlstm, &sqlfpn);
+}
+
+
+
+    return sqlca.sqlcode;
+}
+
+int sql_update(struct account_info *info){
+
+    tmpInfo = *info;
+    // 修改数据  - 改
+    /* EXEC SQL update JMaccount set accountId=:tmpInfo.accountId  where uuid=:tmpInfo.uuid; */ 
+
+{
+    struct sqlexd sqlstm;
+    sqlstm.sqlvsn = 13;
+    sqlstm.arrsiz = 6;
+    sqlstm.sqladtp = &sqladt;
+    sqlstm.sqltdsp = &sqltds;
+    sqlstm.stmt = "update JMaccount  set accountId=:b0 where uuid=:b1";
+    sqlstm.iters = (unsigned int  )1;
+    sqlstm.offset = (unsigned int  )86;
+    sqlstm.cud = sqlcud0;
+    sqlstm.sqlest = (unsigned char  *)&sqlca;
+    sqlstm.sqlety = (unsigned short)4352;
+    sqlstm.occurs = (unsigned int  )0;
+    sqlstm.sqhstv[0] = (unsigned char  *)&(tmpInfo.accountId);
+    sqlstm.sqhstl[0] = (unsigned long )34;
+    sqlstm.sqhsts[0] = (         int  )0;
+    sqlstm.sqindv[0] = (         short *)0;
+    sqlstm.sqinds[0] = (         int  )0;
+    sqlstm.sqharm[0] = (unsigned long )0;
+    sqlstm.sqadto[0] = (unsigned short )0;
+    sqlstm.sqtdso[0] = (unsigned short )0;
+    sqlstm.sqhstv[1] = (unsigned char  *)&(tmpInfo.uuid);
+    sqlstm.sqhstl[1] = (unsigned long )66;
+    sqlstm.sqhsts[1] = (         int  )0;
+    sqlstm.sqindv[1] = (         short *)0;
+    sqlstm.sqinds[1] = (         int  )0;
+    sqlstm.sqharm[1] = (unsigned long )0;
+    sqlstm.sqadto[1] = (unsigned short )0;
+    sqlstm.sqtdso[1] = (unsigned short )0;
+    sqlstm.sqphsv = sqlstm.sqhstv;
+    sqlstm.sqphsl = sqlstm.sqhstl;
+    sqlstm.sqphss = sqlstm.sqhsts;
+    sqlstm.sqpind = sqlstm.sqindv;
+    sqlstm.sqpins = sqlstm.sqinds;
+    sqlstm.sqparm = sqlstm.sqharm;
+    sqlstm.sqparc = sqlstm.sqharc;
+    sqlstm.sqpadto = sqlstm.sqadto;
+    sqlstm.sqptdso = sqlstm.sqtdso;
+    sqlcxt((void **)0, &sqlctx, &sqlstm, &sqlfpn);
+}
+
+
+    checksqlcode("update JMaccount");
+
+    return sqlca.sqlcode;
+}
+
+int sql_delete(struct account_info *info){
+
+    tmpInfo = *info;
+    //数据删除 - 删
+    /* EXEC SQL delete JMaccount where uuid=:tmpInfo.uuid; */ 
+
+{
+    struct sqlexd sqlstm;
+    sqlstm.sqlvsn = 13;
+    sqlstm.arrsiz = 6;
+    sqlstm.sqladtp = &sqladt;
+    sqlstm.sqltdsp = &sqltds;
+    sqlstm.stmt = "delete  from JMaccount  where uuid=:b0";
+    sqlstm.iters = (unsigned int  )1;
+    sqlstm.offset = (unsigned int  )109;
+    sqlstm.cud = sqlcud0;
+    sqlstm.sqlest = (unsigned char  *)&sqlca;
+    sqlstm.sqlety = (unsigned short)4352;
+    sqlstm.occurs = (unsigned int  )0;
+    sqlstm.sqhstv[0] = (unsigned char  *)&(tmpInfo.uuid);
+    sqlstm.sqhstl[0] = (unsigned long )66;
+    sqlstm.sqhsts[0] = (         int  )0;
+    sqlstm.sqindv[0] = (         short *)0;
+    sqlstm.sqinds[0] = (         int  )0;
+    sqlstm.sqharm[0] = (unsigned long )0;
+    sqlstm.sqadto[0] = (unsigned short )0;
+    sqlstm.sqtdso[0] = (unsigned short )0;
+    sqlstm.sqphsv = sqlstm.sqhstv;
+    sqlstm.sqphsl = sqlstm.sqhstl;
+    sqlstm.sqphss = sqlstm.sqhsts;
+    sqlstm.sqpind = sqlstm.sqindv;
+    sqlstm.sqpins = sqlstm.sqinds;
+    sqlstm.sqparm = sqlstm.sqharm;
+    sqlstm.sqparc = sqlstm.sqharc;
+    sqlstm.sqpadto = sqlstm.sqadto;
+    sqlstm.sqptdso = sqlstm.sqtdso;
+    sqlcxt((void **)0, &sqlctx, &sqlstm, &sqlfpn);
+}
+
+
+    checksqlcode("delete JMaccount");
+
+    /* EXEC SQL delete JMusr where uuid=:tmpInfo.uuid; */ 
+
+{
+    struct sqlexd sqlstm;
+    sqlstm.sqlvsn = 13;
+    sqlstm.arrsiz = 6;
+    sqlstm.sqladtp = &sqladt;
+    sqlstm.sqltdsp = &sqltds;
+    sqlstm.stmt = "delete  from JMusr  where uuid=:b0";
+    sqlstm.iters = (unsigned int  )1;
+    sqlstm.offset = (unsigned int  )128;
+    sqlstm.cud = sqlcud0;
+    sqlstm.sqlest = (unsigned char  *)&sqlca;
+    sqlstm.sqlety = (unsigned short)4352;
+    sqlstm.occurs = (unsigned int  )0;
+    sqlstm.sqhstv[0] = (unsigned char  *)&(tmpInfo.uuid);
+    sqlstm.sqhstl[0] = (unsigned long )66;
+    sqlstm.sqhsts[0] = (         int  )0;
+    sqlstm.sqindv[0] = (         short *)0;
+    sqlstm.sqinds[0] = (         int  )0;
+    sqlstm.sqharm[0] = (unsigned long )0;
+    sqlstm.sqadto[0] = (unsigned short )0;
+    sqlstm.sqtdso[0] = (unsigned short )0;
+    sqlstm.sqphsv = sqlstm.sqhstv;
+    sqlstm.sqphsl = sqlstm.sqhstl;
+    sqlstm.sqphss = sqlstm.sqhsts;
+    sqlstm.sqpind = sqlstm.sqindv;
+    sqlstm.sqpins = sqlstm.sqinds;
+    sqlstm.sqparm = sqlstm.sqharm;
+    sqlstm.sqparc = sqlstm.sqharc;
+    sqlstm.sqpadto = sqlstm.sqadto;
+    sqlstm.sqptdso = sqlstm.sqtdso;
+    sqlcxt((void **)0, &sqlctx, &sqlstm, &sqlfpn);
+}
+
+
+    checksqlcode("delete JMusr");
+
+    return sqlca.sqlcode;
+}
+
+
+int sql_select(struct account_info *info){
+
+    tmpInfo = *info;
+    //const char *accountId,const char *uuid,const char *pwd,const char *name,const char *email,int mobilephone,int sex) {
+    // 获取数据 - 查
+    /* EXEC SQL select uuid, pwd, name, email, mobilephone, sex into :tmpInfo.uuid, :tmpInfo.pwd, :tmpInfo.name, :tmpInfo.email, :tmpInfo.mobilephone, :tmpInfo.sex from JMaccount where accountId = :tmpInfo.accountId; */ 
+
+{
+    struct sqlexd sqlstm;
+    sqlstm.sqlvsn = 13;
+    sqlstm.arrsiz = 7;
+    sqlstm.sqladtp = &sqladt;
+    sqlstm.sqltdsp = &sqltds;
+    sqlstm.stmt = "select uuid ,pwd ,name ,email ,mobilephone ,sex into :b0\
+,:b1,:b2,:b3,:b4,:b5  from JMaccount where accountId=:b6";
+    sqlstm.iters = (unsigned int  )1;
+    sqlstm.offset = (unsigned int  )147;
+    sqlstm.selerr = (unsigned short)1;
+    sqlstm.sqlpfmem = (unsigned int  )0;
+    sqlstm.cud = sqlcud0;
+    sqlstm.sqlest = (unsigned char  *)&sqlca;
+    sqlstm.sqlety = (unsigned short)4352;
+    sqlstm.occurs = (unsigned int  )0;
+    sqlstm.sqhstv[0] = (unsigned char  *)&(tmpInfo.uuid);
+    sqlstm.sqhstl[0] = (unsigned long )66;
+    sqlstm.sqhsts[0] = (         int  )0;
+    sqlstm.sqindv[0] = (         short *)0;
+    sqlstm.sqinds[0] = (         int  )0;
+    sqlstm.sqharm[0] = (unsigned long )0;
+    sqlstm.sqadto[0] = (unsigned short )0;
+    sqlstm.sqtdso[0] = (unsigned short )0;
+    sqlstm.sqhstv[1] = (unsigned char  *)&(tmpInfo.pwd);
+    sqlstm.sqhstl[1] = (unsigned long )18;
+    sqlstm.sqhsts[1] = (         int  )0;
+    sqlstm.sqindv[1] = (         short *)0;
+    sqlstm.sqinds[1] = (         int  )0;
+    sqlstm.sqharm[1] = (unsigned long )0;
+    sqlstm.sqadto[1] = (unsigned short )0;
+    sqlstm.sqtdso[1] = (unsigned short )0;
+    sqlstm.sqhstv[2] = (unsigned char  *)&(tmpInfo.name);
+    sqlstm.sqhstl[2] = (unsigned long )34;
+    sqlstm.sqhsts[2] = (         int  )0;
+    sqlstm.sqindv[2] = (         short *)0;
+    sqlstm.sqinds[2] = (         int  )0;
+    sqlstm.sqharm[2] = (unsigned long )0;
+    sqlstm.sqadto[2] = (unsigned short )0;
+    sqlstm.sqtdso[2] = (unsigned short )0;
+    sqlstm.sqhstv[3] = (unsigned char  *)&(tmpInfo.email);
+    sqlstm.sqhstl[3] = (unsigned long )34;
+    sqlstm.sqhsts[3] = (         int  )0;
+    sqlstm.sqindv[3] = (         short *)0;
+    sqlstm.sqinds[3] = (         int  )0;
+    sqlstm.sqharm[3] = (unsigned long )0;
+    sqlstm.sqadto[3] = (unsigned short )0;
+    sqlstm.sqtdso[3] = (unsigned short )0;
+    sqlstm.sqhstv[4] = (unsigned char  *)&(tmpInfo.mobilephone);
+    sqlstm.sqhstl[4] = (unsigned long )sizeof(long);
+    sqlstm.sqhsts[4] = (         int  )0;
+    sqlstm.sqindv[4] = (         short *)0;
+    sqlstm.sqinds[4] = (         int  )0;
+    sqlstm.sqharm[4] = (unsigned long )0;
+    sqlstm.sqadto[4] = (unsigned short )0;
+    sqlstm.sqtdso[4] = (unsigned short )0;
+    sqlstm.sqhstv[5] = (unsigned char  *)&(tmpInfo.sex);
+    sqlstm.sqhstl[5] = (unsigned long )sizeof(int);
+    sqlstm.sqhsts[5] = (         int  )0;
+    sqlstm.sqindv[5] = (         short *)0;
+    sqlstm.sqinds[5] = (         int  )0;
+    sqlstm.sqharm[5] = (unsigned long )0;
+    sqlstm.sqadto[5] = (unsigned short )0;
+    sqlstm.sqtdso[5] = (unsigned short )0;
+    sqlstm.sqhstv[6] = (unsigned char  *)&(tmpInfo.accountId);
+    sqlstm.sqhstl[6] = (unsigned long )34;
+    sqlstm.sqhsts[6] = (         int  )0;
+    sqlstm.sqindv[6] = (         short *)0;
+    sqlstm.sqinds[6] = (         int  )0;
+    sqlstm.sqharm[6] = (unsigned long )0;
+    sqlstm.sqadto[6] = (unsigned short )0;
+    sqlstm.sqtdso[6] = (unsigned short )0;
+    sqlstm.sqphsv = sqlstm.sqhstv;
+    sqlstm.sqphsl = sqlstm.sqhstl;
+    sqlstm.sqphss = sqlstm.sqhsts;
+    sqlstm.sqpind = sqlstm.sqindv;
+    sqlstm.sqpins = sqlstm.sqinds;
+    sqlstm.sqparm = sqlstm.sqharm;
+    sqlstm.sqparc = sqlstm.sqharc;
+    sqlstm.sqpadto = sqlstm.sqadto;
+    sqlstm.sqptdso = sqlstm.sqtdso;
+    sqlcxt((void **)0, &sqlctx, &sqlstm, &sqlfpn);
+}
+
+
+    checksqlcode("select JMaccount");
+
+    info->uuid = tmpInfo.uuid;
+    info->accountId = tmpInfo.accountId;
+    info->pwd = tmpInfo.pwd;
+    info->name = tmpInfo.name;
+    info->email = tmpInfo.email;
+    info->mobilephone = tmpInfo.mobilephone;
+    info->sex = tmpInfo.sex;
+
+    return sqlca.sqlcode;
+}
+
+
+
+
 int main_sql()
 {
 
@@ -315,11 +783,11 @@ int main_sql()
 {
     struct sqlexd sqlstm;
     sqlstm.sqlvsn = 13;
-    sqlstm.arrsiz = 4;
+    sqlstm.arrsiz = 7;
     sqlstm.sqladtp = &sqladt;
     sqlstm.sqltdsp = &sqltds;
     sqlstm.iters = (unsigned int  )10;
-    sqlstm.offset = (unsigned int  )5;
+    sqlstm.offset = (unsigned int  )190;
     sqlstm.cud = sqlcud0;
     sqlstm.sqlest = (unsigned char  *)&sqlca;
     sqlstm.sqlety = (unsigned short)4352;
@@ -354,8 +822,8 @@ int main_sql()
 
     //宿主变量赋值   如何在 sql 语言使用 宿主变量 :
     deptno = 50;
-    strcpy_s(dname,"60dname");
-    strcpy_s(loc,"60loc");
+    strcpy(dname,"60dname");
+    strcpy(loc,"60loc");
 
     /*
 
@@ -399,13 +867,13 @@ int main_sql()
 {
     struct sqlexd sqlstm;
     sqlstm.sqlvsn = 13;
-    sqlstm.arrsiz = 4;
+    sqlstm.arrsiz = 7;
     sqlstm.sqladtp = &sqladt;
     sqlstm.sqltdsp = &sqltds;
     sqlstm.stmt = "select deptno ,dname ,loc into :b0,:b1,:b2  from dept wh\
 ere deptno=:b3";
     sqlstm.iters = (unsigned int  )1;
-    sqlstm.offset = (unsigned int  )36;
+    sqlstm.offset = (unsigned int  )221;
     sqlstm.selerr = (unsigned short)1;
     sqlstm.sqlpfmem = (unsigned int  )0;
     sqlstm.cud = sqlcud0;
@@ -471,11 +939,11 @@ ere deptno=:b3";
 {
     struct sqlexd sqlstm;
     sqlstm.sqlvsn = 13;
-    sqlstm.arrsiz = 4;
+    sqlstm.arrsiz = 7;
     sqlstm.sqladtp = &sqladt;
     sqlstm.sqltdsp = &sqltds;
     sqlstm.iters = (unsigned int  )1;
-    sqlstm.offset = (unsigned int  )67;
+    sqlstm.offset = (unsigned int  )252;
     sqlstm.cud = sqlcud0;
     sqlstm.sqlest = (unsigned char  *)&sqlca;
     sqlstm.sqlety = (unsigned short)4352;

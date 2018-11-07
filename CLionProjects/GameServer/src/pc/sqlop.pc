@@ -23,7 +23,7 @@ EXEC SQL INCLUDE sqlca;
 EXEC SQL BEGIN DECLARE SECTION;
 
 const char *serversid = "ljf/jkui9789@orcl";//prco编译器借用了c语言的数据类型语法而已
-
+const char *appName = "JMapp";
 int deptno;
 char dname[20];
 char loc[20];
@@ -37,6 +37,18 @@ int deptno3;
 varchar dname3[20];//struct { unsigned short len; unsigned char arr[20]; } dname3;
 varchar loc3[20];//proc认识varchar
 
+
+struct account_info{
+    varchar  accountId[32];
+    varchar uuid[64];
+    varchar  name[32];
+    long mobilephone;
+    varchar  email[32];
+    int sex;
+    varchar   pwd[16];
+};
+
+struct account_info tmpInfo;
 EXEC SQL END DECLARE SECTION;
 
 
@@ -49,6 +61,97 @@ void checksqlcode(const char *str){
     }
     printf("check %s , ok ! \n ",str);
 }
+/*==============================================================*/
+/* Table: JMaccount                                             */
+/*==============================================================*/
+//create table JMaccount
+//(
+//        accountId            VARCHAR2(32)         not null,
+//uuid                 VARCHAR2(64),
+//        name                 VARCHAR2(32),
+//mobilephone          INTEGER,
+//        email                VARCHAR2(32),
+//sex                  INTEGER,
+//        pwd                  VARCHAR2(16),
+//constraint PK_JMACCOUNT primary key (accountId)
+//);
+
+/*==============================================================*/
+/* Table: JMapp                                                 */
+/*==============================================================*/
+//create table JMapp
+//(
+//        appName              VARCHAR2(16)         not null,
+//constraint PK_JMAPP primary key (appName)
+//);
+
+/*==============================================================*/
+/* Table: JMusr                                                 */
+/*==============================================================*/
+//create table JMusr
+//(
+//        uuid                 VARCHAR2(64)         not null,
+//appName              VARCHAR2(16),
+//        accountId            VARCHAR2(32),
+//constraint AK_UUID_JMUSR unique (uuid)
+//);
+
+int sql_insert(struct account_info *info) {
+    //插入数据 - 曾
+    tmpInfo = *info;
+    EXEC SQL insert into JMaccount(accountId,uuid,name,mobilephone,email,sex,pwd) values(:tmpInfo.accountId,:tmpInfo.uuid,:tmpInfo.name,:tmpInfo.mobilephone,:tmpInfo.email,:tmpInfo.sex,tmpInfo.pwd);
+    checksqlcode("insert JMaccount");
+    EXEC SQL insert into JMusr(uuid,appName,accountId) values(:tmpInfo.uuid,:appName,:tmpInfo.accountId);
+    checksqlcode("insert JMusr");
+    EXEC SQL commit;
+
+    return sqlca.sqlcode;
+}
+
+int sql_update(struct account_info *info){
+
+    tmpInfo = *info;
+    // 修改数据  - 改
+    EXEC SQL update JMaccount set accountId=:tmpInfo.accountId  where uuid=:tmpInfo.uuid;
+    checksqlcode("update JMaccount");
+
+    return sqlca.sqlcode;
+}
+
+int sql_delete(struct account_info *info){
+
+    tmpInfo = *info;
+    //数据删除 - 删
+    EXEC SQL delete JMaccount where uuid=:tmpInfo.uuid;
+    checksqlcode("delete JMaccount");
+
+    EXEC SQL delete JMusr where uuid=:tmpInfo.uuid;
+    checksqlcode("delete JMusr");
+
+    return sqlca.sqlcode;
+}
+
+
+int sql_select(struct account_info *info){
+
+    tmpInfo = *info;
+    //const char *accountId,const char *uuid,const char *pwd,const char *name,const char *email,int mobilephone,int sex) {
+    // 获取数据 - 查
+    EXEC SQL select uuid, pwd, name, email, mobilephone, sex into :tmpInfo.uuid, :tmpInfo.pwd, :tmpInfo.name, :tmpInfo.email, :tmpInfo.mobilephone, :tmpInfo.sex from JMaccount where accountId = :tmpInfo.accountId;
+    checksqlcode("select JMaccount");
+
+    info->uuid = tmpInfo.uuid;
+    info->accountId = tmpInfo.accountId;
+    info->pwd = tmpInfo.pwd;
+    info->name = tmpInfo.name;
+    info->email = tmpInfo.email;
+    info->mobilephone = tmpInfo.mobilephone;
+    info->sex = tmpInfo.sex;
+
+    return sqlca.sqlcode;
+}
+
+
 
 
 int main_sql()
@@ -65,8 +168,8 @@ int main_sql()
 
     //宿主变量赋值   如何在 sql 语言使用 宿主变量 :
     deptno = 50;
-    strcpy_s(dname,"60dname");
-    strcpy_s(loc,"60loc");
+    strcpy(dname,"60dname");
+    strcpy(loc,"60loc");
 
     /*
 

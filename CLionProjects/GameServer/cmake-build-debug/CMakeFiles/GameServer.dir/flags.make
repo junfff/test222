@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ljf/learn/CLionProjects/GameServer/src/include -I/usr/local/protobuf/include 
+CXX_INCLUDES = -I/home/ljf/learn/CLionProjects/GameServer/src/include -I/usr/local/protobuf/include -I/home/ljf/learn/CLionProjects/GameServer/oracle_include 
 

@@ -92,6 +92,7 @@ CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o
  ../src/include/IMarshalEndian.h
  ../src/include/Interface.h
  ../src/include/myevents.h
+ ../src/include/sqlop.h
  ../src/include/threadpool.h
  /home/ljf/learn/CLionProjects/GameServer/src/Business/./../include/Business/DefineProtobuf.h
  /home/ljf/learn/CLionProjects/GameServer/src/Business/PersonBusiness.cc
@@ -99,6 +100,7 @@ CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o
  /home/ljf/learn/CLionProjects/GameServer/src/include/Business/PersonBusiness.h
  /home/ljf/learn/CLionProjects/GameServer/src/include/Interface.h
  /home/ljf/learn/CLionProjects/GameServer/src/include/person.pb.h
+ /home/ljf/learn/CLionProjects/GameServer/src/include/sqlop.h
  /usr/local/protobuf/include/google/protobuf/arena.h
  /usr/local/protobuf/include/google/protobuf/arena_impl.h
  /usr/local/protobuf/include/google/protobuf/arenastring.h

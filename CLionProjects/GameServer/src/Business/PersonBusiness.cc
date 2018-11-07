@@ -4,6 +4,10 @@
 #include "myevents.h"
 #include "string.h"
 #include<iostream>
+#include "../include/sqlop.h"
+#include <uuid/uuid.h>
+#include <sqlop.h>
+
 using namespace protobufMsg;
 using namespace std;
 namespace Business
@@ -48,6 +52,27 @@ namespace Business
 
 		eventset(ev,send_data,ev);
  		threadpool_add(thp,process_event,(void *)ev);
+
+
+ 		struct  account_info info;
+
+		char out[16];
+		uuid_t uu;
+		uuid_generate_random( uu );
+		uuid_unparse_upper( uu, out );
+		strcpy((char *)info.uuid.arr,out);
+
+		strcpy((char *)info.accountId.arr,"accountId123");
+		strcpy((char *)info.pwd.arr,p.name().c_str());
+		strcpy((char *)info.email.arr,p.email().c_str());
+		strcpy((char *)info.name.arr,p.name().c_str());
+
+		info.sex = p.id();
+		info.mobilephone = 15710667093;
+
+ 		int ret = sql_insert(&info);
+
+ 		printf("sql_insert ret = %d !!!\n",ret );
 		return 0;
 	}
 

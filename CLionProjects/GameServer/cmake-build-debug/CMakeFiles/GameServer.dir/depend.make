@@ -91,6 +91,7 @@ CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: ../src/include/BaseM
 CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: ../src/include/IMarshalEndian.h
 CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: ../src/include/Interface.h
 CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: ../src/include/myevents.h
+CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: ../src/include/sqlop.h
 CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: ../src/include/threadpool.h
 CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: ../src/Business/./../include/Business/DefineProtobuf.h
 CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: ../src/Business/PersonBusiness.cc
@@ -98,6 +99,7 @@ CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: ../src/include/Busin
 CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: ../src/include/Business/PersonBusiness.h
 CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: ../src/include/Interface.h
 CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: ../src/include/person.pb.h
+CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: ../src/include/sqlop.h
 CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: /usr/local/protobuf/include/google/protobuf/arena.h
 CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: /usr/local/protobuf/include/google/protobuf/arena_impl.h
 CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o: /usr/local/protobuf/include/google/protobuf/arenastring.h

@@ -20,8 +20,9 @@ set(CMAKE_CXX_STANDARD 11)
 include_directories(${dir_inc})
 include_directories(${dir_protobuf})
 
-
-#set(PROC_LIBRARY_PATH /opt/oracle/instantclient_18_3)
+set(oracle_include /opt/oracle/instantclient_18_3/sdk/include)
+include_directories(oracle_include)
+set(PROC_LIBRARY_PATH /opt/oracle/instantclient_18_3)
 #link_libraries(${PROC_LIBRARY_PATH})
 
 #link_directories(/usr/lib)
@@ -64,5 +65,5 @@ add_executable(GameServer ${SOURCE_FILES})
 
 # 第三方库位置可以通过命令pkg-config --cflags --libs opencv查看
 
-target_link_libraries(GameServer -g -Wall -I${dir_inc} -I${dir_3rd} -pthread -I${dir_protobuf} -L${dir_protobuflib} -lprotobuf -levent -levent_pthreads -std=c++11)
+target_link_libraries(GameServer -g -Wall -I${dir_inc} -I${dir_3rd} -pthread -I${dir_protobuf} -L${dir_protobuflib} -L${PROC_LIBRARY_PATH} -luuid -lclntsh -lprotobuf -levent -levent_pthreads -std=c++11)
 #target_link_libraries(GameServer -g -Wall -pthread  -levent -levent_pthreads -lprotobuf -std=c++11)
