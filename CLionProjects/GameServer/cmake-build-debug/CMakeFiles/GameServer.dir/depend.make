@@ -285,5 +285,6 @@ CMakeFiles/GameServer.dir/src/main/threadpool.cc.o: ../src/include/myevents.h
 CMakeFiles/GameServer.dir/src/main/threadpool.cc.o: ../src/include/threadpool.h
 CMakeFiles/GameServer.dir/src/main/threadpool.cc.o: ../src/main/threadpool.cc
 
+CMakeFiles/GameServer.dir/src/main/wrap.cc.o: ../src/include/wrap.h
 CMakeFiles/GameServer.dir/src/main/wrap.cc.o: ../src/main/wrap.cc
 

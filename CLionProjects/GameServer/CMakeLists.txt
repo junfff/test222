@@ -21,6 +21,8 @@ include_directories(${dir_inc})
 include_directories(${dir_protobuf})
 
 
+#set(PROC_LIBRARY_PATH /opt/oracle/instantclient_18_3)
+#link_libraries(${PROC_LIBRARY_PATH})
 
 #link_directories(/usr/lib)
 #link_libraries(${dir_protobuflib})

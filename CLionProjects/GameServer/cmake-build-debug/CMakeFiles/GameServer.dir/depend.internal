@@ -286,4 +286,5 @@ CMakeFiles/GameServer.dir/src/main/threadpool.cc.o
  /home/ljf/learn/CLionProjects/GameServer/src/include/threadpool.h
  /home/ljf/learn/CLionProjects/GameServer/src/main/threadpool.cc
 CMakeFiles/GameServer.dir/src/main/wrap.cc.o
+ ../src/include/wrap.h
  /home/ljf/learn/CLionProjects/GameServer/src/main/wrap.cc

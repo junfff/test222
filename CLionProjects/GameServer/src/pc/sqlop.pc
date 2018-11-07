@@ -1,0 +1,122 @@
+//#include "pch.h"
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+
+using namespace std;
+
+//#include "sqlca.h"
+
+
+
+
+
+//DEPTNO                                                                        NOT NULL NUMBER(2)
+//DNAME                                                                         NOT NULL VARCHAR2(14)
+//LOC                                                                                    VARCHAR2(13)
+
+
+EXEC SQL INCLUDE sqlca;
+
+//定义变量 宿主变量
+EXEC SQL BEGIN DECLARE SECTION;
+
+const char *serversid = "ljf/jkui9789@orcl";//prco编译器借用了c语言的数据类型语法而已
+
+int deptno;
+char dname[20];
+char loc[20];
+char ch;
+
+int deptno2;
+char dname2[20];
+char loc2[20];
+
+int deptno3;
+varchar dname3[20];//struct { unsigned short len; unsigned char arr[20]; } dname3;
+varchar loc3[20];//proc认识varchar
+
+EXEC SQL END DECLARE SECTION;
+
+
+void checksqlcode(const char *str){
+    int ret = sqlca.sqlcode;
+    if(ret != 0)
+    {
+        printf("check %s , error = %d \n",str,ret);
+        exit(ret);
+    }
+    printf("check %s , ok ! \n ",str);
+}
+int main_sql()
+{
+
+    int ret = 0;//c语言语法
+    //printf("serversid = %s \n", serversid);
+
+    cout << "serversid:" << serversid << endl;
+
+    //连接数据库 嵌入式 sql语言中 使用 宿主变量使用 :
+    EXEC SQL connect : serversid;
+    checksqlcode("connect");
+
+    //宿主变量赋值   如何在 sql 语言使用 宿主变量 :
+    deptno = 50;
+    strcpy_s(dname,"60dname");
+    strcpy_s(loc,"60loc");
+
+    /*
+
+   //插入数据 - 曾
+
+   EXEC SQL insert into dept(deptno,dname,loc) values(:deptno,:dname,:loc);
+   checksqlcode("insert");
+   EXEC SQL commit;
+
+
+
+   printf("any key continue , update \n");
+   printf("please enter you loc:");
+   // 修改数据  - 改
+
+
+   scanf_s("%s",&loc,20);
+   EXEC SQL update dept set loc=:loc where deptno=:deptno;
+   checksqlcode("update");
+   EXEC SQL commit;
+
+
+   //数据删除 - 删
+   printf("any key continue , delete \n");
+   ch = getchar();
+   ch = getchar();
+
+   EXEC SQL delete dept where deptno=:deptno;
+   checksqlcode("delete");
+   EXEC SQL commit;
+
+   */
+
+    // 获取数据 - 查
+    printf("any key continue , select \n");
+    ch = getchar();
+
+
+    EXEC SQL select deptno, dname, loc into :deptno3, :dname3, :loc3 from dept where deptno = :deptno;
+    checksqlcode("select");
+    printf("select : deptno2 = %d , dname2 = %s , loc2 = %s . \n",deptno3,dname3.arr,loc3.arr);
+
+
+
+
+    printf("any key continue , quit \n");
+    ch = getchar();
+
+    EXEC SQL commit work release;
+    printf("hello... ");
+
+
+
+    return ret;
+}
