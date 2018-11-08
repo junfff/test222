@@ -102,7 +102,7 @@
 		<Unit filename="/home/ljf/learn/CLionProjects/GameServer/src/Business/PersonBusiness.cc">
 			<Option target="GameServer"/>
 		</Unit>
-		<Unit filename="/home/ljf/learn/CLionProjects/GameServer/src/Business/RegisterBusiness.cpp">
+		<Unit filename="/home/ljf/learn/CLionProjects/GameServer/src/Business/RegisterBusiness.cc">
 			<Option target="GameServer"/>
 		</Unit>
 		<Unit filename="/home/ljf/learn/CLionProjects/GameServer/src/main/BaseMessage.cc">

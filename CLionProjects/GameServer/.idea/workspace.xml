@@ -12,10 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d0c89c9-70e6-417a-98bc-8f4d960bc3d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Business/RegisterBusiness.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/include/Business/RegisterBusiness.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/include/register.pb.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/register.pb.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/CXX.includecache" afterDir="false" />
@@ -25,28 +21,24 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/progress.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/src/Business/BusinessMoudle.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/src/Business/BusinessMoudle.cc.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/src/Business/HeartBeatBusiness.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/src/Business/HeartBeatBusiness.cc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/GameServer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/src/main/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/src/main/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/src/main/myevents.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/src/main/myevents.cc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/src/main/threadpool.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameServer.dir/src/main/threadpool.cc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/count.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/GameServer.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/GameServer.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/catproc.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/crebas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/crebas.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/del.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/del.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Business/BusinessMoudle.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business/BusinessMoudle.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Business/PersonBusiness.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business/PersonBusiness.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/include/Business/DefineProtobuf.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/Business/DefineProtobuf.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Business/RegisterBusiness.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business/RegisterBusiness.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/include/Business/PersonBusiness.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/Business/PersonBusiness.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/myevents.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/myevents.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/include/sqlop.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/sqlop.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pc/sqlop.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/pc/sqlop.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pc/sqlop.pc" beforeDir="false" afterPath="$PROJECT_DIR$/src/pc/sqlop.pc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../GameProto/ProtoCpp/register.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameProto/ProtoCpp/register.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../GameProto/ProtoCpp/register.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameProto/ProtoCpp/register.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../GameProto/ProtoFile/register.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameProto/ProtoFile/register.proto" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -107,29 +99,29 @@
     <session id="-892679536">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.15" value="2" />
-          <entry key="project.open.time.17" value="2" />
+          <entry key="project.open.time.17" value="3" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cc" value="440" />
-          <entry key="cpp" value="203" />
-          <entry key="h" value="423" />
-          <entry key="pc" value="675" />
+          <entry key="cc" value="462" />
+          <entry key="cpp" value="205" />
+          <entry key="h" value="461" />
+          <entry key="pc" value="709" />
           <entry key="txt" value="158" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="133" />
-          <entry key="ObjectiveC" value="1741" />
+          <entry key="ObjectiveC" value="1837" />
           <entry key="PLAIN_TEXT" value="25" />
         </counts>
       </usages-collector>
@@ -137,21 +129,21 @@
         <counts>
           <entry key="GameServer (disassembly)" value="3" />
           <entry key="c" value="1" />
-          <entry key="cc" value="12" />
-          <entry key="cpp" value="5" />
+          <entry key="cc" value="14" />
+          <entry key="cpp" value="6" />
           <entry key="groovy" value="1" />
-          <entry key="h" value="20" />
+          <entry key="h" value="22" />
           <entry key="lis" value="1" />
           <entry key="makefile" value="1" />
-          <entry key="pc" value="1" />
-          <entry key="txt" value="3" />
+          <entry key="pc" value="2" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CMakeLists.txt" value="3" />
+          <entry key="CMakeLists.txt" value="4" />
           <entry key="Disassembly" value="3" />
-          <entry key="ObjectiveC" value="39" />
+          <entry key="ObjectiveC" value="45" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="Scratch" value="1" />
         </counts>
@@ -163,35 +155,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
+            <state relative-caret-position="145">
+              <caret line="45" column="38" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Business/RegisterBusiness.cpp">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Business/RegisterBusiness.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/7/bits/basic_string.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="2270" column="6" selection-start-line="2270" selection-start-column="6" selection-end-line="2270" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/include/IMarshalEndian.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+            <state relative-caret-position="255">
+              <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+              <folding>
+                <element signature="e#37#86#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -199,29 +176,48 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/include/sqlop.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4485">
-              <caret line="7" column="26" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="26" />
+            <state relative-caret-position="645">
+              <caret line="911" column="1" selection-start-line="911" selection-start-column="1" selection-end-line="911" selection-end-column="1" />
+              <folding>
+                <element signature="e#3751#3770#0" expanded="true" />
+                <element signature="e#7151#7169#0" expanded="true" />
+                <element signature="e#7207#7484#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/include/Business/RegisterBusiness.h">
+        <entry file="file://$PROJECT_DIR$/src/pc/sqlop.cc">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+              <caret line="458" column="41" lean-forward="true" selection-end-line="901" selection-end-column="1" />
+              <folding>
+                <element signature="e#3656#3675#0" expanded="true" />
+                <element signature="e#7056#7074#0" expanded="true" />
+                <element signature="e#7112#7389#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pc/sqlop.pc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <element signature="e#19#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/include/Business/PersonBusiness.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="e#320#342#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -229,8 +225,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Business/PersonBusiness.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="750">
+              <caret line="50" column="34" lean-forward="true" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -239,10 +235,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Business/HeartBeatBusiness.cc">
+        <entry file="file://$PROJECT_DIR$/src/include/myevents.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+            <state relative-caret-position="14">
+              <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+              <folding>
+                <element signature="e#318#336#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <element signature="e#333#367#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -250,8 +261,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Business/BusinessMoudle.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+            <state relative-caret-position="135">
+              <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -290,24 +301,25 @@
         <option value="$PROJECT_DIR$/src/BaseMessage.cc" />
         <option value="$PROJECT_DIR$/src/MarshalEndian.cc" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
-        <option value="$PROJECT_DIR$/src/include/myevents.h" />
         <option value="$PROJECT_DIR$/src/main/myevents.cc" />
         <option value="$PROJECT_DIR$/src/Base/MoudlesCollection.cc" />
         <option value="$PROJECT_DIR$/src/include/Business/IBusiness.h" />
         <option value="$PROJECT_DIR$/src/main/person.pb.cc" />
         <option value="$PROJECT_DIR$/src/Business/HeartBeatBusiness.cc" />
-        <option value="$PROJECT_DIR$/src/main/main.cpp" />
         <option value="$PROJECT_DIR$/src/main/threadpool.cc" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/ide/ide-scripting.groovy" />
-        <option value="$PROJECT_DIR$/src/include/sqlop.h" />
-        <option value="$PROJECT_DIR$/src/pc/sqlop.pc" />
         <option value="$PROJECT_DIR$/src/Business/BusinessMoudle.cc" />
-        <option value="$PROJECT_DIR$/src/include/Business/RegisterBusiness.h" />
         <option value="$PROJECT_DIR$/src/include/Business/DefineProtobuf.h" />
-        <option value="$PROJECT_DIR$/src/Business/RegisterBusiness.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/src/Business/PersonBusiness.cc" />
+        <option value="$PROJECT_DIR$/src/include/Business/RegisterBusiness.h" />
+        <option value="$PROJECT_DIR$/src/Business/RegisterBusiness.cpp" />
         <option value="$PROJECT_DIR$/src/include/Business/PersonBusiness.h" />
+        <option value="$PROJECT_DIR$/src/include/myevents.h" />
+        <option value="$PROJECT_DIR$/src/main/main.cpp" />
+        <option value="$PROJECT_DIR$/src/Business/RegisterBusiness.cc" />
+        <option value="$PROJECT_DIR$/src/pc/sqlop.pc" />
+        <option value="$PROJECT_DIR$/src/include/sqlop.h" />
+        <option value="$PROJECT_DIR$/src/Business/PersonBusiness.cc" />
       </list>
     </option>
   </component>
@@ -445,6 +457,7 @@
       <workItem from="1541569728016" duration="3794000" />
       <workItem from="1541578735563" duration="8591000" />
       <workItem from="1541644043163" duration="12769000" />
+      <workItem from="1541667002706" duration="2431000" />
     </task>
     <task id="LOCAL-00001" summary="build OK haha">
       <created>1539786735440</created>
@@ -464,7 +477,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58414000" />
+    <option name="totallyTimeSpent" value="60845000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -477,9 +490,30 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19037078" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1925844" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32864866" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32864866" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4991699" weight="0.32216215" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32864866" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4991699" weight="0.32864866" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4991699" weight="0.21405405" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5008301" side_tool="true" weight="0.32756758" />
+      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.32864866" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1925844" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -491,28 +525,6 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32864866" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4991699" visible="true" weight="0.32864866" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4991699" weight="0.21405405" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5008301" side_tool="true" weight="0.32756758" />
-      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="CMake" order="12" weight="0.32864866" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18815717" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32864866" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32864866" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4991699" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32864866" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Messages" order="8" sideWeight="0.4991699" visible="true" weight="0.32864866" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4991699" weight="0.21405405" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5008301" side_tool="true" weight="0.32756758" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
@@ -617,13 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/include/myevents.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/event2/bufferevent.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4830">
@@ -654,13 +659,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/include/BaseMessage.h">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/include/HeartBeat.pb.h">
       <provider selected="true" editor-type-id="text-editor" />
@@ -697,9 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
           <caret line="104" column="37" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="37" />
-          <folding>
-            <element signature="e#2510#2675#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -717,15 +712,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pc/sqlop.cc">
+    <entry file="file://$PROJECT_DIR$/src/include/Business/DefineProtobuf.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="454" column="42" selection-start-line="454" selection-start-column="42" selection-end-line="454" selection-end-column="42" />
-          <folding>
-            <element signature="e#3655#3674#0" expanded="true" />
-            <element signature="e#6967#7005#0" expanded="true" />
-            <element signature="e#7077#7354#0" expanded="true" />
-          </folding>
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/7/bits/basic_string.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34050">
+          <caret line="2270" column="6" selection-start-line="2270" selection-start-column="6" selection-end-line="2270" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/IMarshalEndian.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Business/HeartBeatBusiness.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -736,98 +747,107 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/include/Business/DefineProtobuf.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pc/sqlop.pc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <element signature="e#19#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Business/BusinessMoudle.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Business/HeartBeatBusiness.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/include/IMarshalEndian.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/c++/7/bits/basic_string.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="2270" column="6" selection-start-line="2270" selection-start-column="6" selection-end-line="2270" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/include/sqlop.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4485">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/include/Business/RegisterBusiness.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        <state relative-caret-position="105">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Business/RegisterBusiness.cpp">
+    <entry file="file://$PROJECT_DIR$/src/main/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Business/PersonBusiness.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#333#367#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/include/Business/PersonBusiness.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Business/BusinessMoudle.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
           <folding>
-            <element signature="e#320#342#0" expanded="true" />
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="45" column="38" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/myevents.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+          <folding>
+            <element signature="e#318#336#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pc/sqlop.pc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#19#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pc/sqlop.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="458" column="41" lean-forward="true" selection-end-line="901" selection-end-column="1" />
+          <folding>
+            <element signature="e#3656#3675#0" expanded="true" />
+            <element signature="e#7056#7074#0" expanded="true" />
+            <element signature="e#7112#7389#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/sqlop.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="911" column="1" selection-start-line="911" selection-start-column="1" selection-end-line="911" selection-end-column="1" />
+          <folding>
+            <element signature="e#3751#3770#0" expanded="true" />
+            <element signature="e#7151#7169#0" expanded="true" />
+            <element signature="e#7207#7484#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Business/PersonBusiness.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" column="34" lean-forward="true" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Business/RegisterBusiness.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+          <folding>
+            <element signature="e#37#86#0" expanded="true" />
           </folding>
         </state>
       </provider>

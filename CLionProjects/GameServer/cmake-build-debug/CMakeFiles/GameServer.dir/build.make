@@ -226,18 +226,18 @@ CMakeFiles/GameServer.dir/src/main/register.pb.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameServer.dir/src/main/register.pb.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ljf/learn/CLionProjects/GameServer/src/main/register.pb.cc -o CMakeFiles/GameServer.dir/src/main/register.pb.cc.s
 
-CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.o: CMakeFiles/GameServer.dir/flags.make
-CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.o: ../src/Business/RegisterBusiness.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ljf/learn/CLionProjects/GameServer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.o -c /home/ljf/learn/CLionProjects/GameServer/src/Business/RegisterBusiness.cpp
+CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.o: CMakeFiles/GameServer.dir/flags.make
+CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.o: ../src/Business/RegisterBusiness.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ljf/learn/CLionProjects/GameServer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.o -c /home/ljf/learn/CLionProjects/GameServer/src/Business/RegisterBusiness.cc
 
-CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ljf/learn/CLionProjects/GameServer/src/Business/RegisterBusiness.cpp > CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.i
+CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ljf/learn/CLionProjects/GameServer/src/Business/RegisterBusiness.cc > CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.i
 
-CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ljf/learn/CLionProjects/GameServer/src/Business/RegisterBusiness.cpp -o CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.s
+CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ljf/learn/CLionProjects/GameServer/src/Business/RegisterBusiness.cc -o CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.s
 
 # Object files for target GameServer
 GameServer_OBJECTS = \
@@ -254,7 +254,7 @@ GameServer_OBJECTS = \
 "CMakeFiles/GameServer.dir/src/main/HeartBeat.pb.cc.o" \
 "CMakeFiles/GameServer.dir/src/main/person.pb.cc.o" \
 "CMakeFiles/GameServer.dir/src/main/register.pb.cc.o" \
-"CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.o"
+"CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.o"
 
 # External object files for target GameServer
 GameServer_EXTERNAL_OBJECTS =
@@ -272,7 +272,7 @@ GameServer: CMakeFiles/GameServer.dir/src/Business/HeartBeatBusiness.cc.o
 GameServer: CMakeFiles/GameServer.dir/src/main/HeartBeat.pb.cc.o
 GameServer: CMakeFiles/GameServer.dir/src/main/person.pb.cc.o
 GameServer: CMakeFiles/GameServer.dir/src/main/register.pb.cc.o
-GameServer: CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.o
+GameServer: CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.o
 GameServer: CMakeFiles/GameServer.dir/build.make
 GameServer: CMakeFiles/GameServer.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ljf/learn/CLionProjects/GameServer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable GameServer"

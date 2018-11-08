@@ -231,32 +231,32 @@ src/Business/PersonBusiness.cc.s:
 	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.s
 .PHONY : src/Business/PersonBusiness.cc.s
 
-src/Business/RegisterBusiness.o: src/Business/RegisterBusiness.cpp.o
+src/Business/RegisterBusiness.o: src/Business/RegisterBusiness.cc.o
 
 .PHONY : src/Business/RegisterBusiness.o
 
 # target to build an object file
-src/Business/RegisterBusiness.cpp.o:
-	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.o
-.PHONY : src/Business/RegisterBusiness.cpp.o
+src/Business/RegisterBusiness.cc.o:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.o
+.PHONY : src/Business/RegisterBusiness.cc.o
 
-src/Business/RegisterBusiness.i: src/Business/RegisterBusiness.cpp.i
+src/Business/RegisterBusiness.i: src/Business/RegisterBusiness.cc.i
 
 .PHONY : src/Business/RegisterBusiness.i
 
 # target to preprocess a source file
-src/Business/RegisterBusiness.cpp.i:
-	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.i
-.PHONY : src/Business/RegisterBusiness.cpp.i
+src/Business/RegisterBusiness.cc.i:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.i
+.PHONY : src/Business/RegisterBusiness.cc.i
 
-src/Business/RegisterBusiness.s: src/Business/RegisterBusiness.cpp.s
+src/Business/RegisterBusiness.s: src/Business/RegisterBusiness.cc.s
 
 .PHONY : src/Business/RegisterBusiness.s
 
 # target to generate assembly for a file
-src/Business/RegisterBusiness.cpp.s:
-	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.s
-.PHONY : src/Business/RegisterBusiness.cpp.s
+src/Business/RegisterBusiness.cc.s:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.s
+.PHONY : src/Business/RegisterBusiness.cc.s
 
 src/main/BaseMessage.o: src/main/BaseMessage.cc.o
 

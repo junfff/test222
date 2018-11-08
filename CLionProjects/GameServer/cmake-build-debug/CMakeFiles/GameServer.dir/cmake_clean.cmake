@@ -12,7 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/GameServer.dir/src/main/HeartBeat.pb.cc.o"
   "CMakeFiles/GameServer.dir/src/main/person.pb.cc.o"
   "CMakeFiles/GameServer.dir/src/main/register.pb.cc.o"
-  "CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.o"
+  "CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.o"
   "GameServer.pdb"
   "GameServer"
 )

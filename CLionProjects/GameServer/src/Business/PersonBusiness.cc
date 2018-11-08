@@ -4,7 +4,6 @@
 #include "myevents.h"
 #include "string.h"
 #include<iostream>
-
 #include <uuid/uuid.h>
 
 using namespace protobufMsg;
@@ -53,23 +52,6 @@ namespace Business
  		threadpool_add(thp,process_event,(void *)ev);
 
 
- 		struct  account_info info = {0};
-		char out[16];
-		uuid_t uu;
-		uuid_generate_random( uu );
-		uuid_unparse_upper( uu, out );
-		strcpy((char *)info.uuid,out);
-
-		strcpy((char *)info.accountId,"accountId123");
-		strcpy((char *)info.pwd,p.name().c_str());
-		strcpy((char *)info.email,p.email().c_str());
-		strcpy((char *)info.name,p.name().c_str());
-		strcpy((char *)info.mobilephone,"15710667093");
-		info.sex = 1;
-
- 		int ret = sql_insert(&info);
-
- 		printf("sql_insert ret = %d !!!\n",ret );
 		return 0;
 	}
 

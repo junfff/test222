@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ljf/learn/CLionProjects/GameServer/src/Business/BusinessMoudle.cc" "/home/ljf/learn/CLionProjects/GameServer/cmake-build-debug/CMakeFiles/GameServer.dir/src/Business/BusinessMoudle.cc.o"
   "/home/ljf/learn/CLionProjects/GameServer/src/Business/HeartBeatBusiness.cc" "/home/ljf/learn/CLionProjects/GameServer/cmake-build-debug/CMakeFiles/GameServer.dir/src/Business/HeartBeatBusiness.cc.o"
   "/home/ljf/learn/CLionProjects/GameServer/src/Business/PersonBusiness.cc" "/home/ljf/learn/CLionProjects/GameServer/cmake-build-debug/CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.o"
-  "/home/ljf/learn/CLionProjects/GameServer/src/Business/RegisterBusiness.cpp" "/home/ljf/learn/CLionProjects/GameServer/cmake-build-debug/CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.o"
+  "/home/ljf/learn/CLionProjects/GameServer/src/Business/RegisterBusiness.cc" "/home/ljf/learn/CLionProjects/GameServer/cmake-build-debug/CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cc.o"
   "/home/ljf/learn/CLionProjects/GameServer/src/main/BaseMessage.cc" "/home/ljf/learn/CLionProjects/GameServer/cmake-build-debug/CMakeFiles/GameServer.dir/src/main/BaseMessage.cc.o"
   "/home/ljf/learn/CLionProjects/GameServer/src/main/HeartBeat.pb.cc" "/home/ljf/learn/CLionProjects/GameServer/cmake-build-debug/CMakeFiles/GameServer.dir/src/main/HeartBeat.pb.cc.o"
   "/home/ljf/learn/CLionProjects/GameServer/src/main/MarshalEndian.cc" "/home/ljf/learn/CLionProjects/GameServer/cmake-build-debug/CMakeFiles/GameServer.dir/src/main/MarshalEndian.cc.o"

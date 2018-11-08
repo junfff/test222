@@ -49,7 +49,7 @@ set(
         src/main/HeartBeat.pb.cc
         src/main/person.pb.cc
         src/main/register.pb.cc
-        src/Business/RegisterBusiness.cpp)
+        src/Business/RegisterBusiness.cc)
 
 
 

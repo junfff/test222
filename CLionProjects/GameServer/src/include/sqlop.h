@@ -9,9 +9,6 @@
 
 
 
-
-
-
 /* Result Sets Interface */
 #ifndef SQL_CRSR
 #  define SQL_CRSR
@@ -150,17 +147,17 @@ typedef struct { unsigned short len; unsigned char arr[1]; } varchar;
 /* cud (compilation unit data) array */
 static const short sqlcud0[] =
         {13,4130,871,0,0,
-         5,0,0,0,0,0,27,68,0,0,4,4,0,1,0,1,97,0,0,1,10,0,0,1,10,0,0,1,10,0,0,
-         36,0,0,2,114,0,3,83,0,0,8,8,0,1,0,1,97,0,0,1,97,0,0,1,97,0,0,1,97,0,0,1,97,0,0,
+         5,0,0,0,0,0,27,76,0,0,4,4,0,1,0,1,97,0,0,1,10,0,0,1,10,0,0,1,10,0,0,
+         36,0,0,2,114,0,3,91,0,0,8,8,0,1,0,1,97,0,0,1,97,0,0,1,97,0,0,1,97,0,0,1,97,0,0,
          1,97,0,0,1,3,0,0,1,97,0,0,
-         83,0,0,3,0,0,30,86,0,0,0,0,0,1,0,
-         98,0,0,4,46,0,5,95,0,0,2,2,0,1,0,1,97,0,0,1,97,0,0,
-         121,0,0,5,34,0,2,105,0,0,1,1,0,1,0,1,97,0,0,
-         140,0,0,6,108,0,4,117,0,0,7,1,0,1,0,2,97,0,0,2,97,0,0,2,97,0,0,2,97,0,0,2,97,0,
+         83,0,0,3,0,0,30,94,0,0,0,0,0,1,0,
+         98,0,0,4,46,0,5,103,0,0,2,2,0,1,0,1,97,0,0,1,97,0,0,
+         121,0,0,5,34,0,2,113,0,0,1,1,0,1,0,1,97,0,0,
+         140,0,0,6,108,0,4,125,0,0,7,1,0,1,0,2,97,0,0,2,97,0,0,2,97,0,0,2,97,0,0,2,97,0,
          0,2,3,0,0,1,97,0,0,
-         183,0,0,0,0,0,27,143,0,0,4,4,0,1,0,1,97,0,0,1,10,0,0,1,10,0,0,1,10,0,0,
-         214,0,0,8,70,0,4,188,0,0,4,1,0,1,0,2,3,0,0,2,9,0,0,2,9,0,0,1,3,0,0,
-         245,0,0,9,0,0,30,198,0,0,0,0,0,1,0,
+         183,0,0,0,0,0,27,151,0,0,4,4,0,1,0,1,97,0,0,1,10,0,0,1,10,0,0,1,10,0,0,
+         214,0,0,8,70,0,4,196,0,0,4,1,0,1,0,2,3,0,0,2,9,0,0,2,9,0,0,1,3,0,0,
+         245,0,0,9,0,0,30,206,0,0,0,0,0,1,0,
         };
 
 
@@ -181,7 +178,7 @@ using namespace std;
 //DEPTNO                                                                        NOT NULL NUMBER(2)
 //DNAME                                                                         NOT NULL VARCHAR2(14)
 //LOC                                                                                    VARCHAR2(13)
-
+#define SQLCA_STORAGE_CLASS extern
 
 /* EXEC SQL INCLUDE sqlca;
  */
@@ -290,6 +287,9 @@ struct sqlca sqlca
 /* EXEC SQL BEGIN DECLARE SECTION; */
 
 
+#ifndef CC_PARAM
+#define CC_PARAM
+
 const char *serversid = "ljf/jkui9789@orcl";//prco编译器借用了c语言的数据类型语法而已
 const char *appName = "JMapp";
 int deptno;
@@ -321,6 +321,11 @@ struct account_info{
 };
 
 struct account_info tmpInfo;
+
+#endif
+
+
+
 /* EXEC SQL END DECLARE SECTION; */
 
 
@@ -329,10 +334,10 @@ void checksqlcode(const char *str){
     int ret = sqlca.sqlcode;
     if(ret != 0)
     {
-        printf("check %s , error = %d \n",str,ret);
-        exit(ret);
+        printf("check sqlcode %s , error = %d \n",str,ret);
+        //exit(ret);
     }
-    printf("check %s , ok ! \n ",str);
+    //printf("check %s , ok ! \n ",str);
 }
 
 
@@ -905,7 +910,5 @@ ere deptno=:b3";
 
     return ret;
 }
-
-
 
 #endif //GAMESERVER_SQLOP_H

@@ -15,12 +15,15 @@ using namespace std;
 //DEPTNO                                                                        NOT NULL NUMBER(2)
 //DNAME                                                                         NOT NULL VARCHAR2(14)
 //LOC                                                                                    VARCHAR2(13)
-
+#define SQLCA_STORAGE_CLASS extern
 
 EXEC SQL INCLUDE sqlca;
 
 //定义变量 宿主变量
 EXEC SQL BEGIN DECLARE SECTION;
+
+#ifndef CC_PARAM
+#define CC_PARAM
 
 const char *serversid = "ljf/jkui9789@orcl";//prco编译器借用了c语言的数据类型语法而已
 const char *appName = "JMapp";
@@ -49,6 +52,11 @@ struct account_info{
 };
 
 struct account_info tmpInfo;
+
+#endif
+
+
+
 EXEC SQL END DECLARE SECTION;
 
 
