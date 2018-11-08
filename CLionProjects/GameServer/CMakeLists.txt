@@ -46,8 +46,10 @@ set(
         src/Business/BusinessMoudle.cc
         src/Business/PersonBusiness.cc
         src/Business/HeartBeatBusiness.cc
-        src/main/HeartBeat.pb.cc src/main/person.pb.cc
-)
+        src/main/HeartBeat.pb.cc
+        src/main/person.pb.cc
+        src/main/register.pb.cc
+        src/Business/RegisterBusiness.cpp)
 
 
 

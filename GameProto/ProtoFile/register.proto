@@ -1,9 +1,14 @@
 syntax = "proto3";
 package protobufMsg;
-message Register {
-  string userName = 1;
-  string userId = 2;
-  string password = 3;
+message Register_CS {
+  string accountId = 1;
+  string name = 2;
+  string mobilephone = 3;
   string email = 4;
-  string phone = 5;
+  int32 sex = 5;
+  string pwd = 6;
+}
+
+message Register_SC {
+  int32 code = 1;
 }

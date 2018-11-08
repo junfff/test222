@@ -2,6 +2,7 @@
 #include "./../include/Base/IModulesCollection.h"
 #include "./../include/Business/PersonBusiness.h"
 #include "./../include/Business/HeartBeatBusiness.h"
+#include "./../include/Business/RegisterBusiness.h"
 #include "./../include/Business/DefineProtobuf.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -12,6 +13,7 @@ namespace Business
 	{
 		bus_v.push_back(new PersonBusiness(MSG_PERSON));
 		bus_v.push_back(new HeartBeatBusiness(MSG_HEARTBEAT));
+		bus_v.push_back(new RegisterBusiness(MSG_REGISTER));
 	}
 	void BusinessModule::Dispose()
 	{

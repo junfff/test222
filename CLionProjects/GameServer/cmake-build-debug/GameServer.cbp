@@ -102,6 +102,9 @@
 		<Unit filename="/home/ljf/learn/CLionProjects/GameServer/src/Business/PersonBusiness.cc">
 			<Option target="GameServer"/>
 		</Unit>
+		<Unit filename="/home/ljf/learn/CLionProjects/GameServer/src/Business/RegisterBusiness.cpp">
+			<Option target="GameServer"/>
+		</Unit>
 		<Unit filename="/home/ljf/learn/CLionProjects/GameServer/src/main/BaseMessage.cc">
 			<Option target="GameServer"/>
 		</Unit>
@@ -118,6 +121,9 @@
 			<Option target="GameServer"/>
 		</Unit>
 		<Unit filename="/home/ljf/learn/CLionProjects/GameServer/src/main/person.pb.cc">
+			<Option target="GameServer"/>
+		</Unit>
+		<Unit filename="/home/ljf/learn/CLionProjects/GameServer/src/main/register.pb.cc">
 			<Option target="GameServer"/>
 		</Unit>
 		<Unit filename="/home/ljf/learn/CLionProjects/GameServer/src/main/threadpool.cc">

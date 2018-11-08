@@ -231,6 +231,33 @@ src/Business/PersonBusiness.cc.s:
 	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/Business/PersonBusiness.cc.s
 .PHONY : src/Business/PersonBusiness.cc.s
 
+src/Business/RegisterBusiness.o: src/Business/RegisterBusiness.cpp.o
+
+.PHONY : src/Business/RegisterBusiness.o
+
+# target to build an object file
+src/Business/RegisterBusiness.cpp.o:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.o
+.PHONY : src/Business/RegisterBusiness.cpp.o
+
+src/Business/RegisterBusiness.i: src/Business/RegisterBusiness.cpp.i
+
+.PHONY : src/Business/RegisterBusiness.i
+
+# target to preprocess a source file
+src/Business/RegisterBusiness.cpp.i:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.i
+.PHONY : src/Business/RegisterBusiness.cpp.i
+
+src/Business/RegisterBusiness.s: src/Business/RegisterBusiness.cpp.s
+
+.PHONY : src/Business/RegisterBusiness.s
+
+# target to generate assembly for a file
+src/Business/RegisterBusiness.cpp.s:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/Business/RegisterBusiness.cpp.s
+.PHONY : src/Business/RegisterBusiness.cpp.s
+
 src/main/BaseMessage.o: src/main/BaseMessage.cc.o
 
 .PHONY : src/main/BaseMessage.o
@@ -393,6 +420,33 @@ src/main/person.pb.cc.s:
 	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/main/person.pb.cc.s
 .PHONY : src/main/person.pb.cc.s
 
+src/main/register.pb.o: src/main/register.pb.cc.o
+
+.PHONY : src/main/register.pb.o
+
+# target to build an object file
+src/main/register.pb.cc.o:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/main/register.pb.cc.o
+.PHONY : src/main/register.pb.cc.o
+
+src/main/register.pb.i: src/main/register.pb.cc.i
+
+.PHONY : src/main/register.pb.i
+
+# target to preprocess a source file
+src/main/register.pb.cc.i:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/main/register.pb.cc.i
+.PHONY : src/main/register.pb.cc.i
+
+src/main/register.pb.s: src/main/register.pb.cc.s
+
+.PHONY : src/main/register.pb.s
+
+# target to generate assembly for a file
+src/main/register.pb.cc.s:
+	$(MAKE) -f CMakeFiles/GameServer.dir/build.make CMakeFiles/GameServer.dir/src/main/register.pb.cc.s
+.PHONY : src/main/register.pb.cc.s
+
 src/main/threadpool.o: src/main/threadpool.cc.o
 
 .PHONY : src/main/threadpool.o
@@ -468,6 +522,9 @@ help:
 	@echo "... src/Business/PersonBusiness.o"
 	@echo "... src/Business/PersonBusiness.i"
 	@echo "... src/Business/PersonBusiness.s"
+	@echo "... src/Business/RegisterBusiness.o"
+	@echo "... src/Business/RegisterBusiness.i"
+	@echo "... src/Business/RegisterBusiness.s"
 	@echo "... src/main/BaseMessage.o"
 	@echo "... src/main/BaseMessage.i"
 	@echo "... src/main/BaseMessage.s"
@@ -486,6 +543,9 @@ help:
 	@echo "... src/main/person.pb.o"
 	@echo "... src/main/person.pb.i"
 	@echo "... src/main/person.pb.s"
+	@echo "... src/main/register.pb.o"
+	@echo "... src/main/register.pb.i"
+	@echo "... src/main/register.pb.s"
 	@echo "... src/main/threadpool.o"
 	@echo "... src/main/threadpool.i"
 	@echo "... src/main/threadpool.s"

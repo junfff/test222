@@ -12,6 +12,8 @@
 #pragma once
 
 #include "IBusiness.h"
+#include <sqlop.h>
+
 namespace Business
 {
 	class PersonBusiness :implements IBusiness 
