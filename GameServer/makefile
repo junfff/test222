@@ -20,7 +20,7 @@ target = $(patsubst %.cpp, %, $(alltarget)) #生成的文件名
 
 CC = g++  
 protobuf_flags = -I$(dir_protobuf) -L$(dir_protobuflib) -lprotobuf -I$(dir_usrlocal) -I$(dir_usrlib)
-CXXFLAGS = -g -Wall -I$(dir_inc) -I$(dir_3rd) -pthread -I$(dir_protobuf) -L$(dir_protobuflib) -lprotobuf -levent -levent_pthreads -std=c++11
+CXXFLAGS = -g -Wall -I$(dir_inc) -I$(dir_3rd) -pthread -I$(dir_protobuf) -L$(dir_protobuflib) -lprotobuf -lclntsh -levent -levent_pthreads -std=c++11
 LDFLAGS = -L${dir_lib}  
 libs= -lopencv_core -lopencv_highgui #链接库模块，使用空格隔开多个文件  
 
