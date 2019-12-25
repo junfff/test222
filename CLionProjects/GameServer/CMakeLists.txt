@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.10)
 project(GameServer)
 
 set(dir_inc  src/include)  #所有头文件放到此处
@@ -20,9 +20,9 @@ set(CMAKE_CXX_STANDARD 11)
 include_directories(${dir_inc})
 include_directories(${dir_protobuf})
 
-set(oracle_include /opt/oracle/instantclient_18_3/sdk/include)
-include_directories(oracle_include)
-set(PROC_LIBRARY_PATH /opt/oracle/instantclient_18_3)
+#set(oracle_include /opt/oracle/instantclient_18_3/sdk/include)
+#include_directories(oracle_include)
+#set(PROC_LIBRARY_PATH /opt/oracle/instantclient_18_3)
 #link_libraries(${PROC_LIBRARY_PATH})
 
 #link_directories(/usr/lib)

@@ -44,10 +44,10 @@ namespace Business
 
         struct  account_info info = {0};
         char out[16];
-        uuid_t uu;
-        uuid_generate_random( uu );
-        uuid_unparse_upper( uu, out );
-        strcpy((char *)info.uuid,out);
+//        uuid_t uu;
+//        uuid_generate_random( uu );
+//        uuid_unparse_upper( uu, out );
+//        strcpy((char *)info.uuid,out);
 
         strcpy(info.accountId,msg.accountid().c_str());
         strcpy(info.pwd,msg.pwd().c_str());
